@@ -1,0 +1,48 @@
+.auth-container {
+  border: 1px solid gray;
+  margin: 3rem 15rem;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.header {
+  font-size: 2rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-form-input {
+  padding: 0.25rem;
+}
+
+.register-link {
+  text-align: center;
+}
+
+.auth-fieldset {
+  margin: 0.25rem 0rem;
+}
+
+.fun-button {
+  background-color: #ffcc00; /* Fun background color */
+  color: #fff; /* Text color */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease-in-out;
+}
+
+.fun-button:hover {
+  background-color: #ff9900; /* Color change on hover */
+}
+
+.fun-button:active {
+  transform: translateY(2px); /* Button press effect */
+}
