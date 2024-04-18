@@ -7,3 +7,7 @@ export const CreateCourse = async (courseObj) => {
         body: JSON.stringify(courseObj)
     })
 }
+
+export const getAllCourses = async () => {
+    return fetch("http://localhost:8088/courses").then(res => res.json())
+}

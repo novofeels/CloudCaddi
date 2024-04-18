@@ -1,0 +1,60 @@
+.create-hole-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .form-section, .image-section {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .form-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .form-field label {
+    margin-right: 10px;
+  }
+  
+  .description-item {
+    margin-bottom: 5px;
+  }
+  
+  .button {
+    margin-right: 10px;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+  }
+  
+  .button:active {
+    transform: scale(0.95);
+  }
+  
+  .button:last-child {
+    margin-right: 0;
+  }
+  
+  .image-upload-button {
+    background-color: #008CBA; /* Blue */
+    color: white;
+  }
+  
+  .image-container {
+    text-align: center;
+  }
+  

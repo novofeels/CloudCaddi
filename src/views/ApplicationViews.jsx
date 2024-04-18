@@ -3,6 +3,8 @@ import { Outlet, Route, Routes } from "react-router-dom"
 import { CourseCreate } from "../components/Courses/CourseCreate"
 import { NavBar } from "../components/NavBar/NavBar"
 import { CreateHole } from "../components/Holes/CreateHole"
+import { Hole } from "../components/Holes/Hole"
+
 
 
 
@@ -25,6 +27,7 @@ export const ApplicationViews = () => {
                 </>
             }>
                 <Route index element={<h1>yuh</h1>} />
+                <Route path='/hole' element={<Hole />}/>
                 
                 <Route path='/CourseCreate'>
                      <Route index element={<CourseCreate />} />

@@ -25,3 +25,7 @@ export const createHole = async (holeData) => {
       })
   };
   
+  export const getAllHoles = async () => {
+    return fetch("http://localhost:8088/holes").then(res => res.json())
+
+}
