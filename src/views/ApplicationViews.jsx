@@ -4,6 +4,7 @@ import { CourseCreate } from "../components/Courses/CourseCreate"
 import { NavBar } from "../components/NavBar/NavBar"
 import { CreateHole } from "../components/Holes/CreateHole"
 import { Hole } from "../components/Holes/Hole"
+import { NewRound } from "../components/Courses/NewRound"
 
 
 
@@ -33,6 +34,7 @@ export const ApplicationViews = () => {
                      <Route index element={<CourseCreate />} />
                      <Route path=':courseId/:holeNum' element={<CreateHole/>}  />
                 </Route>
+                <Route path='/NewRound' element={<NewRound currentUser={currentUser}/>}/>
             </Route>
         </Routes>
     )

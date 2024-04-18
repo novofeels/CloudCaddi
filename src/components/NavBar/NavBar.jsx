@@ -14,11 +14,8 @@ export const NavBar = ({currentUser}) => {
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
-        <Nav.Link >ALL POSTS</Nav.Link>
-        <Nav.Link >MY POSTS</Nav.Link>
-        <Nav.Link >FAVORITES</Nav.Link>
-        <Nav.Link >NEW POST</Nav.Link>
-        <Nav.Link >PROFILE</Nav.Link>
+        <Nav.Link >New Round</Nav.Link>
+     
         {isLoggedIn && (
             <Nav.Link onClick={() => {
                 localStorage.removeItem("Caddi_User");

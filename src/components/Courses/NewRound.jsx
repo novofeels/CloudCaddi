@@ -1,10 +1,11 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { getAllCourses } from "../../services/CourseService"
 
 export const NewRound = ({currentUser}) => {
-const [allCourses, setAllCourse] = useState()
+const [allCourses, setAllCourses] = useState()
 
-useEffet(() => {
-
+useEffect(() => {
+getAllCourses().then(courseObjs => setAllCourses(courseObjs))
 
 },[])
 }
