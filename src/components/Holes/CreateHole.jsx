@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { createHole, createHolyHoleDescriptions, getAllHoleDescriptions } from "../../services/HoleService";
+import './CreateHole.css'; // Import the CSS file
 
 export const CreateHole = () => {
   const { courseId, holeNum } = useParams();
@@ -9,66 +10,59 @@ export const CreateHole = () => {
   const [par, setPar] = useState("");
   const [distance, setDistance] = useState("");
   const [selectedDescriptions, setSelectedDescriptions] = useState([]);
-  const [image, setImage] = useState(null);
-  const [uploadedFile, setUploadedFile] = useState(null);
-  const [fileName, setFileName] = useState("")
+  const [file, setFile] = useState(null);
+  const [fileURL, setFileURL] = useState(null);
+  const fileInputRef = useRef(null);
 
-  // Function to handle posting the hole and hole descriptions
+  useEffect(() => {
+    getAllHoleDescriptions().then(setHoleDescriptions);
+  }, []);
+
   const handleCreateHole = async () => {
     try {
-      // Create the hole object
       const holeData = {
         courseId: parseInt(courseId),
         holeNumber: parseInt(holeNum),
         par: parseInt(par),
         distance: parseInt(distance),
-        image: `/uploads/${fileName}` 
+        image: fileURL
       };
 
-      // Create FormData object
-      const formData = new FormData();
-      formData.append('image', image);
-      formData.append('courseId', courseId);
-      formData.append('holeNumber', holeNum);
-      formData.append('par', par);
-      formData.append('distance', distance);
-
-      // Post the hole object and image
-      await fetch('http://localhost:8088/upload', {
-        method: 'POST',
-        body: formData
-      });
-
-      // Continue with creating hole and descriptions
       const holeResponse = await createHole(holeData);
       const holeId = (await holeResponse.json()).id;
 
       await Promise.all(
-        selectedDescriptions.map(async descriptionId => {
-          const holyHoleDescription = {
-            holeId,
-            holeDescriptionId: descriptionId
-          };
-          await createHolyHoleDescriptions(holyHoleDescription);
+        selectedDescriptions.map(descriptionId => {
+          return createHolyHoleDescriptions({ holeId, holeDescriptionId: descriptionId });
         })
       );
 
-      // Navigate to the next hole creation page
-      const nextHoleNum = parseInt(holeNum) + 1;
-      navigate(`/CourseCreate/${courseId}/${nextHoleNum}`);
-
-      // Reset the state variables
+      // Reset states
       setPar("");
       setDistance("");
       setSelectedDescriptions([]);
-      setImage(null);
-      setUploadedFile(null);
+      setFile(null);
+      setFileURL(null);
+
+      const nextHoleNum = parseInt(holeNum) + 1;
+      navigate(`/CourseCreate/${courseId}/${nextHoleNum}`);
     } catch (error) {
       console.error("Error creating hole:", error);
     }
   };
 
-  // Function to handle clicking on a hole description
+  const handleImageChange = (e) => {
+    const selectedFile = e.target.files[0];
+    setFile(selectedFile);
+    const reader = new FileReader();
+
+    reader.onload = (event) => {
+      setFileURL(event.target.result);
+    };
+
+    reader.readAsDataURL(selectedFile);
+  };
+
   const handleDescriptionClick = descriptionId => {
     const index = selectedDescriptions.indexOf(descriptionId);
     if (index === -1) {
@@ -80,42 +74,45 @@ export const CreateHole = () => {
     }
   };
 
-  // Function to handle image change
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    setFileName(file.name)
-    setImage(file);
-    setUploadedFile(URL.createObjectURL(file)); // Store uploaded file for display
+  const triggerFileInput = () => {
+    fileInputRef.current.click();
   };
 
-  useEffect(() => {
-    // Fetch hole descriptions on component mount
-    getAllHoleDescriptions().then(holeObjs => setHoleDescriptions(holeObjs));
-  }, []);
-
   return (
-    <div>
-      <h2>Creating Hole {holeNum}</h2>
-      <label>Par:</label>
-      <input type="number" value={par} onChange={e => setPar(e.target.value)} />
-      <label>Distance:</label>
-      <input type="number" value={distance} onChange={e => setDistance(e.target.value)} />
-      <label>Image:</label>
-      <input type="file" name="image" accept="image/*" onChange={handleImageChange} />
-      {uploadedFile && <img src={uploadedFile} alt="Uploaded" style={{ maxWidth: "100px" }} />} {/* Display uploaded file */}
-      <h3>Select Hole Descriptions:</h3>
-      {holeDescriptions.map(description => (
-        <div key={description.id}>
-          <input
-            type="checkbox"
-            checked={selectedDescriptions.includes(description.id)}
-            onChange={() => handleDescriptionClick(description.id)}
-          />
-          <label>{description.description}</label>
+    <div className="create-hole-container">
+      <div className="form-section">
+        <h2>Creating Hole {holeNum}</h2>
+        <div className="form-field">
+          <label>Par:</label>
+          <input type="number" value={par} onChange={e => setPar(e.target.value)} />
         </div>
-      ))}
-      <button onClick={handleCreateHole}>Finish Hole Creation</button>
-      <button onClick={handleCreateHole}>Create Next Hole</button>
+        <div className="form-field">
+          <label>Distance:</label>
+          <input type="number" value={distance} onChange={e => setDistance(e.target.value)} />
+        </div>
+        <h3>Select Hole Descriptions:</h3>
+        {holeDescriptions.map(description => (
+          <div key={description.id} className="description-item">
+            <input
+              type="checkbox"
+              checked={selectedDescriptions.includes(description.id)}
+              onChange={() => handleDescriptionClick(description.id)}
+              style={{ marginRight: '5px' }}
+            />
+            <label>{description.description}</label>
+          </div>
+        ))}
+        <button className="button" onClick={handleCreateHole}>Finish Hole Creation</button>
+        <button className="button" onClick={handleCreateHole}>Create Next Hole</button>
+      </div>
+      <div className="image-section image-container">
+        <label>Image:</label>
+        <div>
+          <button type="button" className="button image-upload-button" onClick={triggerFileInput}>Upload Image</button>
+          <input type="file" ref={fileInputRef} name="image" accept="image/*" onChange={handleImageChange} style={{ display: 'none' }} />
+        </div>
+        {fileURL && <img src={fileURL} alt="Selected" style={{ maxWidth: "100px", marginTop: '10px' }} />}
+      </div>
     </div>
   );
 };
