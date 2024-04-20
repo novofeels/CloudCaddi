@@ -14,7 +14,7 @@ export const NavBar = ({currentUser}) => {
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
-        <Nav.Link >New Round</Nav.Link>
+        <Nav.Link as={Link} to='/NewRound'>New Round</Nav.Link>
      
         {isLoggedIn && (
             <Nav.Link onClick={() => {
@@ -30,4 +30,6 @@ export const NavBar = ({currentUser}) => {
   </Navbar>
   );
 }
+
+
 

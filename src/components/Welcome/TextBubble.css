@@ -1,0 +1,43 @@
+.text-bubble {
+    white-space: pre-wrap; /* Maintains whitespace formatting */
+    max-width: 300px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    border: 2px solid #333;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  
+  
+  .text-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Adjust this value to move the tip up or down */
+    left: 50px; /* Adjust this value to move the tip left or right */
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: #f0f0f0;
+    border-bottom: 0;
+    margin-left: -10px;
+    margin-bottom: -10px;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;  /* Align items vertically*/
+    justify-content: space-around; /* Space out items horizontally*/
+}
+
+.text-bubble {
+    margin-right: 20px; /* Give some space between the text and the GIF*/
+}
+
+.cloud-gif {
+   
+    width: 350px; /* Adjust size as necessary*/
+    height: auto; /* Maintain aspect ratio*/
+}

@@ -52,16 +52,29 @@ export const CreateHole = () => {
   };
 
   const handleImageChange = (e) => {
+    if (!e.target.files || e.target.files.length === 0) {
+        console.log("No file selected or file access error.");
+        return;  // Return early if no files are selected
+    }
+
     const selectedFile = e.target.files[0];
-    setFile(selectedFile);
-    const reader = new FileReader();
+    if (selectedFile) {
+        const reader = new FileReader();
 
-    reader.onload = (event) => {
-      setFileURL(event.target.result);
-    };
+        reader.onload = (event) => {
+            setFileURL(event.target.result);  // Set the file URL to the loaded data URL of the file
+        };
 
-    reader.readAsDataURL(selectedFile);
-  };
+        reader.onerror = (error) => {
+            console.error('Error reading file:', error);
+        };
+
+        reader.readAsDataURL(selectedFile);
+    } else {
+        console.log("Failed to load file because the file is undefined.");
+    }
+};
+
 
   const handleDescriptionClick = descriptionId => {
     const index = selectedDescriptions.indexOf(descriptionId);

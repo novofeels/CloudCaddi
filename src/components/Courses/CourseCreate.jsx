@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { CreateCourse } from '../../services/CourseService';
 import { useNavigate } from 'react-router-dom';
-
+import './CourseCreate.css'
 // Define initMap globally
 window.initMap = () => {
   // This function can be left empty or used to handle map initialization
@@ -142,62 +142,60 @@ export const CourseCreate = () => {
   }
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-      {mapLoaded && (
-        <div style={{ position: 'relative', width: '50%' }}>
-          <div style={{ margin: '15px', position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', zIndex: 1 }}>
-            <input
-              id="searchInput"
-              type="text"
-              placeholder="Search for a location"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              style={{ width: '300px', padding: '10px', marginRight: '20px' }}
-            />
+    <div>
+      <div className="course-title">CREATE COURSE</div>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        {mapLoaded && (
+          <div style={{ position: 'relative', width: '50%' }}>
+            <div style={{ margin: '15px', position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', zIndex: 1 }}>
+              <input
+                id="searchInput"
+                type="text"
+                placeholder="Search for a location"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                style={{ width: '300px', padding: '10px', marginRight: '20px' }}
+              />
+            </div>
+            <div id="map" style={{ width: '90%', height: '400px', margin: '75px 30px' }}></div>
           </div>
-          <div id="map" style={{ width: '90%', height: '400px', margin: '75px 30px' }}></div>
-
-          
-        </div>
-      )}
-      <div style={{ width: '50%', marginLeft: '20px' }}>
-        <h2>Course Details</h2>
-        <div style={{ marginBottom: '10px' }}>
-          <label htmlFor="courseName">  Name Of Course:</label>
-          <input id="courseName" type="text" value={courseName} onChange={(e) => setCourseName(e.target.value)} />
-        </div>
-        <div style={{ marginBottom: '10px' }}>
-          <label htmlFor="numHoles">Number of Holes:</label>
-          <input id="numHoles" type="number" value={numHoles} onChange={(e) => setNumHoles(e.target.value)} />
-        </div>
-        <div style={{ marginBottom: '10px' }}>
-          <label htmlFor="par">   Par For Course:</label>
-          <input id="par" type="number" value={parForCourse} onChange={(e) => setPar(e.target.value)} />
-        </div>
-        <div style={{ marginBottom: '10px' }}>
-          <label htmlFor="difficulty">Difficulty:</label>
-          <select id="difficulty" value={difficultyForCourse} onChange={(e) => setDifficulty(e.target.value)}>
-            <option value="">Select</option>
-            <option value="easy">Easy</option>
-            <option value="moderate">Moderate</option>
-            <option value="difficult">Difficult</option>
-          </select>
-
-        </div>
-        <div>
-            {clickedLocation && (
-              <div>
-                <h2>Selected Location:</h2>
-                <p>Latitude: {clickedLocation.latitude}</p>
-                <p>Longitude: {clickedLocation.longitude}</p>
-              </div>
-            )}
+        )}
+        <div style={{ width: '50%', marginLeft: '20px' }}>
+          <h2>Course Details</h2>
+          <div style={{ marginBottom: '10px' }}>
+            <label htmlFor="courseName">Name Of Course:</label>
+            <input id="courseName" type="text" value={courseName} onChange={(e) => setCourseName(e.target.value)} />
           </div>
+          <div style={{ marginBottom: '10px' }}>
+            <label htmlFor="numHoles">Number of Holes:</label>
+            <input id="numHoles" type="number" value={numHoles} onChange={(e) => setNumHoles(e.target.value)} />
+          </div>
+          <div style={{ marginBottom: '10px' }}>
+            <label htmlFor="par">Par For Course:</label>
+            <input id="par" type="number" value={parForCourse} onChange={(e) => setPar(e.target.value)} />
+          </div>
+          <div style={{ marginBottom: '10px' }}>
+            <label htmlFor="difficulty">Difficulty:</label>
+            <select id="difficulty" value={difficultyForCourse} onChange={(e) => setDifficulty(e.target.value)}>
+              <option value="">Select</option>
+              <option value="easy">Easy</option>
+              <option value="moderate">Moderate</option>
+              <option value="difficult">Difficult</option>
+            </select>
+          </div>
+          {clickedLocation && (
+            <div>
+              <h2>Selected Location:</h2>
+              <p>Latitude: {clickedLocation.latitude}</p>
+              <p>Longitude: {clickedLocation.longitude}</p>
+            </div>
+          )}
           <button onClick={handleCourseCreate} style={{ padding: '10px 20px', backgroundColor: 'blue', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
-      Create Course
-    </button>
+            Create Course
+          </button>
+        </div>
       </div>
-    
     </div>
   );
+  
 };
