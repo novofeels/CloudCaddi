@@ -9,5 +9,5 @@ export const CreateCourse = async (courseObj) => {
 }
 
 export const getAllCourses = async () => {
-    return fetch("http://localhost:8088/courses").then(res => res.json())
+    return await fetch("http://localhost:8088/courses").then(res => res.json())
 }

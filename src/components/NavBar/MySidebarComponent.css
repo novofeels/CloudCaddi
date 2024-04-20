@@ -1,0 +1,35 @@
+/* CSS for Sidebar Component */
+.sidebar {
+    display: flex;
+    height: 100vh; /* Full height of the viewport */
+    overflow: hidden; /* Disables scroll */
+    width: 250px; /* Fixed width */
+  }
+  
+  .sidebar-content {
+    color: white;
+    background-color: #333;
+  }
+  
+  .text-decoration-none {
+    text-decoration: none;
+  }
+  
+  .activeClicked {
+    font-weight: bold; /* Make active link bold */
+    color: #00a1ff; /* Highlight color for active links */
+  }
+  
+  /* Icons in sidebar items */
+  .fa-bars {
+    margin-right: 10px;
+  }
+  
+  .fa-cloud,
+  .fa-plus-circle,
+  .fa-book,
+  .fa-chart-line,
+  .fa-sign-out-alt {
+    margin-right: 10px;
+  }
+  

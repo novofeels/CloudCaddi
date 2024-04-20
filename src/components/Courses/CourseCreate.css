@@ -1,0 +1,11 @@
+/* Add to your CSS file */
+.course-title {
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive; /* Fun font example */
+    font-size: 36px; /* Large font size */
+    color: #333; /* Dark grey color */
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
