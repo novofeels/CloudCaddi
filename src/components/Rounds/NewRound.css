@@ -1,10 +1,34 @@
-.new-round-container {
-    position: relative;
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    font-family: Arial, sans-serif;
+.div-for-background {
+    display: flex;
+    flex-direction: row; /* Ensures a horizontal layout */
+    justify-content: center; /* Separate the content into two main areas */
+    align-items: flex-start; /* Align items to the top */
+    background-image: url('../../assets/CourseSelectView.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    padding: 20px; /* Padding around the inside of the background div */
+}
+
+.interactive-area {
+    position: relative; /* Establishes a new positioning context */
+    width: 40%;
+    height: 600px; /* Ensuring it contains both text and image comfortably */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* This will help manage spacing if the text bubble changes size */
+    margin-right: 20px;
+}
+
+
+.search-and-results {
+    width: 60%; /* Size of the search and results area */
+    display: flex;
+    flex-direction: column; /* Organize content vertically */
+    max-width: 500px; /* Maximum width to prevent stretching */
 }
 
 .search-input {
@@ -13,13 +37,10 @@
     font-size: 16px;
     border: 2px solid #ccc;
     border-radius: 5px;
+    margin-bottom: 20px; /* Space between search input and suggestions */
 }
 
 .suggestions {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
     background: white;
     border: 1px solid #ccc;
     border-top: none;
@@ -41,17 +62,17 @@
 }
 
 .course-details {
-    margin-top: 20px;
-    padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background: #fff;
+    padding: 20px;
+    margin-top: 20px; /* Ensures spacing from suggestions or search bar */
 }
 
 .course-image {
     width: 100%;
-    max-height: 200px;
-    object-fit: cover;
+    height: 200px; /* Fixed height to prevent stretching */
+    object-fit: cover; /* Maintains aspect ratio without stretching */
     margin-bottom: 20px;
 }
 
@@ -62,3 +83,119 @@
 .course-details p {
     margin: 5px 0;
 }
+
+.text-bubble {
+    white-space: pre-wrap;
+    max-width: 300px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    border: 2px solid #333;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px; /* Adds space between the text bubble and the GIF */
+}
+
+.cloud-gif {
+    position: absolute; /* Positioned absolutely within .interactive-area */
+    bottom: 100px; /* Consistently placed at 20px from the bottom */
+    width: 500px; /* Ensure the size is the same for both */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease; /* Smooth transitions for effects */
+    filter: brightness(1);
+}
+
+.cloud-gif.active, .cloud-gif.inactive {
+    transform: scale(1); /* Ensure the scale is consistent */
+}
+
+  
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1); /* Slight scale increase */
+    }
+  }
+  
+  .cloud-gif:hover {
+    filter: brightness(1.1); /* Brighter on hover */
+    transform: scale(1.06) ;
+    animation: none; /* Stop pulsing on hover */
+   
+  }
+  
+  
+  /* When GIF is active, no special effects */
+  .cloud-gif.active {
+    animation: none;
+    filter: none;
+  }
+  
+  .cloud-gif:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-20deg);
+    transition: left 0.5s ease-out;
+    left: 125%;  
+  }
+
+  .start-round-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50; /* Green background */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px; /* Space from the last detail */
+    align-self: center; /* Center the button if the parent is flex */
+}
+
+
+.dim-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Slightly darker dimming effect */
+    z-index: 999; /* Below the mascot */
+    display: none; /* Initially hidden */
+  }
+  
+  .mascot-driving {
+    position: fixed;
+    bottom: 20px; /* Adjust as needed */
+    right: 100%; /* Start off-screen to the right */
+    z-index: 1000; /* Above the dim background */
+    width: 100%; /* Set the size to 1/4 of its current size */
+    display: none; /* Make sure it's visible when animation starts */
+    
+  }
+  .start-driving {
+    display: block;
+    animation: driveLeft 6s ;
+  }
+  
+  @keyframes driveLeft {
+    0% {
+      right: -55%; /* Starts off-screen to the right */
+      transform: scale(0.33); /* Set the scale to 1/4 of its current size */
+    }
+    
+    100% {
+      right: 70%; /* Ends completely off-screen to the left */
+      transform: scale(0.33); /* Keeps the scale consistent throughout */
+    }
+  }
+  
+  

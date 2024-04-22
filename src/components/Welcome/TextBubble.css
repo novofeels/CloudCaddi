@@ -29,7 +29,7 @@
   .container {
     display: flex;
     align-items: center;  /* Align items vertically*/
-    justify-content: space-around; /* Space out items horizontally*/
+    justify-content: center; /* Space out items horizontally*/
 }
 
 .text-bubble {
@@ -37,7 +37,50 @@
 }
 
 .cloud-gif {
-   
-    width: 350px; /* Adjust size as necessary*/
-    height: auto; /* Maintain aspect ratio*/
+  top: 30px;
+  width: 500px;
+  height: auto;
+  animation: pulse 2s ease-in-out infinite; /* Gentle pulsing */
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease; /* Smooth transitions for effects */
+  filter: brightness(.9);
+  position: relative;
+  overflow: hidden;
+ 
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05); /* Slight scale increase */
+  }
+}
+
+.cloud-gif:hover {
+  filter: brightness(1.1); /* Brighter on hover */
+  transform: scale(1.06) ;
+  animation: none; /* Stop pulsing on hover */
+ 
+}
+
+
+/* When GIF is active, no special effects */
+.cloud-gif.active {
+  animation: none;
+  filter: none;
+}
+
+.cloud-gif:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease-out;
+  left: 125%;  
 }
