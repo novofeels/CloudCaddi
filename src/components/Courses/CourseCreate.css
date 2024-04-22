@@ -1,11 +1,94 @@
 /* Add to your CSS file */
 .course-title {
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive; /* Fun font example */
+  font-family: "Jersey 10", sans-serif;
     font-size: 36px; /* Large font size */
-    color: #333; /* Dark grey color */
+    color: black; /* Dark grey color */
+    background-color: rgba(255, 228, 196, 0.692);
     text-align: center;
     width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
   }
   
+  /* General styles for the course creation layout */
+.course-creation-container {
+  display: flex;
+  justify-content: center;
+}
+
+.map-container {
+  position: relative;
+  width: 50%;
+}
+
+.search-box {
+  margin: 15px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.search-input {
+  width: 300px;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.map-display {
+  width: 90%;
+  height: 400px;
+  margin: 75px 30px;
+}
+
+.details-section {
+  background-color: rgba(255, 228, 196, 0.692);
+  
+  width: 33%;
+  margin-left: 20px;
+  font-family: 'Jersey 10', sans-serif; /* Applying custom font here */
+  padding-left: 20px; /* Add padding to the left inside the section */
+  padding-right: 20px; /* Optional: Add padding to the right if needed */
+  padding-top: 10px; /* Optional: Add padding to the top if needed */
+  padding-bottom: 10px; /* Optional: Add padding to the bottom if needed */
+  border: 1px solid #ccc; /* Styling the border if needed */
+  border-radius: 5px; /* Optional: Adding border-radius for aesthetic */
+}
+
+.search-input {
+  font-family: Arial, sans-serif; /* Ensuring the search bar does not use jersey-10 */
+}
+
+.field-group {
+  margin-bottom: 10px;
+}
+
+.create-button {
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Jersey 10", sans-serif;
+}
+
+/* Specific styles for headings, inputs, labels */
+.course-title, .details-section h2, .selected-location h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  font-family: "Jersey 10", sans-serif;
+}
+
+.div-for-background2 {
+
+  background-image: url('../../assets/CourseCreateView.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  padding: 20px; /* Padding around the inside of the background div */
+}

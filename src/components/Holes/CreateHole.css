@@ -1,13 +1,24 @@
 .create-hole-container {
-    display: flex;
-    justify-content: space-between;
-  }
+  background-image: url('../../assets/HoleCreateView.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align children to the top */
+}
+
   
-  .form-section, .image-section {
-    flex: 1;
-    padding: 10px;
-  }
-  
+.form-section, .image-section {
+  flex: 1; /* Take up equal space */
+  padding: 10px;
+  margin: 25px;
+  border: 2px dotted black;
+  background-color: rgba(250, 235, 215, 0.678);
+}
+
   .form-field {
     display: flex;
     align-items: center;
