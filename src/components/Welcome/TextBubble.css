@@ -1,3 +1,12 @@
+.jersey-10-regular {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+
+
 .text-bubble {
     white-space: pre-wrap; /* Maintains whitespace formatting */
     max-width: 300px;
@@ -5,8 +14,8 @@
     background-color: #f0f0f0;
     border-radius: 10px;
     border: 2px solid #333;
-    font-family: 'Arial', sans-serif;
-    font-size: 16px;
+    font-family: "Jersey 10", sans-serif;
+    font-size: 18px;
     color: #333;
   }
   
@@ -84,3 +93,6 @@
   transition: left 0.5s ease-out;
   left: 125%;  
 }
+
+
+

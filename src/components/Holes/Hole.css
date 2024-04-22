@@ -1,0 +1,145 @@
+/* Layout for the entire hole information area */
+.hole-info-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px; /* Adjust as needed */
+    margin: auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Title and image description section */
+  .course-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .image-carousel-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Placeholder for actual image carousel component */
+  .image-carousel {
+  
+    height: 300px; /* Adjust based on your design */
+    background-color: #ddd; /* Placeholder color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  .charts-graphs {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-style: italic;
+  }
+  
+  /* The hole stats and the hole image section */
+  .hole-stats-container {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .hole-detail {
+    
+    flex: 1;
+    text-align: center;
+  }
+  
+  .hole-image {
+    width: 100px;
+    height: auto;
+  }
+  
+  /* Scorecard section */
+  .scorecard {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    text-align: center;
+    border: 1px solid black;
+  }
+  
+  .scorecard div {
+    padding: 10px;
+    border-right: 1px solid black;
+  }
+  
+  .scorecard div:last-child {
+    border-right: none;
+  }
+  
+  /* Mascot speech bubble */
+  .mascot-speech-bubble {
+    font-family: "Jersey 10";
+    background-color: #f0f0f0; /* Light grey background */
+    border-radius: 15px; /* Rounded corners for bubble */
+    padding: 20px; /* Padding inside speech bubble */
+    margin-bottom: 20px;
+    font-size: 18px;
+    max-width: 400px; /* Control the width of the speech bubble */
+  }
+  
+  .mascot {
+    width: 150px; /* Adjust as needed */
+    position: absolute; /* Absolute positioning relative to the parent */
+    right: -25px; /* Position to the right of the speech bubble */
+    top: 0; /* Align with the top of the speech bubble */
+  }
+  
+  .mascot-text {
+    white-space: pre-wrap; /* Wrap text and preserve spaces */
+    word-wrap: break-word; /* Break long words to prevent overflow */
+  }
+  .pie-chart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px; /* Adjust as needed */
+  }
+  
+  /* Button that appears when input is filled */
+  .proceed-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .proceed-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Input for strokes and the button appear next to each other */
+  .input-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .input-stroke {
+    margin-right: 10px;
+  }
+  
+  .hole-details-and-mascot-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative; /* Needed for absolute positioning of the mascot */
+  }
+  
+  .mascot-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start (left) */
+    flex-grow: 1; /* Allow container to grow as needed */
+    position: relative; /* Relative positioning context for mascot */
+    padding-right: 170px; /* Add padding to make room for mascot */
+  }

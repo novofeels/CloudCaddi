@@ -141,40 +141,40 @@ export const CourseCreate = () => {
     }
   }
 
-  return (
-    <div>
+ return (
+    <div className='div-for-background2'>
       <div className="course-title">CREATE COURSE</div>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <div className="course-creation-container">
         {mapLoaded && (
-          <div style={{ position: 'relative', width: '50%' }}>
-            <div style={{ margin: '15px', position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', zIndex: 1 }}>
+          <div className="map-container">
+            <div className="search-box">
               <input
                 id="searchInput"
+                className="search-input"
                 type="text"
                 placeholder="Search for a location"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                style={{ width: '300px', padding: '10px', marginRight: '20px' }}
               />
             </div>
-            <div id="map" style={{ width: '90%', height: '400px', margin: '75px 30px' }}></div>
+            <div id="map" className="map-display"></div>
           </div>
         )}
-        <div style={{ width: '50%', marginLeft: '20px' }}>
+        <div className="details-section">
           <h2>Course Details</h2>
-          <div style={{ marginBottom: '10px' }}>
+          <div className="field-group">
             <label htmlFor="courseName">Name Of Course:</label>
             <input id="courseName" type="text" value={courseName} onChange={(e) => setCourseName(e.target.value)} />
           </div>
-          <div style={{ marginBottom: '10px' }}>
+          <div className="field-group">
             <label htmlFor="numHoles">Number of Holes:</label>
             <input id="numHoles" type="number" value={numHoles} onChange={(e) => setNumHoles(e.target.value)} />
           </div>
-          <div style={{ marginBottom: '10px' }}>
+          <div className="field-group">
             <label htmlFor="par">Par For Course:</label>
             <input id="par" type="number" value={parForCourse} onChange={(e) => setPar(e.target.value)} />
           </div>
-          <div style={{ marginBottom: '10px' }}>
+          <div className="field-group">
             <label htmlFor="difficulty">Difficulty:</label>
             <select id="difficulty" value={difficultyForCourse} onChange={(e) => setDifficulty(e.target.value)}>
               <option value="">Select</option>
@@ -184,18 +184,17 @@ export const CourseCreate = () => {
             </select>
           </div>
           {clickedLocation && (
-            <div>
+            <div className="selected-location">
               <h2>Selected Location:</h2>
               <p>Latitude: {clickedLocation.latitude}</p>
               <p>Longitude: {clickedLocation.longitude}</p>
             </div>
           )}
-          <button onClick={handleCourseCreate} style={{ padding: '10px 20px', backgroundColor: 'blue', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
+          <button onClick={handleCourseCreate} className="create-button">
             Create Course
           </button>
         </div>
       </div>
     </div>
   );
-  
 };

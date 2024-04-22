@@ -34,6 +34,7 @@ export const ApplicationViews = () => {
                             <Route path=':courseId/:holeNum' element={<CreateHole />} />
                         </Route>
                         <Route path='/NewRound' element={<NewRound currentUser={currentUser} />} />
+                        <Route path='/ScoreCard/:courseId/:holeNum' element={<Hole currentUser={currentUser}/>}/>
                     </Route>
                 </Routes>
             </div>
