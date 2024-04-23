@@ -64,6 +64,7 @@
     grid-template-columns: auto repeat(18, 1fr); /* Added 'auto' for the label column */
     text-align: center;
     border: 1px solid black;
+    box-shadow: black;
 }
 
 .header {
@@ -94,7 +95,7 @@
   }
   
   .scorecard div:last-child {
-    border-right: none;
+    border-right: 1px solid black;
   }
   
   /* Mascot speech bubble */
@@ -104,14 +105,17 @@
     border-radius: 15px; /* Rounded corners for bubble */
     padding: 20px; /* Padding inside speech bubble */
     margin-bottom: 20px;
+    margin-left: 50px;
     font-size: 18px;
     max-width: 400px; /* Control the width of the speech bubble */
+    
+    
   }
   
   .mascot {
     width: 150px; /* Adjust as needed */
     position: absolute; /* Absolute positioning relative to the parent */
-    right: 50px; /* Position to the right of the speech bubble */
+    right: 100px; /* Position to the right of the speech bubble */
     top: 0; /* Align with the top of the speech bubble */
   }
   
@@ -164,4 +168,41 @@
     flex-grow: 1; /* Allow container to grow as needed */
     position: relative; /* Relative positioning context for mascot */
     padding-right: 170px; /* Add padding to make room for mascot */
+  }
+
+  .dim-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Slightly darker dimming effect */
+    z-index: 999; /* Below the mascot */
+    display: none; /* Initially hidden */
+  }
+  
+  .mascot-driving {
+    position: fixed;
+    bottom: -50px; /* Adjust as needed */
+    right: 100%; /* Start off-screen to the right */
+    z-index: 1000; /* Above the dim background */
+    width: 100%; /* Set the size to 1/4 of its current size */
+    display: none; /* Make sure it's visible when animation starts */
+    
+  }
+  .start-driving {
+    display: block;
+    animation: driveLeft 6s ;
+  }
+  
+  @keyframes driveLeft {
+    0% {
+      right: -55%; /* Starts off-screen to the right */
+      transform: scale(0.33); /* Set the scale to 1/4 of its current size */
+    }
+    
+    100% {
+      right: 70%; /* Ends completely off-screen to the left */
+      transform: scale(0.33); /* Keeps the scale consistent throughout */
+    }
   }
