@@ -3,7 +3,7 @@
     flex-direction: row; /* Ensures a horizontal layout */
     justify-content: center; /* Separate the content into two main areas */
     align-items: flex-start; /* Align items to the top */
-    background-image: url('../../assets/CourseSelectView.png');
+    background-image: url('../../assets/newCourseSelectView.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -177,7 +177,7 @@
   
   .mascot-driving {
     position: fixed;
-    bottom: 20px; /* Adjust as needed */
+    bottom: -50px; /* Adjust as needed */
     right: 100%; /* Start off-screen to the right */
     z-index: 1000; /* Above the dim background */
     width: 100%; /* Set the size to 1/4 of its current size */
@@ -201,4 +201,18 @@
     }
   }
   
-  
+  .date-picker, .time-picker {
+    margin-bottom: 10px;
+}
+
+.date-input, .time-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: block;
+}
+
+.label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}

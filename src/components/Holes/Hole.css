@@ -61,11 +61,33 @@
   /* Scorecard section */
   .scorecard {
     display: grid;
-    grid-template-columns: repeat(18, 1fr);
+    grid-template-columns: auto repeat(18, 1fr); /* Added 'auto' for the label column */
     text-align: center;
     border: 1px solid black;
-  }
-  
+}
+
+.header {
+    grid-column: 1 / 2; /* Span the first column */
+    background-color: #ddd; /* Different background for headers */
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 2px solid black; /* Bold line below headers */
+}
+
+.hole-number:last-child, .strokes:last-child {
+    border-right: none;
+}
+
+.hole-number, .strokes {
+    padding: 10px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black; /* Adds a separating line between rows */
+}
+.hole-number, .strokes {
+    grid-column: span 1;
+}
+
   .scorecard div {
     padding: 10px;
     border-right: 1px solid black;
@@ -89,7 +111,7 @@
   .mascot {
     width: 150px; /* Adjust as needed */
     position: absolute; /* Absolute positioning relative to the parent */
-    right: -25px; /* Position to the right of the speech bubble */
+    right: 50px; /* Position to the right of the speech bubble */
     top: 0; /* Align with the top of the speech bubble */
   }
   
