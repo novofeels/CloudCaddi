@@ -8,6 +8,7 @@ import animatedGif from '../../assets/CloudCaddiInClubhouse.gif';
 import staticGif from '../../assets/staticGif.png';
 import CloudCaddiDriving from '../../assets/CloudCaddiDriving.png';
 import { useNavigate } from 'react-router-dom';
+import { createNewScoreCard } from '../../services/ScoreCardService';
 export const NewRound = ({ currentUser }) => {
     const [allCourses, setAllCourses] = useState([]);
     const [filteredCourses, setFilteredCourses] = useState([]);
@@ -18,7 +19,9 @@ export const NewRound = ({ currentUser }) => {
     const [index, setIndex] = useState(0);
     const [isDriving, setIsDriving] = useState(false);
     const [textToDisplay, setTextToDisplay] = useState("Use the search bar to choose a course");
-
+    const [datePlayed, setDatePlayed] = useState('');
+    const [timePlayed, setTimePlayed] = useState('');  
+    
     const navigate = useNavigate()
 
     const beepRef = useRef(null);
@@ -92,12 +95,43 @@ export const NewRound = ({ currentUser }) => {
     };
 
 
-    const handleStartRound = () => {
+    const handleStartRound = async () => {
         setIsActive(true); // This will start the animation for "BUCKLE UP"
         setDisplayedText(""); // Clear the default text
         setTextToDisplay("I'LL DRIVE"); // Update the state to the new text that should be animated
         setIndex(0); // Reset the index to start the text animation from the beginning
-    
+        const epochTime = getEpochTime(datePlayed, timePlayed);
+       
+        console.log(epochTime);  // Outputs the epoch time in milliseconds
+
+        const apiKey = '76fe7ff7f7752481cc3fd866e54ae92b'
+        const url = `https://history.openweathermap.org/data/2.5/history/city?lat=${selectedCourse.lat}&lon=${selectedCourse.long}&type=hour&start=${epochTime}&cnt=1&appid=${apiKey}&units=imperial`
+
+        const response = await fetch(url);
+        const data = await response.json()
+
+        const weatherData = data.list[0]; // assuming 'list' array always contains at least one item
+
+        const scoreCardToPost = {
+            userId: currentUser.id,
+            courseId: selectedCourse.id,
+            par: selectedCourse.par,
+            score: 0,
+            date: epochTime,
+            windSpeed: weatherData.wind.speed,
+            windDirection: weatherData.wind.deg,
+            temperature: weatherData.main.temp,
+            humidity: weatherData.main.humidity,
+            pressure: weatherData.main.pressure,
+            description: weatherData.weather[0].description // assuming 'weather' array is not empty
+        }
+
+        const response2 = await createNewScoreCard(scoreCardToPost)
+        const response2json = await response2.json()
+
+         const scoreCardId = parseInt(response2json.id)
+         console.log(scoreCardId)
+   
         setTimeout(() => {
             setIsDriving(true); // Activate the mascot animation
             // Show the mascot and dim the background
@@ -106,23 +140,43 @@ export const NewRound = ({ currentUser }) => {
     
             // After the animation, navigate to the scorecard page
             setTimeout(() => {
-                navigate(`/ScoreCard/${selectedCourse.id}/1`);
+                navigate(`/scoreCard/${scoreCardId}/${selectedCourse.id}/1`);
             }, 4000); // This timeout should match the duration of the driveAcross animation
         }, 1250); // Adjust the delay time as needed
     };
+
+    const getEpochTime = (date, time) => {
+        // Combine date and time into a full datetime string, assuming it's local Central Time
+        const dateTimeString = `${date}T${time}:00`;
+    
+        // Create a Date object assuming the string is in Central Time
+        // Note: JavaScript Date assumes the string without timezone to be UTC, so we append the timezone offset
+        // Adjust for daylight saving if necessary. Here, assuming UTC-5 as an example.
+        const localDate = new Date(`${dateTimeString}-05:00`);
+    
+        // Get the Unix timestamp in milliseconds
+        const epochTime = localDate.getTime();
+    
+        return epochTime / 1000; // Convert to seconds from milliseconds
+    };
+    
+    
+    // Example usage
+
+    
     
     
     
     return (
         <div className='div-for-background'>
-        <div className="interactive-area">
-    <div className="text-bubble">{displayedText}</div>
-    <img src={isActive ? animatedGif : staticGif}
-         alt="Cloud Caddi"
-         className={`cloud-gif ${isActive ? 'active' : 'inactive'}`}
-         onClick={handleStart} />
-</div>
-
+            <div className="interactive-area">
+                <div className="text-bubble">{displayedText}</div>
+                <img src={isActive ? animatedGif : staticGif}
+                    alt="Cloud Caddi"
+                    className={`cloud-gif ${isActive ? 'active' : 'inactive'}`}
+                    onClick={handleStart} />
+            </div>
+    
             <div className="search-and-results">
                 <input
                     type="text"
@@ -147,14 +201,39 @@ export const NewRound = ({ currentUser }) => {
                         <p><strong>Number of Holes:</strong> {selectedCourse.numOfHoles}</p>
                         <p><strong>Par:</strong> {selectedCourse.par}</p>
                         <p><strong>Difficulty:</strong> {selectedCourse.difficulty}</p>
+    
+                        {/* Date picker */}
+                        <div className="date-picker">
+                            <label htmlFor="datePlayed">Date Played:</label>
+                            <input
+                                type="date"
+                                id="datePlayed"
+                                value={datePlayed}
+                                onChange={e => setDatePlayed(e.target.value)}
+                                className="date-input"
+                            />
+                        </div>
+    
+                        {/* Time picker */}
+                        <div className="time-picker">
+                            <label htmlFor="timePlayed">Time Played:</label>
+                            <input
+                                type="time"
+                                id="timePlayed"
+                                value={timePlayed}
+                                onChange={e => setTimePlayed(e.target.value)}
+                                className="time-input"
+                            />
+                        </div>
+    
                         <button className="start-round-button" onClick={handleStartRound}>START ROUND</button>
                     </div>
                 )}
             </div>
             <div className="dim-background"></div>
             <img src={CloudCaddiDriving} alt="Mascot Driving Golf Cart" className={`mascot-driving ${isDriving ? "start-driving" : ""}`} />
-
         </div>
-        
-    );
+    ); // Ensure this is a parenthesis to close the return
+    
 };
+

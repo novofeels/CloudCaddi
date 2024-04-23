@@ -8,8 +8,9 @@ import lowBlip from '../../assets/LowBlip.mp3';
 import mediumBlip from '../../assets/MediumBlip.mp3';
 import highBlip from '../../assets/HighBlip.mp3';
 import './Hole.css'
+import { getAllScoreCards } from "../../services/ScoreCardService";
 export const Hole = () => {
-    const { courseId, holeNum } = useParams()
+    const { courseId, holeNum, scoreCardId } = useParams()
     const [holes, setHoles] = useState([]);
     const [thisHole, setThisHole] = useState({})
     const [courses, setCourses] = useState([])
@@ -19,6 +20,8 @@ export const Hole = () => {
     const [index, setIndex] = useState(0);
     const [isMascotClicked, setIsMascotClicked] = useState(false);
     const [strokesTaken, setStrokesTaken] = useState(0)
+    const [scoreCards, setScoreCards] = useState([])
+    const [thisScoreCard, setThisScoreCard] = useState({})
     const lowBeepRef = useRef(new Audio(lowBlip));
     const mediumBeepRef = useRef(new Audio(mediumBlip));
     const highBeepRef = useRef(new Audio(highBlip))
@@ -26,6 +29,7 @@ export const Hole = () => {
     useEffect(() => {
         getAllCourses().then(courseObjs => setCourses(courseObjs))
         getAllHoles().then(holeObjs => setHoles(holeObjs));
+        getAllScoreCards().then(scoreCardObjs => setScoreCards(scoreCardObjs))
     }, []);
 
     useEffect(() => {
@@ -33,7 +37,9 @@ const foundHole = holes.find(hole => hole.courseId === parseInt(courseId) && hol
 setThisHole(foundHole)
 const foundCourse = courses.find(course => course.id === parseInt(courseId))
 setThisCourse(foundCourse)
-    },[holes, holeNum, courseId, courses])
+const foundScoreCard = scoreCards.find(scoreCard => scoreCard.id === parseInt(scoreCardId))
+setThisScoreCard(foundScoreCard)
+    },[holes, holeNum, courseId, courses, scoreCardId, scoreCards])
 
     useEffect(() => {
         if (isMascotClicked) {
@@ -128,13 +134,16 @@ setThisCourse(foundCourse)
                 </div>
             </div>
             <div className="scorecard">
-                {Array.from({ length: 18 }, (_, i) => (
-                    <div key={i}>{i + 1}</div>
-                ))}
-                {Array.from({ length: 18 }, (_, i) => (
-                    <div key={i}>X</div> // Replace 'X' with actual data if available
-                ))}
-            </div>
+    <div className="header">Hole#</div>
+    {Array.from({ length: 18 }, (_, i) => (
+        <div key={i} className="hole-number">{i + 1}</div>
+    ))}
+    <div className="header">Strokes</div>
+    {Array.from({ length: 18 }, (_, i) => (
+        <div key={i} className="strokes">X</div> // Replace 'X' with actual data if available
+    ))}
+</div>
+
         </div>
     );
     
