@@ -1,7 +1,7 @@
 .div-for-background {
     display: flex;
     flex-direction: row; /* Ensures a horizontal layout */
-    justify-content: center; /* Separate the content into two main areas */
+    justify-content: flex-start; /* Separate the content into two main areas */
     align-items: flex-start; /* Align items to the top */
     background-image: url('../../assets/newCourseSelectView.png');
     background-size: cover;

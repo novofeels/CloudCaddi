@@ -17,6 +17,7 @@
     font-family: "Jersey 10", sans-serif;
     font-size: 18px;
     color: #333;
+    margin-top: 20px;
   }
   
   
@@ -55,6 +56,8 @@
   filter: brightness(.9);
   position: relative;
   overflow: hidden;
+
+  margin-top: 75px;
  
 }
 
@@ -79,6 +82,7 @@
 .cloud-gif.active {
   animation: none;
   filter: none;
+  margin-top: 75px;
 }
 
 .cloud-gif:hover::after {
