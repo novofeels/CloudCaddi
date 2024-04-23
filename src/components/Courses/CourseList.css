@@ -1,0 +1,97 @@
+.course-list-container {
+    display: flex;
+    flex-direction: row; /* Changed from column to row to line up sections side by side */
+    align-items: flex-start; /* Align at the start of the container */
+    padding: 20px;
+    width: 100%; /* Ensure full width */
+}
+
+.interactive-area {
+    width: 30%; /* Allocate 30% width to interactive area */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    align-items: center; /* Center items horizontally */
+    padding: 20px;
+}
+
+.text-bubble {
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.cloud-gif {
+    width: 500px; /* Set width as required */
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.filters-and-cards {
+    width: 70%; /* Allocate 70% width to this area */
+    display: flex;
+    flex-direction: column; /* Stack filters and cards vertically */
+}
+
+.filters {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-start; /* Align buttons to the start */
+}
+
+.filters button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filters button:hover {
+    background-color: #45a049;
+}
+
+.course-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Align courses to the start */
+}
+
+.course-card {
+    width: 300px;
+    margin: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.course-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.course-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.view-edit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.view-edit-button:hover {
+    background-color: #369636;
+}

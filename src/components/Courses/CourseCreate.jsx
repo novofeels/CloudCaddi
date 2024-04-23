@@ -121,8 +121,8 @@ export const CourseCreate = () => {
         name: courseName,
         lat: clickedLocation.latitude,
         long: clickedLocation.longitude,
-        numOfHoles: numHoles,
-        par: parForCourse,
+        numOfHoles: parseInt(numHoles),
+        par: parseInt(parForCourse),
         difficulty: difficultyForCourse
     }
     

@@ -35,3 +35,8 @@ export const createNewHoleScore = async (holeScoreObj) => {
 export const getHoleScoreByScoreCardId = async (scoreCardId) => {
     return fetch(`http://localhost:8088/holeScore?scoreCardId=${scoreCardId}`).then(res => res.json())
 }
+
+export const getScoreCardsByUserId = async (userId) => {
+    return fetch(`http://localhost:8088/scoreCard?userId=${userId}`).then(res => res.json())
+
+}

@@ -8,6 +8,8 @@ import { CourseCreate } from "../components/Courses/CourseCreate";
 import { CreateHole } from "../components/Holes/CreateHole";
 import { NewRound } from "../components/Rounds/NewRound";
 import { Welcome } from "../components/Welcome/Welcome";
+import { CourseList } from "../components/Courses/CourseList";
+import { RoundList } from "../components/Rounds/RoundList";
 
 
 export const ApplicationViews = () => {
@@ -35,6 +37,8 @@ export const ApplicationViews = () => {
                         </Route>
                         <Route path='/NewRound' element={<NewRound currentUser={currentUser} />} />
                         <Route path='/scoreCard/:scoreCardId/:courseId/:holeNum' element={<Hole currentUser={currentUser}/>}/>
+                        <Route path='/CourseList' element={<CourseList />} />
+                        <Route path='/RoundList' element={<RoundList currentUser={currentUser}/>} />
                     </Route>
                 </Routes>
             </div>
