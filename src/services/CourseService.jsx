@@ -11,3 +11,7 @@ export const CreateCourse = async (courseObj) => {
 export const getAllCourses = async () => {
     return await fetch("http://localhost:8088/courses").then(res => res.json())
 }
+
+export const getCourseById = async (courseId) => {
+    return await fetch(`http://localhost:8088/courses?id=${courseId}`).then(res => res.json())
+}

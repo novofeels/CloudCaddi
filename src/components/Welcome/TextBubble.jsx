@@ -102,6 +102,7 @@ export const TextBubble = ({ text }) => {
                  alt="Cloud Caddi"
                  className={`cloud-gif ${isActive ? 'active' : ''}`}
                  onClick={handleStart} />
+                 
             
         </div>
     );

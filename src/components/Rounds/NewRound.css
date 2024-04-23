@@ -25,6 +25,7 @@
 
 
 .search-and-results {
+    font-family: "Jersey 10", sans-serif;
     width: 60%; /* Size of the search and results area */
     display: flex;
     flex-direction: column; /* Organize content vertically */
@@ -32,6 +33,7 @@
 }
 
 .search-input {
+    font-family: "Jersey 10", sans-serif;
     width: 100%;
     padding: 10px;
     font-size: 16px;
@@ -45,16 +47,19 @@
     border: 1px solid #ccc;
     border-top: none;
     z-index: 10;
+    font-family: "Jersey 10", sans-serif;
 }
 
 .suggestion-item {
     padding: 10px;
     border-bottom: 1px solid #eee;
     cursor: pointer;
+    font-family: "Jersey 10", sans-serif;
 }
 
 .suggestion-item:last-child {
     border-bottom: none;
+    font-family: "Jersey 10", sans-serif;
 }
 
 .suggestion-item:hover {
@@ -88,26 +93,28 @@
 }
 
 .text-bubble {
+    font-family: "Jersey 10", sans-serif;
     white-space: pre-wrap;
     max-width: 300px;
     padding: 20px;
     background-color: #f0f0f073;
     border-radius: 10px;
-    border: 2px solid #333;
+    border: 2px dotted #333;
     font-family: 'Arial', sans-serif;
     font-size: 16px;
     color: #333;
-    margin-bottom: 20px; /* Adds space between the text bubble and the GIF */
+    margin-bottom: 0px; /* Adds space between the text bubble and the GIF */
 }
 
 .cloud-gif {
     position: absolute; /* Positioned absolutely within .interactive-area */
-    bottom: 100px; /* Consistently placed at 20px from the bottom */
+    bottom: 280px; /* Consistently placed at 20px from the bottom */
     width: 500px; /* Ensure the size is the same for both */
     height: auto; /* Maintain aspect ratio */
     cursor: pointer;
     transition: transform 0.3s ease-in-out, filter 0.3s ease; /* Smooth transitions for effects */
     filter: brightness(1.1);
+  
 }
 
 .cloud-gif.active, .cloud-gif.inactive {
@@ -161,6 +168,7 @@
     cursor: pointer;
     margin-top: 20px; /* Space from the last detail */
     align-self: center; /* Center the button if the parent is flex */
+    font-family: "Jersey 10", sans-serif;
 }
 
 
@@ -203,6 +211,7 @@
   
   .date-picker, .time-picker {
     margin-bottom: 10px;
+    font-family: "Jersey 10", sans-serif;
 }
 
 .date-input, .time-input {
@@ -210,9 +219,81 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     display: block;
+    font-family: "Jersey 10", sans-serif;
+    
 }
 
 .label {
     margin-bottom: 5px;
     font-weight: bold;
+}
+
+
+.create-course-button {
+    background-image: linear-gradient(to right, #0a0a0a 0%, #d17e7e 100%);
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    outline: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-family: "Jersey 10", sans-serif;
+  
+}
+
+.create-course-button:hover, .create-course-button:focus {
+    background-image: linear-gradient(to left, #0d0d0e 0%, #d6a4a4 100%);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    transform: translateY(-2px);
+}
+
+.create-course-button:active {
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.2);
+    transform: translateY(1px);
+}
+
+.container-for-input-and-button {
+    display: flex
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 50%;
+    height: 6px;
+    background: #c19a6b; /* Sepia tone for the track */
+    outline: none;
+    opacity: 0.8;
+    transition: opacity .2s;
+    filter: sepia(100%);
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #efe1d1; /* Lighter sepia tone for the thumb */
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #b28660; /* Darker sepia border for contrast */
+    filter: sepia(100%);
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #efe1d1; /* Lighter sepia tone for the thumb */
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #b28660; /* Darker sepia border for contrast */
+    filter: sepia(100%);
 }

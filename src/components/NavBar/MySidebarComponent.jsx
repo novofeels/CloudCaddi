@@ -35,8 +35,11 @@ export const SideBarComponent = () => {
             <NavLink to="/NewRound" className={({ isActive }) => isActive ? "activeClicked" : ""}>
               <CDBSidebarMenuItem icon="plus-circle">NEW ROUND</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink to="/Courses" className={({ isActive }) => isActive ? "activeClicked" : ""}>
+            <NavLink to="/CourseList" className={({ isActive }) => isActive ? "activeClicked" : ""}>
               <CDBSidebarMenuItem icon="book">COURSES</CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink to="/RoundList" className={({ isActive }) => isActive ? "activeClicked" : ""}>
+              <CDBSidebarMenuItem icon="book">MY ROUNDS</CDBSidebarMenuItem>
             </NavLink>
             <NavLink to="/analytics" className={({ isActive }) => isActive ? "activeClicked" : ""}>
               <CDBSidebarMenuItem icon="chart-line">Analytics</CDBSidebarMenuItem>

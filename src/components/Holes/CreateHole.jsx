@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { createHole, createHolyHoleDescriptions, getAllHoleDescriptions } from "../../services/HoleService";
 import './CreateHole.css'; // Import the CSS file
+import { getCourseById } from "../../services/CourseService";
 
 export const CreateHole = () => {
   const { courseId, holeNum } = useParams();
@@ -12,10 +13,13 @@ export const CreateHole = () => {
   const [selectedDescriptions, setSelectedDescriptions] = useState([]);
   const [file, setFile] = useState(null);
   const [fileURL, setFileURL] = useState(null);
+  const [thisCourse, setThisCourse] = useState({})
   const fileInputRef = useRef(null);
+  
 
   useEffect(() => {
     getAllHoleDescriptions().then(setHoleDescriptions);
+    getCourseById(parseInt(courseId)).then(courseObj => setThisCourse(courseObj))
   }, []);
 
   const handleCreateHole = async () => {
@@ -91,6 +95,38 @@ export const CreateHole = () => {
     fileInputRef.current.click();
   };
 
+  const handleFinish = async () =>  {
+    try {
+      const holeData = {
+        courseId: parseInt(courseId),
+        holeNumber: parseInt(holeNum),
+        par: parseInt(par),
+        distance: parseInt(distance),
+        image: fileURL
+      };
+
+      const holeResponse = await createHole(holeData);
+      const holeId = (await holeResponse.json()).id;
+
+      await Promise.all(
+        selectedDescriptions.map(descriptionId => {
+          return createHolyHoleDescriptions({ holeId, holeDescriptionId: descriptionId });
+        })
+      );
+
+      // Reset states
+      setPar("");
+      setDistance("");
+      setSelectedDescriptions([]);
+      setFile(null);
+      setFileURL(null);
+
+      const nextHoleNum = parseInt(holeNum) + 1;
+      navigate(`/CourseList`);
+    } catch (error) {
+      console.error("Error creating hole:", error);
+    }
+  };
   return (
     <div className="create-hole-container">
       <div className="form-section">
@@ -115,8 +151,11 @@ export const CreateHole = () => {
             <label>{description.description}</label>
           </div>
         ))}
-        <button className="button" onClick={handleCreateHole}>Finish Hole Creation</button>
-        <button className="button" onClick={handleCreateHole}>Create Next Hole</button>
+        {parseInt(holeNum) === thisCourse[0].numOfHoles ? (
+          <button className="button" onClick={handleFinish}>Finish Course Creation</button>
+        ) : (
+          <button className="button" onClick={handleCreateHole}>Create Next Hole</button>
+        )}
       </div>
       <div className="image-section image-container">
         <label>Image:</label>
@@ -128,4 +167,5 @@ export const CreateHole = () => {
       </div>
     </div>
   );
+  
 };

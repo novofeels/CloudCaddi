@@ -9,6 +9,7 @@ import staticGif from '../../assets/staticGif.png';
 import CloudCaddiDriving from '../../assets/CloudCaddiDriving.png';
 import { useNavigate } from 'react-router-dom';
 import { createNewScoreCard } from '../../services/ScoreCardService';
+import { Button } from 'react-bootstrap';
 export const NewRound = ({ currentUser }) => {
     const [allCourses, setAllCourses] = useState([]);
     const [filteredCourses, setFilteredCourses] = useState([]);
@@ -18,9 +19,10 @@ export const NewRound = ({ currentUser }) => {
     const [displayedText, setDisplayedText] = useState("Pick your poison");
     const [index, setIndex] = useState(0);
     const [isDriving, setIsDriving] = useState(false);
-    const [textToDisplay, setTextToDisplay] = useState("Use the search bar to choose a course");
+    const [textToDisplay, setTextToDisplay] = useState("Use the search bar to choose a course, or create one if you cant find it");
     const [datePlayed, setDatePlayed] = useState('');
     const [timePlayed, setTimePlayed] = useState('');  
+    const [volume, setVolume] = useState(0.5)
     
     const navigate = useNavigate()
 
@@ -35,7 +37,7 @@ export const NewRound = ({ currentUser }) => {
         if (isActive && index < textToDisplay.length) {
             const currentChar = textToDisplay[index];
             beepRef.current = new Audio(currentChar === ' ' ? mediumBlip : (".!?".includes(currentChar) ? lowBlip : highBlip));
-            beepRef.current.volume = 0.03;
+            beepRef.current.volume = volume
             beepRef.current.play();
     
             // Handle new paragraph or newline
@@ -163,21 +165,31 @@ export const NewRound = ({ currentUser }) => {
     
     // Example usage
 
+    const handleCreateCourse = () => {
+        navigate(`/CourseCreate`)
+    }
     
-    
+    const handleVolumeChange = (newVolume) => {
+        setVolume(newVolume);
+         // Adjust volume of the current audio element
+    }
     
     
     return (
         <div className='div-for-background'>
             <div className="interactive-area">
+            <input className='slider' type="range" min="0" max="1" step="0.01" value={volume} onChange={(e) => handleVolumeChange(e.target.value)} />
                 <div className="text-bubble">{displayedText}</div>
                 <img src={isActive ? animatedGif : staticGif}
                     alt="Cloud Caddi"
                     className={`cloud-gif ${isActive ? 'active' : 'inactive'}`}
                     onClick={handleStart} />
+                
+
             </div>
     
             <div className="search-and-results">
+                <div className='container-for-input-and-button'>
                 <input
                     type="text"
                     placeholder="Search courses..."
@@ -185,6 +197,8 @@ export const NewRound = ({ currentUser }) => {
                     onChange={handleSearchChange}
                     className="search-input"
                 />
+<button className="create-course-button" onClick={handleCreateCourse}>Create New Course</button>
+                </div>
                 {filteredCourses.length > 0 && (
                     <div className="suggestions">
                         {filteredCourses.map(course => (
@@ -194,6 +208,7 @@ export const NewRound = ({ currentUser }) => {
                         ))}
                     </div>
                 )}
+               
                 {selectedCourse && (
                     <div className="course-details">
                         <h2>{selectedCourse.name}</h2>
@@ -225,10 +240,12 @@ export const NewRound = ({ currentUser }) => {
                                 className="time-input"
                             />
                         </div>
-    
                         <button className="start-round-button" onClick={handleStartRound}>START ROUND</button>
+                        
                     </div>
+
                 )}
+                 
             </div>
             <div className="dim-background"></div>
             <img src={CloudCaddiDriving} alt="Mascot Driving Golf Cart" className={`mascot-driving ${isDriving ? "start-driving" : ""}`} />
