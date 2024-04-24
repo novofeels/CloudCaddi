@@ -236,6 +236,7 @@ setThisScoreCard(foundScoreCard)
     };
     
     return (
+        <div className='div-for-black-background'>
         <div className="hole-info-container">
             <div className="course-title">{thisCourse?.name}</div>
             <div className="image-carousel-container">
@@ -245,8 +246,10 @@ setThisScoreCard(foundScoreCard)
             <div className="hole-details-and-mascot-container"> {/* Wrapper for stats and mascot */}
                 <div className="hole-stats-container">
                     <div className="hole-detail">
-                        <h2>Hole {thisHole?.holeNumber} - {thisHole?.distance} ft</h2>
+                        <div className="aboveButton">
+                        <h2 className="workDammit">Hole {thisHole?.holeNumber} - {thisHole?.distance} ft</h2>
                         <p>Par {thisHole?.par}</p>
+                        </div>
                         <div className="input-group">
                         <input
                     className="input-stroke"
@@ -296,9 +299,11 @@ setThisScoreCard(foundScoreCard)
 </div>
 
 <div className="dim-background" style={{ display: isDriving ? 'block' : 'none' }}></div>
-<img src={CloudCaddiDriving} alt="Mascot Driving Golf Cart" className={`mascot-driving ${isDriving ? "start-driving" : ""}`} style={{ display: isDriving ? 'block' : 'none' }} />
 
+<img src={CloudCaddiDriving} alt="Mascot Driving Golf Cart" className={`mascot-driving ${isDriving ? "start-driving" : ""}`} style={{ display: isDriving ? 'block' : 'none' }} />
+</div>
         </div>
+        
     );
     
 };

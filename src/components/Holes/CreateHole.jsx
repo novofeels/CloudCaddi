@@ -151,7 +151,7 @@ export const CreateHole = () => {
             <label>{description.description}</label>
           </div>
         ))}
-        {parseInt(holeNum) === thisCourse[0].numOfHoles ? (
+        {parseInt(holeNum) === thisCourse.numOfHoles ? (
           <button className="button" onClick={handleFinish}>Finish Course Creation</button>
         ) : (
           <button className="button" onClick={handleCreateHole}>Create Next Hole</button>

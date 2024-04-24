@@ -1,0 +1,72 @@
+.course-list-container {
+    display: flex;
+    flex-direction: row; /* Changed to row for side-by-side layout */
+    align-items: flex-start;
+    padding: 20px;
+    width: 100%;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.interactive-area2 {
+    flex: 1; /* Takes less space */
+    text-align: center;
+    padding: 10px;
+}
+
+.rounds-container {
+    flex: 3; /* Takes more space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.round-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    margin: 10px;
+    padding: 20px;
+    transition: transform 0.3s;
+}
+
+.round-card:hover {
+    transform: translateY(-5px);
+}
+
+.text-bubble2 {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.cloud-gif2 {
+    max-width: 200px; /* Adjusted for better layout */
+ 
+}
+
+.edit-view-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-view-button:hover {
+    background-color: #369636;
+}
+
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
