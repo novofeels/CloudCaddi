@@ -29,7 +29,7 @@ export const TextBubble = ({ text }) => {
                 beep = new Audio(mediumBlip);
             }
     
-            beep.volume = 0.01;
+            beep.volume = 0.05;
     
             if (text.substring(index).startsWith('\\n\\n')) {
                 beep.play();
@@ -96,7 +96,7 @@ export const TextBubble = ({ text }) => {
     };
 
     return (
-        <div className="container">
+        <div className="container4welcome">
             <div className="text-bubble">{displayedText}</div>
             <img src={isActive ? animatedGif : staticGif}
                  alt="Cloud Caddi"

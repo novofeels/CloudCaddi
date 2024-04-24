@@ -1,16 +1,39 @@
-.div-for-background {
+.div-for-background69 {
     display: flex;
-    flex-direction: row; /* Ensures a horizontal layout */
-    justify-content: flex-start; /* Separate the content into two main areas */
-    align-items: flex-start; /* Align items to the top */
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
     background-image: url('../../assets/newCourseSelectView.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
     width: 100vw;
-    padding: 20px; /* Padding around the inside of the background div */
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
 }
+
+.div-for-background69::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start from the left beyond the visible area */
+    width: 200%; /* Double the width to cover the entire element as it moves */
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 20%, #ffffff 80%, #ffffff 100%);
+    animation: gradientWipe 2s ease-out forwards;
+}
+
+@keyframes gradientWipe {
+    from {
+        left: -100%; /* Starts hidden to the left */
+    }
+    to {
+        left: 100%; /* Ends moved out to the right, revealing the content */
+    }
+}
+
 
 .interactive-area {
     position: relative; /* Establishes a new positioning context */
@@ -71,6 +94,7 @@
     border-radius: 5px;
     background: #f5f4f475;
     font-family: "Jersey 10", sans-serif;
+    font-size: 18px;
     padding: 20px;
     margin-top: 20px; /* Ensures spacing from suggestions or search bar */
 }
@@ -199,13 +223,16 @@
   
   @keyframes driveLeft {
     0% {
-      right: -55%; /* Starts off-screen to the right */
-      transform: scale(0.33); /* Set the scale to 1/4 of its current size */
+      right: -150%; /* Starts off-screen to the right */
+      transform: scale(0.33) rotate(0deg); /* Set the scale to 1/4 of its current size */
     }
-    
+    50% {
+        right: 0%;
+        transform: scale(0.33) rotate(0deg)
+    }
     100% {
-      right: 70%; /* Ends completely off-screen to the left */
-      transform: scale(0.33); /* Keeps the scale consistent throughout */
+      right: 90%; /* Ends completely off-screen to the left */
+      transform: scale(0.33) rotate(25deg); /* Keeps the scale consistent throughout */
     }
   }
   

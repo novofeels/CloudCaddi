@@ -36,12 +36,48 @@
     margin-bottom: -10px;
   }
   
-  .container {
+  .container4welcome {
     display: flex;
     align-items: center;  /* Align items vertically*/
     justify-content: center; /* Space out items horizontally*/
+    animation: driftIn 2.5s ease-out forwards;
 }
 
+
+
+
+
+
+@keyframes driftIn {
+  0% {
+      opacity: 0;
+      transform: translateY(20px) scaleX(0.95);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0) scaleX(1);
+  }
+}
+
+@keyframes stretchFadeIn {
+  from {
+      opacity: 0;
+      transform: scaleX(0.8);
+  }
+  to {
+      opacity: 1;
+      transform: scaleX(1);
+  }
+}
+
+@keyframes gradientWipe {
+  from {
+      left: -100%; /* Starts hidden to the left */
+  }
+  to {
+      left: 100%; /* Ends moved out to the right, revealing the content */
+  }
+}
 .text-bubble {
     margin-right: 20px; /* Give some space between the text and the GIF*/
 }

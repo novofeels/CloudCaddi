@@ -176,7 +176,7 @@ export const NewRound = ({ currentUser }) => {
     
     
     return (
-        <div className='div-for-background'>
+        <div className='div-for-background69'>
             <div className="interactive-area">
             <input className='slider' type="range" min="0" max="1" step="0.01" value={volume} onChange={(e) => handleVolumeChange(e.target.value)} />
                 <div className="text-bubble">{displayedText}</div>
