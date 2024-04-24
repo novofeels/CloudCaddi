@@ -8,7 +8,7 @@ import lowBlip from '../../assets/LowBlip.mp3';
 import mediumBlip from '../../assets/MediumBlip.mp3';
 import highBlip from '../../assets/HighBlip.mp3';
 import './Hole.css'
-import { createNewHoleScore, getAllHoleScores, getAllScoreCards, getHoleScoreByScoreCardId } from "../../services/ScoreCardService";
+import { createNewHoleScore, getAllHoleScores, getAllScoreCards, getHoleScoreByScoreCardId, updateScoreCardWithScore } from "../../services/ScoreCardService";
 import CloudCaddiDriving from '../../assets/CloudCaddiDriving.png'
 export const Hole = ({currentUser}) => {
     const navigate = useNavigate()
@@ -40,7 +40,7 @@ export const Hole = ({currentUser}) => {
         getAllCourses().then(courseObjs => setCourses(courseObjs))
         getAllHoles().then(holeObjs => setHoles(holeObjs));
         getAllScoreCards().then(scoreCardObjs => setScoreCards(scoreCardObjs))
-        console.log(thisRoundsHoleScores)
+       
     }, []);
 
     useEffect(() => {
@@ -134,9 +134,15 @@ setThisScoreCard(foundScoreCard)
             pressure: thisScoreCard.pressure,
             description: thisScoreCard.description
         };
-    
+        
+        
+
+
+
+      
+   
         createNewHoleScore(holeScoreToPost);
-    
+       
         // Set the new speech text and trigger the mascot animation
         // Directly set the text to display
         setBypassDefaultText(true); // Start animation
@@ -164,7 +170,70 @@ setThisScoreCard(foundScoreCard)
         }, 2000); // Delay the start of the animation to allow users to read the "HOLD ON" message
     };
     
+    const handleFinish = () => {
+        const holeScoreToPost = {
+            userId: currentUser.id,
+            holeId: thisHole.id,
+            scoreCardId: parseInt(scoreCardId),
+            par: thisHole.par,
+            score: parseInt(strokesTaken),
+            holeNumber: parseInt(holeNum),
+            windSpeed: thisScoreCard.windSpeed,
+            windDirection: thisScoreCard.windDirection,
+            temperature: thisScoreCard.temperature,
+            humidity: thisScoreCard.humidity,
+            pressure: thisScoreCard.pressure,
+            description: thisScoreCard.description
+        };
+        const totalScore = thisRoundsHoleScores.reduce((total, currentHoleScore) => {
+            return total + currentHoleScore.score;
+        }, 0); // Initialize the total as 0.
+        
+        const totalScore2 = totalScore + parseInt(strokesTaken)
     
+        const updatedScoreCard = {
+            userId: thisScoreCard.userId,
+            courseId: thisScoreCard.courseId,
+            par: thisScoreCard.par,
+            score: totalScore2,
+            date: thisScoreCard.date,
+            windSpeed: thisScoreCard.windSpeed,
+            windDirection: thisScoreCard.windDirection,
+            temperature: thisScoreCard.temperature,
+            humidity: thisScoreCard.humidity,
+            pressure: thisScoreCard.pressure,
+            description: thisScoreCard.description,
+            id: thisScoreCard.id
+        }
+        createNewHoleScore(holeScoreToPost);
+        updateScoreCardWithScore(updatedScoreCard, parseInt(scoreCardId))
+    
+        // Set the new speech text and trigger the mascot animation
+        // Directly set the text to display
+        setBypassDefaultText(true); // Start animation
+      // Reset the index for character-by-character display
+    
+        // Use setTimeout to manage the sequence of actions
+        setTimeout(() => {
+            setIsDriving(true); // Start driving animation
+            document.querySelector('.mascot-driving').style.display = 'block';
+            document.querySelector('.dim-background').style.display = 'block';
+    
+            // After the driving animation, handle navigation
+            setTimeout(() => {
+                document.querySelector('.dim-background').style.display = 'none';
+                document.querySelector('.mascot-driving').style.display = 'none';
+                setIsDriving(false); // Ensure the driving state is reset
+                setStrokesTaken(0); // Reset stroke count for new hole
+                setBypassDefaultText(false)
+                setDisplayedText("Need a Tip?")
+                getHoleScoreByScoreCardId(parseInt(scoreCardId)).then(holeScoreObjs => setThisRoundsHoleScores(holeScoreObjs))
+    
+                // Navigate to the next part of the application
+                navigate(`/RoundList`);
+            }, 4000); // This delay should align with the duration of the mascot driving animation
+        }, 2000); // Delay the start of the animation to allow users to read the "HOLD ON" message
+    };
     
     return (
         <div className="hole-info-container">
@@ -186,7 +255,15 @@ setThisScoreCard(foundScoreCard)
                     value={strokesTaken}
                     onChange={handleStrokesChange}
                 />
-                            <button className="proceed-button" onClick={handleButtonClick}>Input Score/Proceed to Next Hole</button>
+                              {parseInt(holeNum) < parseInt(thisCourse?.numOfHoles) ? (
+                            <button className="proceed-button" onClick={handleButtonClick}>
+                                Input Score/Proceed to Next Hole
+                            </button>
+                        ) : (
+                            <button className="proceed-button" onClick={handleFinish}>
+                                Finish Round
+                            </button>
+                        )}
                         </div>
                     </div>
                 </div>
