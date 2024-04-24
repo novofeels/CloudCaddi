@@ -40,3 +40,13 @@ export const getScoreCardsByUserId = async (userId) => {
     return fetch(`http://localhost:8088/scoreCard?userId=${userId}`).then(res => res.json())
 
 }
+
+export const updateScoreCardWithScore = async (scoreCard, scoreCardId) => {
+  return await fetch(`http://localhost:8088/scoreCard/${scoreCardId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(scoreCard),
+  })
+}
