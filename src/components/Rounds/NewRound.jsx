@@ -144,7 +144,7 @@ export const NewRound = ({ currentUser }) => {
             setTimeout(() => {
                 navigate(`/scoreCard/${scoreCardId}/${selectedCourse.id}/1`);
             }, 4000); // This timeout should match the duration of the driveAcross animation
-        }, 1250); // Adjust the delay time as needed
+        }, 750); // Adjust the delay time as needed
     };
 
     const getEpochTime = (date, time) => {

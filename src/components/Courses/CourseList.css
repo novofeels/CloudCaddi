@@ -95,3 +95,24 @@
 .view-edit-button:hover {
     background-color: #369636;
 }
+
+.custom-file-upload {
+    background-color: #7b3f00; /* Chocolate brown */
+    color: #fafad2; /* Parchment-like light color */
+    border: 3px solid #5c4033; /* Dark brown border */
+    font-family: 'Jersey 10'; /* Pixelated font for retro gaming vibe */
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-transform: uppercase; /* Styling the text to uppercase for that video game look */
+    box-shadow: 0 4px #5c4033; /* Adds depth with a simple drop shadow */
+    transition: all 0.3s ease;
+    margin: 10px;
+}
+
+.custom-file-upload:hover, .custom-file-upload:focus {
+    background-color: #ffbf00; /* Amber */
+    color: #5c4033; /* Dark brown */
+    border-color: #ffbf00; /* Amber for the border on hover/focus */
+    box-shadow: 0 2px #433927; /* Adjust shadow for a pressed effect */
+}

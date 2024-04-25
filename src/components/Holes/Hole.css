@@ -180,7 +180,7 @@
   }
   
   /* Mascot speech bubble */
-  .mascot-speech-bubble {
+  .mascot-speech-bubble3 {
     font-family: "Jersey 10";
     background-color: #f0f0f0; /* Light grey background */
     border-radius: 15px; /* Rounded corners for bubble */
@@ -195,7 +195,7 @@
     
   }
   
-  .mascot {
+  .mascot3 {
     width: 150px; /* Adjust as needed */
     position: absolute; /* Absolute positioning relative to the parent */
     right: 30px; /* Position to the right of the speech bubble */
@@ -268,7 +268,7 @@
     position: relative; /* Needed for absolute positioning of the mascot */
   }
   
-  .mascot-container {
+  .mascot-container3 {
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Align items to the start (left) */
@@ -303,9 +303,9 @@
     display: none; /* Make sure it's visible when animation starts */
     
   }
-  .start-driving {
+  .start-driving2 {
     display: block;
-    animation: driveLeft 6s ;
+    animation: driveLeft 3s ;
   }
   
   @keyframes driveLeft {
