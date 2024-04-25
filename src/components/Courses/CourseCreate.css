@@ -1,16 +1,16 @@
 /* Add to your CSS file */
 .course-title {
   font-family: "Jersey 10", sans-serif;
-    font-size: 36px; /* Large font size */
-    color: black; /* Dark grey color */
-    background-color: rgba(255, 228, 196, 0.692);
-    text-align: center;
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  
-  /* General styles for the course creation layout */
+  font-size: 36px; /* Large font size */
+  color: black; /* Dark grey color */
+  background-color: rgba(255, 228, 196, 0.692);
+  text-align: center;
+  width: 85%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* General styles for the course creation layout */
 .course-creation-container {
   display: flex;
   justify-content: center;
@@ -19,10 +19,9 @@
 .map-container {
   position: relative;
   width: 50%;
- 
 }
 .map {
-   border: 1px solid #ccc;
+  border: 1px solid #ccc;
   background-color: rgba(255, 228, 196, 0.692);
   border-radius: 5px;
 }
@@ -42,22 +41,19 @@
 }
 
 .map-display {
-  
   width: 590px;
   height: 395px;
   margin: 75px 1px 0px 185px;
 
- 
- 
-  padding: 20px
+  padding: 20px;
 }
 
 .details-section {
   background-color: rgba(255, 228, 196, 0.692);
-  
+
   width: 33%;
   margin: 0px 300px 0px 0px;
-  font-family: 'Jersey 10', sans-serif; /* Applying custom font here */
+  font-family: "Jersey 10", sans-serif; /* Applying custom font here */
   padding-left: 20px; /* Add padding to the left inside the section */
   padding-right: 20px; /* Optional: Add padding to the right if needed */
   padding-top: 10px; /* Optional: Add padding to the top if needed */
@@ -82,12 +78,12 @@
   border-radius: 5px;
   cursor: pointer;
   font-family: "Jersey 10", sans-serif;
-
-
 }
 
 /* Specific styles for headings, inputs, labels */
-.course-title, .details-section h2, .selected-location h2 {
+.course-title,
+.details-section h2,
+.selected-location h2 {
   margin-top: 0;
   margin-bottom: 10px;
   margin-left: 10px;
@@ -95,33 +91,29 @@
 }
 
 .div-for-background2 {
-  
- background-color: black;
+  background-color: black; /* Start with a dark background */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
-  padding: 20px; /* Padding around the inside of the background div */
-  opacity: 0; /* Start fully transparent */
-  transform: scale(1.1); /* Start slightly zoomed in */
-  animation: revealMap 1.5s ease-out forwards; /* Animation to change state */
+  padding: 20px;
+  opacity: 1; /* Keep fully opaque */
+  filter: brightness(0%); /* Start completely dark */
+  animation: turnOnLights 8s ease-out forwards;
 }
 
-@keyframes revealMap {
+@keyframes turnOnLights {
   0% {
-    opacity: 0;
-    transform: scale(1.1);
+    filter: brightness(0%);
   }
   100% {
-    opacity: 1;
-    transform: scale(1); /* Scale back to normal size */
+    filter: brightness(100%);
   }
 }
 
 .div-for-background2::before {
-
-  content: '';
+  content: "";
   position: relative;
   top: 0;
   left: 0;
@@ -132,12 +124,12 @@
   pointer-events: none; /* Ensures clicks pass through to elements below */
 }
 
-
-.input-field, .input-field select {
+.input-field,
+.input-field select {
   background-color: #fafad2; /* Parchment-like light color */
   border: 2x solid #5c4033; /* Dark brown border */
   color: #5c4033; /* Dark text color for better readability */
-  font-family: 'Courier New', Courier, monospace; /* Retro, typewriter-like font */
+  font-family: "Courier New", Courier, monospace; /* Retro, typewriter-like font */
   padding: 8px 12px;
   border-radius: 5px; /* Slightly rounded corners for a softer look */
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle inset shadow for depth */
@@ -145,7 +137,8 @@
   box-sizing: border-box; /* Includes padding and border in the width */
 }
 
-.input-field:focus, .input-field select:focus {
+.input-field:focus,
+.input-field select:focus {
   outline: none;
   border-color: #ffbf00; /* Amber focus border */
   box-shadow: 0 0 0 2px #ffbf00; /* Outer glow effect */
@@ -156,44 +149,42 @@
   display: block;
   margin-bottom: 5px;
   color: #7b3f00; /* Chocolate brown */
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   text-transform: uppercase;
 }
 
 .frame::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   margin-left: 181px;
-  margin-top:   75px;
-border: 1px solid goldenrod;
-box-shadow: 
-0 0 10px 3px rgba(0, 0, 0, 0.6), /* Outer shadow for depth */
-inset 0 0 10px 3px goldenrod; /* Inset shadow for an embossed effect */
-border-radius: 8px; /* Slightly rounded corners can add to the antique look */
- 
-  background-image: url('../../assets/tryin it.png'); /* Update with the correct path */
+  margin-top: 75px;
+  border: 1px solid goldenrod;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.6),
+    /* Outer shadow for depth */ inset 0 0 10px 3px goldenrod; /* Inset shadow for an embossed effect */
+  border-radius: 8px; /* Slightly rounded corners can add to the antique look */
+
+  background-image: url("../../assets/tryin it.png"); /* Update with the correct path */
   height: 402px;
   width: 600px;
-  pointer-events: none;  /* This ensures that you can still interact with the map underneath */
-  z-index: 1000;  /* Ensure this is above the map but below any interactive elements */
+  pointer-events: none; /* This ensures that you can still interact with the map underneath */
+  z-index: 1000; /* Ensure this is above the map but below any interactive elements */
 }
 
 .mascot-container {
   position: absolute;
   bottom: 100px; /* Adjust as needed */
-  right: 1111px; /* Adjust so that it's not too far to the right */
+  right: 1311px; /* Adjust so that it's not too far to the right */
   z-index: 10; /* Ensure it's above other elements */
 }
 
 .mascot-gif {
   width: 400px; /* This will make your mascot image fill the container width */
   height: auto; /* Maintain aspect ratio */
-  transform: scaleX(-1)
-  
+  transform: scaleX(-1);
 }
 
 .speech-bubble {
@@ -206,7 +197,67 @@ border-radius: 8px; /* Slightly rounded corners can add to the antique look */
   border: 2px solid #5c4033; /* Border to match the theme */
   border-radius: 10px; /* Rounded corners for the speech bubble */
   text-align: center;
-  font-family: 'Courier New', Courier, monospace; /* Retro, typewriter-like font */
+  font-family: "Courier New", Courier, monospace; /* Retro, typewriter-like font */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds depth */
   z-index: 11; /* Ensure it's above the mascot */
+}
+
+.custom-file-upload {
+  background-color: #000000; /* Chocolate */
+  color: #fafad2; /* Parchment */
+  border: 2px solid goldenrod; /* Dark Brown */
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
+  border-radius: 4px; /* Slightly rounded corners */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2),
+    /* Inner shadow for a pressed button look */ 0 2px 6px rgba(0, 0, 0, 0.2); /* Outer shadow for depth */
+  text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
+  font-weight: bold;
+  margin: 10px;
+}
+
+.custom-file-upload:hover,
+.custom-file-upload:focus {
+  background-color: #ffbf00; /* Amber */
+  color: #000000; /* Dark Brown */
+  border-color: #ffbf00; /* Amber for the border on hover/focus */
+  box-shadow: 0 0 8px #ffbf00; /* Glowing effect on hover/focus */
+}
+
+/* When the button is active, make it look like it's being pressed */
+.custom-file-upload:active {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
+  transform: translateY(2px);
+}
+
+.create-button {
+  background-color: #ffbf00; /* Chocolate */
+  color: #fafad2; /* Parchment */
+  border: 2px solid goldenrod; /* Dark Brown */
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
+  border-radius: 4px; /* Slightly rounded corners */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2),
+    /* Inner shadow for a pressed button look */ 0 2px 6px rgba(0, 0, 0, 0.2); /* Outer shadow for depth */
+  text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
+  font-weight: bold;
+  margin: 10px;
+}
+
+.create-button:hover,
+.create-button:focus {
+  background-color: #000000; /* Amber */
+  color: #ffbf00; /* Dark Brown */
+  border-color: #000000; /* Amber for the border on hover/focus */
+  box-shadow: 0 0 8px #ffbf00; /* Glowing effect on hover/focus */
+}
+
+/* When the button is active, make it look like it's being pressed */
+.create-button:active {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
+  transform: translateY(2px);
 }

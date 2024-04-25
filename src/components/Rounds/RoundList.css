@@ -1,72 +1,90 @@
+/* Base container styling */
 .course-list-container {
-    display: flex;
-    flex-direction: row; /* Changed to row for side-by-side layout */
-    align-items: flex-start;
-    padding: 20px;
-    width: 100%;
-    animation: fadeIn 0.5s ease-out;
+  background-color: #000000; /* Dark background for contrast */
+  color: #f0db4f; /* Golden text typical in retro games */
+  font-family: "Jersey 10", cursive; /* Pixelated font, ensure it's loaded in your CSS */
+  text-align: center;
+  padding: 20px;
 }
 
+/* Interactive area with the mascot and text bubble */
 .interactive-area2 {
-    flex: 1; /* Takes less space */
-    text-align: center;
-    padding: 10px;
-}
-
-.rounds-container {
-    flex: 3; /* Takes more space */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.round-card {
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    margin: 10px;
-    padding: 20px;
-    transition: transform 0.3s;
-}
-
-.round-card:hover {
-    transform: translateY(-5px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #333; /* Darker background for interactive area */
+  border: 1px solid #f0db4f; /* Golden border */
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 .text-bubble2 {
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
+  background-color: #444; /* Slightly lighter background for the text bubble */
+  color: #f0db4f;
+  padding: 10px;
+  border: 1px solid #f0db4f;
+  border-radius: 5px;
+  width: 70%;
+  font-size: 0.8em;
 }
 
 .cloud-gif2 {
-    max-width: 200px; /* Adjusted for better layout */
- 
+  width: 100px; /* Adjust based on your assets */
+  height: auto;
+  cursor: pointer; /* Indicates it's clickable */
+  filter: drop-shadow(2px 2px 0 #000); /* Sharp black shadow for depth */
+}
+
+/* Rounds display container */
+.rounds-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.round-card {
+  background: #252525;
+  border: 2px solid #f0db4f;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.2s; /* Smooth scaling on hover */
+}
+
+.round-card:hover {
+  transform: scale(1.05); /* Slight scale to emphasize interactivity */
+}
+
+.round-info h2,
+.round-info p {
+  margin: 5px 0;
 }
 
 .edit-view-button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: #0078d7; /* Blue that stands out */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 0.8em;
+  transition: background-color 0.2s;
 }
 
 .edit-view-button:hover {
-    background-color: #369636;
+  background-color: #0056b3; /* Darker blue on hover */
 }
 
+/* Ensure fonts and icons are loaded in your project */
 
 @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  from {
+    opacity: 0;
   }
+  to {
+    opacity: 1;
+  }
+}
