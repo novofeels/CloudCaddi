@@ -1,0 +1,145 @@
+.jersey-10-regular {
+  font-family: "Jersey 10", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.text-bubble {
+  white-space: pre-wrap; /* Maintains whitespace formatting */
+  max-width: 300px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  border: 2px solid #333;
+  font-family: "Jersey 10", sans-serif;
+  font-size: 18px;
+  color: #333;
+  margin-top: 20px;
+}
+
+.text-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -10px; /* Adjust this value to move the tip up or down */
+  left: 50px; /* Adjust this value to move the tip left or right */
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #f0f0f0;
+  border-bottom: 0;
+  margin-left: -10px;
+  margin-bottom: -10px;
+}
+
+.container4welcome {
+  display: flex;
+  align-items: center; /* Align items vertically*/
+  justify-content: center; /* Space out items horizontally*/
+  animation: driftIn 2.5s ease-out forwards;
+}
+
+@keyframes driftIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scaleX(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scaleX(1);
+  }
+}
+
+@keyframes stretchFadeIn {
+  from {
+    opacity: 0;
+    transform: scaleX(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes gradientWipe {
+  from {
+    left: -100%; /* Starts hidden to the left */
+  }
+  to {
+    left: 100%; /* Ends moved out to the right, revealing the content */
+  }
+}
+.text-bubble {
+  margin-right: 20px; /* Give some space between the text and the GIF*/
+}
+
+.Owl-gif {
+  top: 30px;
+  width: 500px;
+  height: auto;
+
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease; /* Smooth transitions for effects */
+  filter: brightness(0.9);
+  position: relative;
+  overflow: hidden;
+  transform: scaleX(-1);
+  margin-top: 75px;
+}
+
+.cloud-gif:hover {
+  filter: brightness(1.1); /* Brighter on hover */
+  transform: scale(1.06);
+  animation: none; /* Stop pulsing on hover */
+}
+
+/* When GIF is active, no special effects */
+.cloud-gif.active {
+  animation: none;
+  filter: none;
+  margin-top: 75px;
+}
+
+.Owl-gif:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease-out;
+  left: 125%;
+}
+
+.div-for-background4 {
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.div-for-background4::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95); /* Strong black overlay */
+  backdrop-filter: blur(10px); /* Start with heavy blur */
+  animation: turnOnLights 5s ease forwards;
+}
+
+@keyframes turnOnLights {
+  0% {
+    filter: brightness(0%);
+  }
+  100% {
+    filter: brightness(100%);
+  }
+}

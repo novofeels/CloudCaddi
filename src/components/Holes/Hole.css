@@ -16,139 +16,141 @@
   }
 }
 .hole-info-container {
-    display: flex;
-    flex-direction: column;
-    max-width: 1000px; /* Adjust as needed */
-    margin: auto;
-    padding: 20px;
-    background: white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    font-family: 'Arial', sans-serif;
-    border: 3px dotted goldenrod;
-    background-color: #c5bf9b;
-    border-radius: 10px;
-  }
-  
-  /* Title and image description section */
-  .course-title {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-    border: 1px dotted goldenrod
-  }
-  
-  .image-carousel-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 10px; /* Or adjust as needed */
-    border-radius: 10px; /* Rounded corners to match the scorecard style */
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Soft shadow for depth, like the scorecard */
-    background-color: #5c4033;
-   
-    border: 2px solid  goldenrod ; /* Dark Brown border for vintage feel */
-  }
-  .image-carousel-container:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  }
-  /* Placeholder for actual image carousel component */
-  .image-carousel {
-    height: 300px; /* Adjust based on your design */
-    width: 333px;
-    background-color: #fafad2; /* Parchment color to match the theme */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 5px;
-    border-radius: 8px; /* Slightly rounded corners */
-    border: 2px solid #5c4033; /* Dark Brown border for vintage feel */
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Inner shadow for depth */
-  }
-  
-  .charts-graphs {
-    height: 300px; /* Adjust based on your design */
-    flex-grow: 1;
-    padding: 10px;
-    background-color: #fafad2; /* Parchment color to match the theme */
-    border-radius: 8px; /* Slightly rounded corners */
-    border: 2px solid #5c4033; /* Dark Brown border for a consistent look */
-    font-style: italic;
-    font-family: 'Courier New', Courier, monospace; /* Vintage font for consistency */
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Inner shadow for a pressed effect */
-    margin-left: 0px; /* Add margin if needed for spacing between elements */
-    color: #5c4033; /* Dark Brown text color */
-  }
-  
-  .workDammit{
-    font-family: "Courier New";
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px; /* Adjust as needed */
+  margin: auto;
 
-  }
-  /* The hole stats and the hole image section */
-  .hole-stats-container {
-    display: flex;
-    margin-bottom: 20px;
-    font-family: "Jersey 10";
-  
-  }
-  
-  .aboveButton {
-    background-color: #800020;
-    border: 2px solid goldenrod;
-    border-radius: 8px; 
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
-    color: goldenrod;
-    margin-bottom: 10px;
-  }
-  .hole-detail {
-    font-family: "Jersey 10";
-    flex: 1;
-    text-align: center;
-  }
-  
-  .hole-image {
-    width: 100px;
-    height: auto;
-  }
-  
-  /* Scorecard section */
-  .scorecard {
-    display: grid;
-    grid-template-columns: auto repeat(18, 1fr); /* 1 column for 'Hole#' header and 18 for holes */
-    background-color: black;
-    color: #5c4033;
-    gap: 0px;
-   
-    border: 4px solid black;
-    text-align: center;
-   
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+  border: 1px solid goldenrod;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.6),
+    /* Outer shadow for depth */ inset 0 0 10px 3px goldenrod; /* Inset shadow for an embossed effect */
+  border-radius: 8px; /* Slightly rounded corners can add to the antique look */
+  background-color: #0a2c14;
+  border-radius: 10px;
+}
+
+/* Title and image description section */
+.course-title {
+  justify-content: center;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  border: 1px dotted goldenrod;
+  margin-left: 2000px;
+}
+
+.image-carousel-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px; /* Or adjust as needed */
+  border-radius: 10px; /* Rounded corners to match the scorecard style */
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Soft shadow for depth, like the scorecard */
+  background-color: #5c4033;
+
+  border: 2px solid goldenrod; /* Dark Brown border for vintage feel */
+}
+.image-carousel-container:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+/* Placeholder for actual image carousel component */
+.image-carousel {
+  height: 300px; /* Adjust based on your design */
+  width: 333px;
+  background-color: #fafad2; /* Parchment color to match the theme */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 5px;
+  border-radius: 8px; /* Slightly rounded corners */
+  border: 2px solid #5c4033; /* Dark Brown border for vintage feel */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Inner shadow for depth */
+}
+
+.charts-graphs {
+  height: 300px; /* Adjust based on your design */
+  flex-grow: 1;
+  padding: 10px;
+  background-color: #fafad2; /* Parchment color to match the theme */
+  border-radius: 8px; /* Slightly rounded corners */
+  border: 2px solid #5c4033; /* Dark Brown border for a consistent look */
+  font-style: italic;
+  font-family: "Courier New", Courier, monospace; /* Vintage font for consistency */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Inner shadow for a pressed effect */
+  margin-left: 0px; /* Add margin if needed for spacing between elements */
+  color: #5c4033; /* Dark Brown text color */
+}
+
+.workDammit {
+  font-family: "Courier New";
+}
+/* The hole stats and the hole image section */
+.hole-stats-container {
+  display: flex;
+  margin-bottom: 20px;
+  font-family: "Jersey 10";
+}
+
+.aboveButton {
+  background-color: #800020;
+  border: 2px solid goldenrod;
+  border-radius: 8px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: goldenrod;
+  margin-bottom: 10px;
+}
+.hole-detail {
+  font-family: "Jersey 10";
+  flex: 1;
+  text-align: center;
+}
+
+.hole-image {
+  width: 100px;
+  height: auto;
+}
+
+/* Scorecard section */
+.scorecard {
+  display: grid;
+  grid-template-columns: auto repeat(18, 1fr); /* 1 column for 'Hole#' header and 18 for holes */
+  background-color: black;
+  color: #5c4033;
+  gap: 0px;
+
+  border: 4px solid black;
+  text-align: center;
+
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .header {
-    font-family: "Jersey 10";
-    grid-column: 1 / 2; /* Span the first column */
-    background-color: #555; /* Different background for headers */
-    padding: 10px;
-    font-size: 26px;
-    text-align: center;
-  
-    border: 2px solid goldenrod !important; /* White borders within the table */
-    background-color: #800020; /* Chocolate */
-    color: #fffff0; /* Off-White */
-    border-radius: 5px;
-  
-  }
+  font-family: "Jersey 10";
+  grid-column: 1 / 2; /* Span the first column */
+  background-color: #555; /* Different background for headers */
+  padding: 10px;
+  font-size: 26px;
+  text-align: center;
 
+  border: 2px solid goldenrod !important; /* White borders within the table */
+  background-color: #800020; /* Chocolate */
+  color: #fffff0; /* Off-White */
+  border-radius: 5px;
+}
 
-
-
-.hole-number:hover, .strokes:hover {
+.hole-number:hover,
+.strokes:hover {
   background-color: #ffbf00; /* Amber */
   color: #5c4033; /* Dark Brown */
   cursor: pointer;
 }
-.hole-number, .strokes {
+.hole-number,
+.strokes {
   padding: 10px;
   background-color: #fafad2; /* Parchment for cells */
   border: 1px solid #5c4033; /* Subtle borders */
@@ -157,177 +159,180 @@
   text-align: center;
   align-content: center;
 }
-.hole-number, .strokes {
-    grid-column: span 1;
-    font-family: "Jersey 10";
+.hole-number,
+.strokes {
+  grid-column: span 1;
+  font-family: "Jersey 10";
 }
-.header, .hole-number, .strokes {
-  box-shadow: inset 0 0 0 4px #000, /* Shadow to emulate pixel depth */
-              inset 0 0 0 5px #fff;
+.header,
+.hole-number,
+.strokes {
+  box-shadow: inset 0 0 0 4px #000,
+    /* Shadow to emulate pixel depth */ inset 0 0 0 5px #fff;
 }
-.header:focus, .hole-number:focus, .strokes:focus {
+.header:focus,
+.hole-number:focus,
+.strokes:focus {
   outline: 1px solid #ff0; /* Yellow outline */
   outline-offset: -5px;
 }
-  .scorecard div {
-    padding: 10px;
-    border-right: 2px solid #800020;
-    border-top: 2px solid goldenrod
-  }
-  
-  .scorecard div:last-child {
-    border-right: 2px solid #800020;
-  }
-  
-  /* Mascot speech bubble */
-  .mascot-speech-bubble3 {
-    font-family: "Jersey 10";
-    background-color: #f0f0f0; /* Light grey background */
-    border-radius: 15px; /* Rounded corners for bubble */
-    padding: 20px; /* Padding inside speech bubble */
-    margin-bottom: 20px;
-    margin-left: 50px;
-    font-size: 18px;
-    max-width: 400px; /* Control the width of the speech bubble */
-    right: 200px;
-    position: absolute;
-    border: 1px solid black;
-    
-  }
-  
-  .mascot3 {
-    width: 150px; /* Adjust as needed */
-    position: absolute; /* Absolute positioning relative to the parent */
-    right: 30px; /* Position to the right of the speech bubble */
-    top: 0; /* Align with the top of the speech bubble */
-  }
-  
-  .mascot-text {
-    white-space: pre-wrap; /* Wrap text and preserve spaces */
-    word-wrap: break-word; /* Break long words to prevent overflow */
-  }
-  .pie-chart {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100px; /* Adjust as needed */
-  }
-  
-  /* Button that appears when input is filled */
-  .proceed-button {
-    background-color: #7b3f00; /* Chocolate */
-    color: #fafad2; /* Parchment */
-    border: 2px solid #5c4033; /* Dark Brown */
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-family: 'Courier New', Courier, monospace; /* Monospace font for a vintage look */
-    border-radius: 4px; /* Slightly rounded corners */
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2), /* Inner shadow for a pressed button look */
-                0 2px 6px rgba(0, 0, 0, 0.2); /* Outer shadow for depth */
-    text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
-    font-weight: bold;
-    margin: 10px
-  }
-  
-  .proceed-button:hover, .proceed-button:focus {
-    background-color: #ffbf00; /* Amber */
-    color: #5c4033; /* Dark Brown */
-    border-color: #ffbf00; /* Amber for the border on hover/focus */
-    box-shadow: 0 0 8px #ffbf00; /* Glowing effect on hover/focus */
-  }
-  
-  /* When the button is active, make it look like it's being pressed */
-  .proceed-button:active {
-    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
-    transform: translateY(2px);
-  }
-  
-  /* Input for strokes and the button appear next to each other */
-  .input-group {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    
-  
-   
-    height: 66px;
-    
-   
-    
-  }
-  
-  .input-stroke {
-    margin-right: 10px;
-    margin: 10px
-  }
-  
-  .hole-details-and-mascot-container {
-    display: flex;
-    justify-content: space-between;
-    position: relative; /* Needed for absolute positioning of the mascot */
-  }
-  
-  .mascot-container3 {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align items to the start (left) */
-    flex-grow: 1; /* Allow container to grow as needed */
-    position: relative; /* Relative positioning context for mascot */
-    padding-right: 170px; /* Add padding to make room for mascot */
-  }
+.scorecard div {
+  padding: 10px;
+  border-right: 2px solid #800020;
+  border-top: 2px solid goldenrod;
+}
 
+.scorecard div:last-child {
+  border-right: 2px solid #800020;
+}
+
+/* Mascot speech bubble */
+.mascot-speech-bubble3 {
+  font-family: "Jersey 10";
+  background-color: #f0f0f0; /* Light grey background */
+  border-radius: 15px; /* Rounded corners for bubble */
+  padding: 20px; /* Padding inside speech bubble */
+  margin-bottom: 20px;
+  margin-left: 50px;
+  font-size: 18px;
+  max-width: 400px; /* Control the width of the speech bubble */
+  right: 200px;
+  position: absolute;
+  border: 1px solid black;
+}
+
+.mascot3 {
+  width: 150px; /* Adjust as needed */
+  position: absolute; /* Absolute positioning relative to the parent */
+  right: 30px; /* Position to the right of the speech bubble */
+  top: 0; /* Align with the top of the speech bubble */
+}
+
+.mascot-text {
+  white-space: pre-wrap; /* Wrap text and preserve spaces */
+  word-wrap: break-word; /* Break long words to prevent overflow */
+}
+.pie-chart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px; /* Adjust as needed */
+}
+
+/* Button that appears when input is filled */
+.proceed-button {
+  background-color: #7b3f00; /* Chocolate */
+  color: #fafad2; /* Parchment */
+  border: 2px solid #5c4033; /* Dark Brown */
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
+  border-radius: 4px; /* Slightly rounded corners */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2),
+    /* Inner shadow for a pressed button look */ 0 2px 6px rgba(0, 0, 0, 0.2); /* Outer shadow for depth */
+  text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
+  font-weight: bold;
+  margin: 10px;
+}
+
+.proceed-button:hover,
+.proceed-button:focus {
+  background-color: #ffbf00; /* Amber */
+  color: #5c4033; /* Dark Brown */
+  border-color: #ffbf00; /* Amber for the border on hover/focus */
+  box-shadow: 0 0 8px #ffbf00; /* Glowing effect on hover/focus */
+}
+
+/* When the button is active, make it look like it's being pressed */
+.proceed-button:active {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
+  transform: translateY(2px);
+}
+
+/* Input for strokes and the button appear next to each other */
+.input-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  height: 66px;
+}
+
+.input-stroke {
+  margin-right: 10px;
+  margin: 10px;
+}
+
+.hole-details-and-mascot-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative; /* Needed for absolute positioning of the mascot */
+}
+
+.mascot-container3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start (left) */
+  flex-grow: 1; /* Allow container to grow as needed */
+  position: relative; /* Relative positioning context for mascot */
+  padding-right: 170px; /* Add padding to make room for mascot */
+}
 
 .weWillSee {
   background-color: #000;
 }
 
+.dim-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Slightly darker dimming effect */
+  z-index: 999; /* Below the mascot */
+  display: none; /* Initially hidden */
+}
 
-  .dim-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7); /* Slightly darker dimming effect */
-    z-index: 999; /* Below the mascot */
-    display: none; /* Initially hidden */
-  }
-  
-  .mascot-driving {
-    position: fixed;
-    bottom: -50px; /* Adjust as needed */
-    right: 100%; /* Start off-screen to the right */
-    z-index: 1000; /* Above the dim background */
-    width: 100%; /* Set the size to 1/4 of its current size */
-    display: none; /* Make sure it's visible when animation starts */
-    
-  }
-  .start-driving2 {
-    display: block;
-    animation: driveLeft 3s ;
-  }
-  
-  @keyframes driveLeft {
-    0% {
-      right: -55%; /* Starts off-screen to the right */
-      transform: scale(0.33); /* Set the scale to 1/4 of its current size */
-    }
-    
-    100% {
-      right: 70%; /* Ends completely off-screen to the left */
-      transform: scale(0.33); /* Keeps the scale consistent throughout */
-    }
+.mascot-driving {
+  position: fixed;
+  bottom: -50px; /* Adjust as needed */
+  right: 100%; /* Start off-screen to the right */
+  z-index: 1000; /* Above the dim background */
+  width: 100%; /* Set the size to 1/4 of its current size */
+  display: none; /* Make sure it's visible when animation starts */
+}
+.start-driving2 {
+  display: block;
+  animation: driveLeft 3s;
+}
+
+@keyframes driveLeft {
+  0% {
+    right: -55%; /* Starts off-screen to the right */
+    transform: scale(0.33); /* Set the scale to 1/4 of its current size */
   }
 
-  .strokes {
-    border-bottom: 2px solid goldenrod
+  100% {
+    right: 70%; /* Ends completely off-screen to the left */
+    transform: scale(0.33); /* Keeps the scale consistent throughout */
   }
+}
 
-  .strokesHeader {
-    border-bottom: 2px solid goldenrod
-  }
+.strokes {
+  border-bottom: 2px solid goldenrod;
+}
 
-  .hole-number:last-child, .strokes:last-child {
-    border-right: 2px solid goldenrod !important;
+.strokesHeader {
+  border-bottom: 2px solid goldenrod;
+}
+
+.hole-number:last-child,
+.strokes:last-child {
+  border-right: 2px solid goldenrod !important;
+}
+
+.makeParBigger {
+  font-family: "Courier New", Courier, monospace, sans-serif;
+  font-size: 30px;
 }
