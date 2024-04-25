@@ -77,7 +77,7 @@ setThisScoreCard(foundScoreCard)
         let timeout;
         if (index < speechText.length && displayedText !== speechText) {
             const nextChar = speechText.charAt(index);
-            const delay = nextChar === ' ' ? 100 : nextChar === '.' ? 600 : 100; // Set delay based on character
+            const delay = nextChar === ' ' ? 50 : nextChar === '.' ? 600 : 100; // Set delay based on character
     
             // Decide which sound to play based on the character
             if ("!?.".includes(nextChar)) {
@@ -166,8 +166,8 @@ setThisScoreCard(foundScoreCard)
     
                 // Navigate to the next part of the application
                 navigate(`/scoreCard/${scoreCardId}/${courseId}/${parseInt(holeNum) + 1}`);
-            }, 4000); // This delay should align with the duration of the mascot driving animation
-        }, 2000); // Delay the start of the animation to allow users to read the "HOLD ON" message
+            }, 3000); // This delay should align with the duration of the mascot driving animation
+        }, 1000); // Delay the start of the animation to allow users to read the "HOLD ON" message
     };
     
     const handleFinish = () => {
@@ -270,12 +270,12 @@ setThisScoreCard(foundScoreCard)
                         </div>
                     </div>
                 </div>
-                <div className="mascot-container"> {/* New container for the mascot */}
-                    <div className="mascot-speech-bubble">
-                        <div className="mascot-text">{displayedText}</div>
+                <div className="mascot-container3"> {/* New container for the mascot */}
+                    <div className="mascot-speech-bubble3">
+                        <div className="mascot-text3">{displayedText}</div>
                     </div>
                     <img
-                    className="mascot"
+                    className="mascot3"
                     src={isMascotClicked ? animatedGif : staticGif}
                     alt="Mascot"
                     onClick={handleClickMascot}
@@ -300,7 +300,7 @@ setThisScoreCard(foundScoreCard)
 
 <div className="dim-background" style={{ display: isDriving ? 'block' : 'none' }}></div>
 
-<img src={CloudCaddiDriving} alt="Mascot Driving Golf Cart" className={`mascot-driving ${isDriving ? "start-driving" : ""}`} style={{ display: isDriving ? 'block' : 'none' }} />
+<img src={CloudCaddiDriving} alt="Mascot Driving Golf Cart" className={`mascot-driving ${isDriving ? "start-driving2" : ""}`} style={{ display: isDriving ? 'block' : 'none' }} />
 </div>
         </div>
         
