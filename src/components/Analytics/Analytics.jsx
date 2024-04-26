@@ -16,7 +16,7 @@ export const Analytics = ({ currentUser }) => {
   const [emphasizingYOUR, setEmphasizingYOUR] = useState(false);
 
   const text =
-    "How'd you get in here...\\n\\nAnyhow, my name is Owlbert Einstein - I crunch the numbers around here, the cloud is just a figurehead \\n\\nI'm not quite set up yet, come back later.";
+    "How'd you get in here...?\\n\\nAnyhow, my name is Owlbert Einstein - I crunch the numbers around here, the cloud is just a figurehead \\n\\nI'm not quite set up yet, come back later.";
   useEffect(() => {
     if (isActive && index < text.length && !pause) {
       const currentChar = text[index];

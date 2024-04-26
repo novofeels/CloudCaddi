@@ -143,6 +143,7 @@ export const CreateHole = () => {
     }
   };
   if (thisCourse) {
+    console.log(thisCourse);
     return (
       <div className="create-hole-container" key={holeNum}>
         <div className="form-section">
@@ -175,7 +176,8 @@ export const CreateHole = () => {
               <label>{description.description}</label>
             </div>
           ))}
-          {parseInt(holeNum) === thisCourse[0].numOfHoles ? (
+
+          {parseInt(holeNum) === thisCourse[0]?.numOfHoles ? (
             <button className="button" onClick={handleFinish}>
               Finish Course Creation
             </button>

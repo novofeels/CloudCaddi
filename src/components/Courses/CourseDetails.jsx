@@ -31,8 +31,8 @@ export const CourseDetails = () => {
   };
   if (thisCourse) {
     return (
-      <div className="course-details-container">
-        <h1 className="course-title2">{thisCourse[0].name.toUpperCase()}</h1>
+      <div className="course-details-container2">
+        <h1 className="course-title68">{thisCourse?.name.toUpperCase()}</h1>
         <div className="interactive-area5">
           <div className="text-bubble5">{displayedText}</div>
           <img
@@ -43,8 +43,12 @@ export const CourseDetails = () => {
           />
         </div>
         <div className="holes-container">
-          {holes.map((hole) => (
-            <div key={hole.id} className="hole-card">
+          {holes.map((hole, index) => (
+            <div
+              key={hole.id}
+              className="hole-card"
+              style={{ "--card-index": index }}
+            >
               <div className="hole-info">
                 <h2>Hole {hole.holeNumber}</h2>
                 <p>Par: {hole.par}</p>

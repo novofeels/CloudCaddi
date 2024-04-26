@@ -3,8 +3,17 @@
   background-color: black;
   color: gold;
   font-family: "Press Start 2P", cursive; /* This font mimics old video game text */
+  animation: fadeIn 0.8s;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .course-title2 {
   font-family: "Jersey 10";
   text-align: center;
@@ -33,6 +42,10 @@
   margin-top: 20px;
 }
 
+.text-bubble5:hover {
+  cursor: url("../../assets/PRECISION.cur"), auto !important;
+}
+
 .text-bubble5::after {
   content: "";
   position: absolute;
@@ -49,14 +62,15 @@
 
 .mascot-gif5 {
   width: 250px;
-  cursor: pointer;
+  cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
 }
 
 .holes-container2 {
-  display: flex;
-  justify-content: center;
-
-  gap: 10px;
+  display: grid;
+  margin: 0px 100px;
+  grid-template-columns: repeat(3, 1fr); /* This creates three equal columns */
+  grid-gap: 10px; /* Space between the cards */
+  padding: 20px; /* Padding around the entire grid for better spacing */
 }
 
 .hole-card2 {
@@ -64,7 +78,7 @@
   color: #fafad2; /* Parchment */
   border: 2px solid #979290; /* Dark Brown */
   padding: 10px 20px;
-  cursor: pointer;
+  cursor: url("../../assets/PRECISION.cur"), auto !important;
   transition: all 0.3s;
   font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
   border-radius: 4px; /* Slightly rounded corners */
@@ -75,6 +89,7 @@
   margin: 10px;
   height: 450px;
   width: 400px;
+  transition: transform 0.3s ease-in-out;
 }
 
 .hole-card2:hover,
@@ -83,6 +98,7 @@
   color: #5c4033; /* Dark Brown */
   border-color: #ffbf00; /* Amber for the border on hover/focus */
   box-shadow: 0 0 8px #ffbf00; /* Glowing effect on hover/focus */
+  transform: translateY(-10px);
 }
 
 /* When the button is active, make it look like it's being pressed */
@@ -97,9 +113,10 @@
 }
 
 .hole-image {
-  width: 100%;
-  display: block;
-  margin-top: 10px;
+  width: 100%; /* Ensure images take up the full card width */
+  height: auto; /* Maintain aspect ratio */
+  border-top: 1px solid #979290; /* Line between the image and text */
+  margin-bottom: 10px; /* Space below the image */
 }
 
 .filters {
@@ -112,7 +129,7 @@
   color: #fafad2; /* Parchment */
   border: 2px solid #979290; /* Dark Brown */
   padding: 10px 20px;
-  cursor: pointer;
+  cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
   transition: all 0.3s;
   font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
   border-radius: 4px; /* Slightly rounded corners */
@@ -135,4 +152,8 @@
 .filter-button:active {
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
   transform: translateY(2px);
+}
+
+.card-header {
+  font-weight: bolder;
 }

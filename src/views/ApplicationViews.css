@@ -1,16 +1,18 @@
 /* App.css */
 .app-container {
-    display: flex;
-    height: 100vh; /* Full viewport height */
-  }
-  
-  .sidebar-container {
-    flex: 0 0 250px; /* Adjust width as needed */
-    overflow-y: auto; /* Scrollable sidebar */
-  }
-  
-  .content-container {
-    flex-grow: 1; /* Take up remaining space */
-    overflow-y: auto; /* Scrollable content */
-  }
-  
+  display: flex;
+  height: 100vh; /* Full viewport height */
+  background-color: black;
+  cursor: url("../assets/NORMAL.cur"), auto;
+}
+
+.sidebar-container {
+  flex: 0 0 250px; /* Adjust width as needed */
+  overflow-y: auto; /* Scrollable sidebar */
+  background-color: black;
+}
+
+.content-container {
+  flex-grow: 1; /* Take up remaining space */
+  overflow-y: auto; /* Scrollable content */
+}
