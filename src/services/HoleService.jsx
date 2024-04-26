@@ -33,3 +33,31 @@ export const getHolesByCourseId = async (courseId) => {
     res.json()
   );
 };
+
+export const getHoleByIdWithEmbed = async (holeId) => {
+  return fetch(
+    `http://localhost:8088/holes/${holeId}?_embed=holyHoleDescriptions`
+  ).then((res) => res.json());
+};
+
+export const deleteHolyHoleDescriptionsById = async (descId) => {
+  await fetch(`http://localhost:8088/holyHoleDescriptions/${descId}`, {
+    method: "DELETE",
+  });
+};
+
+export const EditHole = async (holeObj, holeId) => {
+  return await fetch(`http://localhost:8088/holes/${holeId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(holeObj),
+  });
+};
+
+export const getHolyHoleDescriptionsByHoleId = async (holeId) => {
+  return fetch(
+    `http://localhost:8088/holyHoleDescriptions?holeId=${holeId}`
+  ).then((res) => res.json());
+};

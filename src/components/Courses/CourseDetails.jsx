@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { getHolesByCourseId } from "../../services/HoleService";
 import staticGif from "../../assets/staticGif.png";
 import animatedGif from "../../assets/CloudCaddiInClubhouse.gif";
@@ -17,6 +17,8 @@ export const CourseDetails = () => {
     "Click on the hole you need to edit."
   );
   const { courseId } = useParams();
+  const [isZoomed, setIsZoomed] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getCourseById(courseId).then(setThisCourse);
@@ -29,6 +31,17 @@ export const CourseDetails = () => {
     const beep = new Audio(isActive ? lowBlip : highBlip);
     beep.play();
   };
+
+  const handleCardClick = (hole) => {
+    setIsZoomed(true);
+    // Optionally handle navigation or other actions after animation ends
+    setTimeout(() => {
+      // Example: navigate to another route
+      navigate(`/HoleEdit/${thisCourse.id}/${hole.id}`);
+      // Reset state if staying on the same page
+    }, 700); // Match the duration of the animation
+  };
+
   if (thisCourse) {
     return (
       <div className="course-details-container2">
@@ -46,8 +59,9 @@ export const CourseDetails = () => {
           {holes.map((hole, index) => (
             <div
               key={hole.id}
-              className="hole-card"
+              className={`hole-card ${isZoomed ? "zoom-spin" : ""}`}
               style={{ "--card-index": index }}
+              onClick={() => handleCardClick(hole)}
             >
               <div className="hole-info">
                 <h2>Hole {hole.holeNumber}</h2>

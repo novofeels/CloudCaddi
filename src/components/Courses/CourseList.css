@@ -3,7 +3,7 @@
   background-color: black;
   color: gold;
   font-family: "Press Start 2P", cursive; /* This font mimics old video game text */
-  animation: fadeIn 0.8s;
+  animation: fadeIn 1.5s;
 }
 
 @keyframes fadeIn {

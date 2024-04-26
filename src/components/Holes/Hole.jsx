@@ -171,7 +171,7 @@ export const Hole = ({ currentUser }) => {
           `/scoreCard/${scoreCardId}/${courseId}/${parseInt(holeNum) + 1}`
         );
       }, 3000); // This delay should align with the duration of the mascot driving animation
-    }, 1000); // Delay the start of the animation to allow users to read the "HOLD ON" message
+    }, 1500); // Delay the start of the animation to allow users to read the "HOLD ON" message
   };
 
   const handleFinish = () => {

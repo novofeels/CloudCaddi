@@ -269,7 +269,7 @@ export const CourseCreate = () => {
             <div className="search-box">
               <input
                 id="searchInput"
-                className="search-input"
+                className="search-input69"
                 type="text"
                 placeholder="Search for a location"
                 value={searchQuery}
@@ -288,6 +288,7 @@ export const CourseCreate = () => {
               Name Of Course:
             </label>
             <input
+              className="inputDetails"
               id="courseName"
               type="text"
               value={courseName}
@@ -299,6 +300,7 @@ export const CourseCreate = () => {
               Number of Holes:
             </label>
             <input
+              className="inputDetails"
               id="numHoles"
               type="number"
               value={numHoles}
@@ -310,6 +312,7 @@ export const CourseCreate = () => {
               Par For Course:
             </label>
             <input
+              className="inputDetails"
               id="par"
               type="number"
               value={parForCourse}
@@ -321,6 +324,7 @@ export const CourseCreate = () => {
               Difficulty:
             </label>
             <select
+              className="inputDetails"
               id="difficulty"
               value={difficultyForCourse}
               onChange={(e) => setDifficulty(e.target.value)}
@@ -336,6 +340,7 @@ export const CourseCreate = () => {
               <h2>Selected Location:</h2>
               <p>Latitude: {clickedLocation.latitude}</p>
               <p>Longitude: {clickedLocation.longitude}</p>
+
               <button
                 onClick={() =>
                   fileInputRef.current && fileInputRef.current.click()

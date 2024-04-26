@@ -52,7 +52,7 @@
 .details-section {
   background-color: rgba(255, 228, 196, 0.692);
   width: 600px;
-  height: 400px;
+  height: auto;
   margin: 75px 300px 0px 0px;
   font-family: "Jersey 10", sans-serif; /* Applying custom font here */
   padding-left: 20px; /* Add padding to the left inside the section */
@@ -63,8 +63,25 @@
   border-radius: 5px; /* Optional: Adding border-radius for aesthetic */
 }
 
-.search-input {
-  font-family: Arial, sans-serif; /* Ensuring the search bar does not use jersey-10 */
+.search-input69 {
+  font-family: "Jersey 10", sans-serif;
+  width: 100%;
+
+  padding: 10px;
+  font-size: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px; /* Space between search input and suggestions */
+  background: #000; /* Dark background */
+
+  color: rgb(255, 255, 255); /* Bright green text, typical of old monitors */
+  border: 2px solid #fff; /* White border */
+  border-radius: 3px; /* Optional: slight rounding to soften edges */
+  text-transform: uppercase;
+  font-size: 20px; /* Larger text to emulate old game displays */
+  box-shadow: 0 0 15px goldenrod; /* Neon-like glow */
+  outline: none; /* Removes the default focus outline */
+  margin-top: 0px;
 }
 
 .field-group {
@@ -130,7 +147,7 @@
   background-color: #fafad2; /* Parchment-like light color */
   border: 2x solid #5c4033; /* Dark brown border */
   color: #5c4033; /* Dark text color for better readability */
-  font-family: "Courier New", Courier, monospace; /* Retro, typewriter-like font */
+  font-family: "Jersey 10"; /* Retro, typewriter-like font */
   padding: 8px 12px;
   border-radius: 5px; /* Slightly rounded corners for a softer look */
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle inset shadow for depth */
@@ -142,7 +159,7 @@
 .input-field select:focus {
   outline: none;
   border-color: #ffbf00; /* Amber focus border */
-  box-shadow: 0 0 0 2px #ffbf00; /* Outer glow effect */
+  box-shadow: 0 0 0 8px #ffbf00; /* Outer glow effect */
 }
 
 /* Styling labels to match the inputs */
@@ -261,4 +278,9 @@
 .create-button:active {
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
   transform: translateY(2px);
+}
+
+.inputDetails {
+  font-family: "Jersey 10";
+  text-transform: uppercase;
 }
