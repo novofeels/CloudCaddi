@@ -368,15 +368,15 @@ export const CourseCreate = () => {
           </button>
         </div>
       </div>
-      <div className="mascot-container">
+      <div className="mascot-container66">
         {displayText ? (
-          <div className="speech-bubble">{displayText}</div>
+          <div className="speech-bubble66">{displayText}</div>
         ) : (
-          <div className="speech-bubble">who turned out the lights?</div>
+          <div className="speech-bubble66">who turned out the lights?</div>
         )}
 
         <img
-          className="mascot-gif"
+          className="mascot-gif66"
           src={isMascotAnimated ? animatedGif : staticGif}
           alt="Mascot"
           onClick={handleMascotClick}

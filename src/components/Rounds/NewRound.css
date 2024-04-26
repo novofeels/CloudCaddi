@@ -50,25 +50,39 @@
 }
 
 .search-and-results {
-  font-family: "Jersey 10", sans-serif;
-  width: 60%; /* Size of the search and results area */
   display: flex;
   flex-direction: column; /* Organize content vertically */
+  font-family: "Jersey 10", sans-serif;
+  width: 60%; /* Size of the search and results area */
+
   max-width: 500px; /* Maximum width to prevent stretching */
 }
 
 .search-input {
   font-family: "Jersey 10", sans-serif;
   width: 100%;
+  height: 70px;
   padding: 10px;
-  font-size: 16px;
+  font-size: 40px;
   border: 2px solid #ccc;
   border-radius: 5px;
   margin-bottom: 20px; /* Space between search input and suggestions */
+  background: #000; /* Dark background */
+
+  color: rgb(255, 255, 255); /* Bright green text, typical of old monitors */
+  border: 2px solid #fff; /* White border */
+  border-radius: 3px; /* Optional: slight rounding to soften edges */
+  text-transform: uppercase;
+  font-size: 25px; /* Larger text to emulate old game displays */
+  box-shadow: 0 0 25px goldenrod; /* Neon-like glow */
+  outline: none; /* Removes the default focus outline */
+  margin-top: 20px;
 }
 
 .suggestions {
-  background: white;
+  background: rgb(104, 99, 99);
+  text-transform: uppercase;
+  color: #fffdfd;
   border: 1px solid #ccc;
   border-top: none;
   z-index: 10;
@@ -89,6 +103,8 @@
 
 .suggestion-item:hover {
   background-color: #f0f0f0;
+  color: black;
+  box-shadow: 0 0 25px rgb(14, 201, 61); /* Neon-like glow */
 }
 
 .course-details {
@@ -100,7 +116,7 @@
   font-size: 18px;
   padding: 20px;
   margin-top: 20px; /* Ensures spacing from suggestions or search bar */
-  margin-right: 66px;
+  margin-right: 80px;
   cursor: url("../../assets/PRECISION.cur"), auto !important;
   transition: all 0.3s;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.322),
@@ -182,6 +198,7 @@
 .NewRoundTitle {
   font-family: "Jersey 10";
   color: goldenrod;
+  font-size: 50px;
 }
 @keyframes pulse {
   0%,
@@ -250,6 +267,7 @@
 
 .container-for-input-and-button {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   margin-right: 41px;
@@ -315,6 +333,8 @@
 }
 
 .create-course-button {
+  display: flex;
+  flex-direction: row;
   background-color: #460c0c; /* Chocolate */
   color: #fafad2; /* Parchment */
   border: 2px solid #979290; /* Dark Brown */
@@ -328,6 +348,7 @@
   text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
   font-weight: bold;
   margin: 10px;
+  width: 66%;
 }
 
 .create-course-button:hover,
@@ -336,6 +357,7 @@
   color: #5c4033; /* Dark Brown */
   border-color: #ffbf00; /* Amber for the border on hover/focus */
   box-shadow: 0 0 8px #ffbf00; /* Glowing effect on hover/focus */
+  transform: translateY(-4px);
 }
 
 /* When the button is active, make it look like it's being pressed */
@@ -346,7 +368,6 @@
 
 .container-for-input-and-button {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 41px;
+
+  margin-right: 65px;
 }

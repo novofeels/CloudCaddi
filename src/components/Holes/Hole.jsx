@@ -247,7 +247,7 @@ export const Hole = ({ currentUser }) => {
   return (
     <div className="div-for-black-background">
       <div className="hole-info-container">
-        <div className="course-title">{thisCourse?.name}</div>
+        <div className="course-title99">{thisCourse?.name}</div>
         <div className="image-carousel-container">
           <img
             className="image-carousel"

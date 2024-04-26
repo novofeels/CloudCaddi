@@ -89,7 +89,7 @@
   margin: 10px;
   height: 450px;
   width: 400px;
-  transition: transform 0.3s ease-in-out;
+  transition: transform all 0.3s ease-in-out;
 }
 
 .hole-card2:hover,
@@ -99,6 +99,7 @@
   border-color: #ffbf00; /* Amber for the border on hover/focus */
   box-shadow: 0 0 8px #ffbf00; /* Glowing effect on hover/focus */
   transform: translateY(-10px);
+  transition: transform all 0.3s ease-in-out;
 }
 
 /* When the button is active, make it look like it's being pressed */
