@@ -16,12 +16,12 @@ export const NewRound = ({ currentUser }) => {
   const [selectedCourse, setSelectedCourse] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [isActive, setIsActive] = useState(false);
-  const [displayedText, setDisplayedText] = useState("Pick your poison");
+  const [displayedText, setDisplayedText] = useState(
+    "Use the search bar to find a course, or create one if you cant find it."
+  );
   const [index, setIndex] = useState(0);
   const [isDriving, setIsDriving] = useState(false);
-  const [textToDisplay, setTextToDisplay] = useState(
-    "Use the search bar to choose a course, or create one if you cant find it"
-  );
+  const [textToDisplay, setTextToDisplay] = useState("Pick your poison");
   const [datePlayed, setDatePlayed] = useState("");
   const [timePlayed, setTimePlayed] = useState("");
   const [volume, setVolume] = useState(0.5);
@@ -62,7 +62,7 @@ export const NewRound = ({ currentUser }) => {
           setDisplayedText((prev) => prev + currentChar);
           setIndex(index + 1);
         },
-        currentChar === " " ? 150 : 50
+        currentChar === " " ? 100 : 50
       );
 
       return () => clearTimeout(timer);
@@ -91,7 +91,7 @@ export const NewRound = ({ currentUser }) => {
     setTimeout(() => {
       setDisplayedText(""); // Clear existing text
       setTextToDisplay(
-        `${course.name}?\\n\\nI'm gonna shower you with so many tips.`
+        `${course.name}?\\n\\n I'm gonna shower you with so many tips.`
       ); // Include newline
       setIndex(0); // Reset index for new animation
       setIsActive(true); // Start animation
@@ -115,7 +115,7 @@ export const NewRound = ({ currentUser }) => {
 
     const apiKey = "76fe7ff7f7752481cc3fd866e54ae92b";
     const url = `https://history.openweathermap.org/data/2.5/history/city?lat=${selectedCourse.lat}&lon=${selectedCourse.long}&type=hour&start=${epochTime}&cnt=1&appid=${apiKey}&units=imperial`;
-
+    debugger;
     const response = await fetch(url);
     const data = await response.json();
 
@@ -175,28 +175,15 @@ export const NewRound = ({ currentUser }) => {
     navigate(`/CourseCreate`);
   };
 
-  const handleVolumeChange = (newVolume) => {
-    setVolume(newVolume);
-    // Adjust volume of the current audio element
-  };
-
   return (
     <div className="div-for-background69">
-      <div className="interactive-area">
-        <input
-          className="slider"
-          type="range"
-          min="0"
-          max="1"
-          step="0.01"
-          value={volume}
-          onChange={(e) => handleVolumeChange(e.target.value)}
-        />
-        <div className="text-bubble">{displayedText}</div>
+      <h1 className="NewRoundTitle">NEW ROUND</h1>
+      <div className="interactive-area7">
+        <div className="text-bubble7">{displayedText}</div>
         <img
           src={isActive ? animatedGif : staticGif}
           alt="Cloud Caddi"
-          className={`cloud-gif ${isActive ? "active" : "inactive"}`}
+          className={`cloud-gif7 ${isActive ? "active" : "inactive"}`}
           onClick={handleStart}
         />
       </div>
@@ -231,11 +218,37 @@ export const NewRound = ({ currentUser }) => {
         {selectedCourse && (
           <div className="course-details">
             <h2>{selectedCourse.name}</h2>
-            <img
-              src={selectedCourse.image}
-              alt={selectedCourse.name}
-              className="course-image"
-            />
+            <div className="that-new-div">
+              <img
+                src={selectedCourse.image}
+                alt={selectedCourse.name}
+                className="course-image"
+              />
+              <div className="another-one">
+                <div className="date-picker">
+                  <label htmlFor="datePlayed">Date Played:</label>
+                  <input
+                    type="date"
+                    id="datePlayed"
+                    value={datePlayed}
+                    onChange={(e) => setDatePlayed(e.target.value)}
+                    className="date-input"
+                  />
+                </div>
+
+                {/* Time picker */}
+                <div className="time-picker">
+                  <label htmlFor="timePlayed">Time Played:</label>
+                  <input
+                    type="time"
+                    id="timePlayed"
+                    value={timePlayed}
+                    onChange={(e) => setTimePlayed(e.target.value)}
+                    className="time-input"
+                  />
+                </div>
+              </div>
+            </div>
             <p>
               <strong>Number of Holes:</strong> {selectedCourse.numOfHoles}
             </p>
@@ -247,28 +260,7 @@ export const NewRound = ({ currentUser }) => {
             </p>
 
             {/* Date picker */}
-            <div className="date-picker">
-              <label htmlFor="datePlayed">Date Played:</label>
-              <input
-                type="date"
-                id="datePlayed"
-                value={datePlayed}
-                onChange={(e) => setDatePlayed(e.target.value)}
-                className="date-input"
-              />
-            </div>
 
-            {/* Time picker */}
-            <div className="time-picker">
-              <label htmlFor="timePlayed">Time Played:</label>
-              <input
-                type="time"
-                id="timePlayed"
-                value={timePlayed}
-                onChange={(e) => setTimePlayed(e.target.value)}
-                className="time-input"
-              />
-            </div>
             <button className="start-round-button" onClick={handleStartRound}>
               START ROUND
             </button>

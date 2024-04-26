@@ -1,326 +1,352 @@
 .div-for-background69 {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    background-image: url('../../assets/newCourseSelectView.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    width: 100vw;
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-image: black;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
 }
 
 .div-for-background69::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%; /* Start from the left beyond the visible area */
-    width: 200%; /* Double the width to cover the entire element as it moves */
-    height: 100%;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 20%, #ffffff 80%, #ffffff 100%);
-    animation: gradientWipe 2s ease-out forwards;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%; /* Start from the left beyond the visible area */
+  width: 200%; /* Double the width to cover the entire element as it moves */
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 20%,
+    #ffffff 80%,
+    #ffffff 100%
+  );
+  animation: gradientWipe 2s ease-out forwards;
 }
 
 @keyframes gradientWipe {
-    from {
-        left: -100%; /* Starts hidden to the left */
-    }
-    to {
-        left: 100%; /* Ends moved out to the right, revealing the content */
-    }
+  from {
+    left: -100%; /* Starts hidden to the left */
+  }
+  to {
+    left: 100%; /* Ends moved out to the right, revealing the content */
+  }
 }
 
-
-.interactive-area {
-    position: relative; /* Establishes a new positioning context */
-    width: 40%;
-    height: 600px; /* Ensuring it contains both text and image comfortably */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* This will help manage spacing if the text bubble changes size */
-    margin-right: 20px;
+.interactive-area7 {
+  width: 600px;
+  max-height: 300px; /* Ensuring it contains both text and image comfortably */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center; /* This will help manage spacing if the text bubble changes size */
+  margin: 0px 0px 10px 0px;
 }
-
 
 .search-and-results {
-    font-family: "Jersey 10", sans-serif;
-    width: 60%; /* Size of the search and results area */
-    display: flex;
-    flex-direction: column; /* Organize content vertically */
-    max-width: 500px; /* Maximum width to prevent stretching */
+  font-family: "Jersey 10", sans-serif;
+  width: 60%; /* Size of the search and results area */
+  display: flex;
+  flex-direction: column; /* Organize content vertically */
+  max-width: 500px; /* Maximum width to prevent stretching */
 }
 
 .search-input {
-    font-family: "Jersey 10", sans-serif;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 20px; /* Space between search input and suggestions */
+  font-family: "Jersey 10", sans-serif;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px; /* Space between search input and suggestions */
 }
 
 .suggestions {
-    background: white;
-    border: 1px solid #ccc;
-    border-top: none;
-    z-index: 10;
-    font-family: "Jersey 10", sans-serif;
+  background: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  z-index: 10;
+  font-family: "Jersey 10", sans-serif;
 }
 
 .suggestion-item {
-    padding: 10px;
-    border-bottom: 1px solid #eee;
-    cursor: pointer;
-    font-family: "Jersey 10", sans-serif;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  font-family: "Jersey 10", sans-serif;
 }
 
 .suggestion-item:last-child {
-    border-bottom: none;
-    font-family: "Jersey 10", sans-serif;
+  border-bottom: none;
+  font-family: "Jersey 10", sans-serif;
 }
 
 .suggestion-item:hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
 .course-details {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: #f5f4f475;
-    font-family: "Jersey 10", sans-serif;
-    font-size: 18px;
-    padding: 20px;
-    margin-top: 20px; /* Ensures spacing from suggestions or search bar */
+  height: auto;
+  border: 2px solid #ffbf00; /* Dark Brown */
+  border-radius: 5px;
+  background: #f5f4f475;
+  font-family: "Jersey 10", sans-serif;
+  font-size: 18px;
+  padding: 20px;
+  margin-top: 20px; /* Ensures spacing from suggestions or search bar */
+  margin-right: 66px;
+  cursor: url("../../assets/PRECISION.cur"), auto !important;
+  transition: all 0.3s;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.322),
+    /* Inner shadow for a pressed button look */ 0 2px 6px rgba(0, 0, 0, 0.2); /* Outer shadow for depth */
+  text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
+}
+
+.course-details:hover,
+.course-details:focus {
+  background-image: none;
+  background-color: #bdf0bd; /* Amber */
+  color: #5c4033; /* Dark Brown */
+  border-color: #000000; /* Amber for the border on hover/focus */
+  box-shadow: 0 0 10px 4px #ffbf00,
+    /* Bright outer glow */ inset 0px 0px 8px rgba(255, 255, 255, 0.3); /* Stronger inner glow */
+  transform: translateY(-5px) !important;
+  transition: transform 0.3s ease-in-out !important;
+  z-index: 10;
+  cursor: url("../../assets/PRECISION.cur"), auto;
+}
+
+/* When the button is active, make it look like it's being pressed */
+.course-details:active {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
+  transform: translateY(2px);
 }
 
 .course-image {
-    width: 100%;
-    height: 200px; /* Fixed height to prevent stretching */
-    object-fit: cover; /* Maintains aspect ratio without stretching */
-    margin-bottom: 20px;
+  margin-right: 20px;
+  width: auto;
+  height: 200px; /* Fixed height to prevent stretching */
+  object-fit: cover; /* Maintains aspect ratio without stretching */
+  margin-bottom: 0px;
 }
 
+.that-new-div {
+  display: flex;
+}
 .course-details h2 {
-    margin-top: 0;
-    font-family: "Jersey 10", sans-serif;
-    font-size: 36px;
+  margin-top: 0;
+  font-family: "Jersey 10", sans-serif;
+  font-size: 36px;
+}
+
+.another-one {
+  display: flex;
+  flex-direction: column;
 }
 
 .course-details p {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
-.text-bubble {
-    font-family: "Jersey 10", sans-serif;
-    white-space: pre-wrap;
-    max-width: 300px;
-    padding: 20px;
-    background-color: #f0f0f073;
-    border-radius: 10px;
-    border: 2px dotted #333;
-    font-family: 'Arial', sans-serif;
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 0px; /* Adds space between the text bubble and the GIF */
+.text-bubble7 {
+  white-space: pre-wrap; /* Maintains whitespace formatting */
+  max-width: 300px;
+  max-height: 120px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  border: 2px solid #333;
+  font-family: "Jersey 10", sans-serif;
+  font-size: 18px;
+  color: #333;
+  margin-top: 20px;
+  cursor: url("../../assets/PRECISION.cur"), auto !important;
 }
 
-.cloud-gif {
-    position: absolute; /* Positioned absolutely within .interactive-area */
-    bottom: 280px; /* Consistently placed at 20px from the bottom */
-    width: 500px; /* Ensure the size is the same for both */
-    height: auto; /* Maintain aspect ratio */
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out, filter 0.3s ease; /* Smooth transitions for effects */
-    filter: brightness(1.1);
-  
+.cloud-gif7 {
+  width: 250px;
+
+  cursor: url("../../assets/LINK SELECT (1).cur"), auto;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease; /* Smooth transitions for effects */
+  filter: brightness(1.1);
 }
 
-.cloud-gif.active, .cloud-gif.inactive {
-    transform: scale(1); /* Ensure the scale is consistent */
+.NewRoundTitle {
+  font-family: "Jersey 10";
+  color: goldenrod;
 }
-
-  
-  @keyframes pulse {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1); /* Slight scale increase */
-    }
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
   }
-  
-  .cloud-gif:hover {
-    filter: brightness(1.15); /* Brighter on hover */
-    transform: scale(1.06) ;
-    animation: none; /* Stop pulsing on hover */
-   
+  50% {
+    transform: scale(1); /* Slight scale increase */
   }
-  
-  
-  /* When GIF is active, no special effects */
-  .cloud-gif.active {
-    animation: none;
-    filter: none;
-  }
-  
-  .cloud-gif:hover::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -75%;
-    width: 50%;
-    height: 100%;
-    background: rgba(224, 218, 218, 0.342);
-    transform: skewX(-20deg);
-    transition: left 0.5s ease-out;
-    left: 125%;  
-  }
-
-  .start-round-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    background-color: #4CAF50; /* Green background */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px; /* Space from the last detail */
-    align-self: center; /* Center the button if the parent is flex */
-    font-family: "Jersey 10", sans-serif;
 }
 
-
-.dim-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7); /* Slightly darker dimming effect */
-    z-index: 999; /* Below the mascot */
-    display: none; /* Initially hidden */
-  }
-  
-  .mascot-driving {
-    position: fixed;
-    bottom: -50px; /* Adjust as needed */
-    right: 100%; /* Start off-screen to the right */
-    z-index: 1000; /* Above the dim background */
-    width: 100%; /* Set the size to 1/4 of its current size */
-    display: none; /* Make sure it's visible when animation starts */
-    
-  }
-  .start-driving {
-    display: block;
-    animation: driveLeft 6s ;
-  }
-  
-  @keyframes driveLeft {
-    0% {
-      right: -150%; /* Starts off-screen to the right */
-      transform: scale(0.33) rotate(0deg); /* Set the scale to 1/4 of its current size */
-    }
-    50% {
-        right: 0%;
-        transform: scale(0.33) rotate(0deg)
-    }
-    100% {
-      right: 90%; /* Ends completely off-screen to the left */
-      transform: scale(0.33) rotate(25deg); /* Keeps the scale consistent throughout */
-    }
-  }
-  
-  .date-picker, .time-picker {
-    margin-bottom: 10px;
-    font-family: "Jersey 10", sans-serif;
+.cloud-gif7:hover {
+  filter: brightness(1.15); /* Brighter on hover */
+  transform: scale(1.06);
+  animation: none; /* Stop pulsing on hover */
 }
 
-.date-input, .time-input {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    display: block;
-    font-family: "Jersey 10", sans-serif;
-    
+/* When GIF is active, no special effects */
+.cloud-gif7.active {
+  animation: none;
+  filter: none;
 }
 
-.label {
-    margin-bottom: 5px;
-    font-weight: bold;
+.cloud-gif7:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(224, 218, 218, 0.342);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease-out;
+  left: 125%;
 }
 
-
-.create-course-button {
-    background-image: linear-gradient(to right, #0a0a0a 0%, #d17e7e 100%);
-    border: none;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    outline: none;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-family: "Jersey 10", sans-serif;
-  
+.start-round-button {
+  background-color: #460c0c; /* Chocolate */
+  color: #fafad2; /* Parchment */
+  border: 2px solid #979290; /* Dark Brown */
+  padding: 10px 20px;
+  cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
+  transition: all 0.3s;
+  font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
+  border-radius: 4px; /* Slightly rounded corners */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.322),
+    /* Inner shadow for a pressed button look */ 0 2px 6px rgba(0, 0, 0, 0.2); /* Outer shadow for depth */
+  text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
+  font-weight: bold;
+  margin: 10px;
 }
 
-.create-course-button:hover, .create-course-button:focus {
-    background-image: linear-gradient(to left, #0d0d0e 0%, #d6a4a4 100%);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-    transform: translateY(-2px);
+.start-round-button:hover,
+.start-round-button:focus {
+  background-color: #ffbf00; /* Amber */
+  color: #5c4033; /* Dark Brown */
+  border: 3px solid #460c0c; /* Amber for the border on hover/focus */
+  box-shadow: 0 0 8px #460c0c; /* Glowing effect on hover/focus */
 }
 
-.create-course-button:active {
-    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.2);
-    transform: translateY(1px);
+/* When the button is active, make it look like it's being pressed */
+.start-round-button:active {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
+  transform: translateY(2px);
 }
 
 .container-for-input-and-button {
-    display: flex
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 41px;
 }
 
-.slider {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 50%;
-    height: 6px;
-    background: #c19a6b; /* Sepia tone for the track */
-    outline: none;
-    opacity: 0.8;
-    transition: opacity .2s;
-    filter: sepia(100%);
+.dim-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Slightly darker dimming effect */
+  z-index: 999; /* Below the mascot */
+  display: none; /* Initially hidden */
 }
 
-.slider:hover {
-    opacity: 1;
+.mascot-driving {
+  position: fixed;
+  bottom: -50px; /* Adjust as needed */
+  right: 100%; /* Start off-screen to the right */
+  z-index: 1000; /* Above the dim background */
+  width: 100%; /* Set the size to 1/4 of its current size */
+  display: none; /* Make sure it's visible when animation starts */
+}
+.start-driving {
+  display: block;
+  animation: driveLeft 6s;
 }
 
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    background: #efe1d1; /* Lighter sepia tone for the thumb */
-    cursor: pointer;
-    border-radius: 50%;
-    border: 2px solid #b28660; /* Darker sepia border for contrast */
-    filter: sepia(100%);
+@keyframes driveLeft {
+  0% {
+    right: -150%; /* Starts off-screen to the right */
+    transform: scale(0.33) rotate(0deg); /* Set the scale to 1/4 of its current size */
+  }
+  50% {
+    right: 0%;
+    transform: scale(0.33) rotate(0deg);
+  }
+  100% {
+    right: 90%; /* Ends completely off-screen to the left */
+    transform: scale(0.33) rotate(25deg); /* Keeps the scale consistent throughout */
+  }
 }
 
-.slider::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
-    background: #efe1d1; /* Lighter sepia tone for the thumb */
-    cursor: pointer;
-    border-radius: 50%;
-    border: 2px solid #b28660; /* Darker sepia border for contrast */
-    filter: sepia(100%);
+.date-picker,
+.time-picker {
+  margin-bottom: 10px;
+  font-family: "Jersey 10", sans-serif;
+}
+
+.date-input,
+.time-input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: block;
+  font-family: "Jersey 10", sans-serif;
+}
+
+.label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.create-course-button {
+  background-color: #460c0c; /* Chocolate */
+  color: #fafad2; /* Parchment */
+  border: 2px solid #979290; /* Dark Brown */
+  padding: 10px 20px;
+  cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
+  transition: all 0.3s;
+  font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
+  border-radius: 4px; /* Slightly rounded corners */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.322),
+    /* Inner shadow for a pressed button look */ 0 2px 6px rgba(0, 0, 0, 0.2); /* Outer shadow for depth */
+  text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
+  font-weight: bold;
+  margin: 10px;
+}
+
+.create-course-button:hover,
+.create-course-button:focus {
+  background-color: #ffbf00; /* Amber */
+  color: #5c4033; /* Dark Brown */
+  border-color: #ffbf00; /* Amber for the border on hover/focus */
+  box-shadow: 0 0 8px #ffbf00; /* Glowing effect on hover/focus */
+}
+
+/* When the button is active, make it look like it's being pressed */
+.create-course-button:active {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
+  transform: translateY(2px);
+}
+
+.container-for-input-and-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 41px;
 }

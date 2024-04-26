@@ -1,0 +1,86 @@
+<input
+className="slider"
+type="range"
+min="0"
+max="1"
+step="0.01"
+value={volume}
+onChange={(e) => handleVolumeChange(e.target.value)}
+/>
+
+const handleVolumeChange = (newVolume) => {
+    setVolume(newVolume);
+    // Adjust volume of the current audio element
+  };
+
+  const [volume, setVolume] = useState(0.5);
+
+
+  .slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 50%;
+    height: 6px;
+    background: #c19a6b; /* Sepia tone for the track */
+    outline: none;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    filter: sepia(100%);
+  }
+  
+  .slider:hover {
+    opacity: 1;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #efe1d1; /* Lighter sepia tone for the thumb */
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #b28660; /* Darker sepia border for contrast */
+    filter: sepia(100%);
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #efe1d1; /* Lighter sepia tone for the thumb */
+    cursor: pointer;
+    border-radius: 50%;
+    border: 2px solid #b28660; /* Darker sepia border for contrast */
+    filter: sepia(100%);
+  }
+
+
+  .create-course-button {
+    background-color: #460c0c; /* Chocolate */
+    color: #fafad2; /* Parchment */
+    border: 2px solid #979290; /* Dark Brown */
+    padding: 10px 20px;
+    cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
+    transition: all 0.3s;
+    font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
+    border-radius: 4px; /* Slightly rounded corners */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.322),
+      /* Inner shadow for a pressed button look */ 0 2px 6px rgba(0, 0, 0, 0.2); /* Outer shadow for depth */
+    text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
+    font-weight: bold;
+    margin: 10px;
+  }
+  
+  .create-course-button:hover,
+  .create-course-button:focus {
+    background-color: #ffbf00; /* Amber */
+    color: #5c4033; /* Dark Brown */
+    border-color: #ffbf00; /* Amber for the border on hover/focus */
+    box-shadow: 0 0 8px #ffbf00; /* Glowing effect on hover/focus */
+  }
+  
+  /* When the button is active, make it look like it's being pressed */
+  .create-course-button:active {
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
+    transform: translateY(2px);
+  }

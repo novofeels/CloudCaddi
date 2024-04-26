@@ -96,8 +96,10 @@ export const CourseList = () => {
           <Link to={`/CourseDetails/${course.id}`} className="hole-card-link">
             <div key={course.id} className="hole-card2">
               <div className="hole-info">
-                <h2> {course.name}</h2>
+                <h2 className="card-header"> {course.name}</h2>
+
                 <p> par: {course.par}</p>
+
                 <p> difficulty: {course.difficulty} </p>
               </div>
               {course.image && (
