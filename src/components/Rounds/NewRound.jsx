@@ -198,7 +198,7 @@ export const NewRound = ({ currentUser }) => {
             className="search-input"
           />
           <button className="create-course-button" onClick={handleCreateCourse}>
-            Create New Course
+            Create Course
           </button>
         </div>
         {filteredCourses.length > 0 && (
