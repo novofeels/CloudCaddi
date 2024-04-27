@@ -1,4 +1,4 @@
-.create-hole-container {
+.create-hole-container2 {
   color: goldenrod;
   background-color: black;
   height: 100vh;
@@ -13,6 +13,7 @@
   animation: zoomOutFadeInRotate 2s cubic-bezier(0.23, 0.6, 0.32, 1) forwards;
   perspective: 1500px;
 }
+
 @keyframes zoomOutFadeInRotate {
   0% {
     opacity: 0;
@@ -27,7 +28,7 @@
   }
 }
 
-.form-section2 {
+.form-section3 {
   padding: 10px;
   margin: 200px;
   border: 2px dotted black;
@@ -47,6 +48,25 @@
   margin: 10px 10px 10px -10px;
   border-right: solid 3px #ccc; /* Darker right border for depth */
   border-bottom: solid 3px #ccc;
+
+  transition: all 0.3s;
+}
+@keyframes shootOff {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(1000px) scale(0);
+  }
+}
+.form-section3.shoot-off {
+  animation: shootOff 1s ease-out forwards;
 }
 
 .image-section {
@@ -131,7 +151,8 @@
 
 .centerThis {
   margin-left: 140px;
-  font-size: 25px;
+  font-size: 35px;
+  font-family: "Jersey 10";
 }
 
 .parInputField {
@@ -147,7 +168,7 @@
 }
 
 .centerThis2 {
-  justify-self: center;
-  font-size: 45px;
   font-family: "Jersey 10";
+  justify-self: center;
+  margin-left: 100px;
 }

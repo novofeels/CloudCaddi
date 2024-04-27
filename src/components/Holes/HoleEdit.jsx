@@ -1,58 +1,78 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
+  EditHole,
   createHole,
   createHolyHoleDescriptions,
+  deleteHolyHoleDescriptionsById,
   getAllHoleDescriptions,
+  getHoleByIdWithEmbed,
+  getHolyHoleDescriptionsByHoleId,
 } from "../../services/HoleService";
-import "./CreateHole.css"; // Import the CSS file
+import "./HoleEdit.css"; // Import the CSS file
 import { getCourseById } from "../../services/CourseService";
 
-export const CreateHole = () => {
-  const { courseId, holeNum } = useParams();
+export const HoleEdit = () => {
+  const { courseId, holeId } = useParams();
   const navigate = useNavigate();
   const [holeDescriptions, setHoleDescriptions] = useState([]);
   const [par, setPar] = useState("");
   const [distance, setDistance] = useState("");
   const [selectedDescriptions, setSelectedDescriptions] = useState([]);
-  const [animate, setAnimate] = useState(false);
-
+  const [thisHole, setThisHole] = useState();
   const [fileURL, setFileURL] = useState(null);
   const [thisCourse, setThisCourse] = useState({});
+  const [descriptionsForDelete, setDescriptionsForDelete] = useState([]);
+  const [animate, setAnimate] = useState(false);
   const fileInputRef = useRef(null);
 
   useEffect(() => {
+    getHolyHoleDescriptionsByHoleId(parseInt(holeId)).then((descObjs) =>
+      setDescriptionsForDelete(descObjs)
+    );
+    getHoleByIdWithEmbed(parseInt(holeId)).then((holeObj) =>
+      setThisHole(holeObj)
+    );
     getAllHoleDescriptions().then(setHoleDescriptions);
     getCourseById(parseInt(courseId)).then((courseObj) =>
       setThisCourse(courseObj)
     );
-
-    console.log(holeNum);
-  }, [holeNum, courseId]);
+  }, [courseId, holeId]);
 
   useEffect(() => {
-    console.log(thisCourse);
-  }, [thisCourse]);
-  const handleCreateHole = async () => {
+    if (thisCourse && thisHole) {
+      setPar(thisHole.par);
+      setDistance(thisHole.distance);
+      setFileURL(thisHole.image);
+      const descriptionIds = thisHole.holyHoleDescriptions.map(
+        (desc) => desc.holeDescriptionId
+      );
+      setSelectedDescriptions(descriptionIds);
+    }
+  }, [thisCourse, thisHole]);
+
+  const handleHoleEdit = async () => {
     try {
+      descriptionsForDelete.map((desc) =>
+        deleteHolyHoleDescriptionsById(desc.id)
+      );
       const holeData = {
         courseId: parseInt(courseId),
-        holeNumber: parseInt(holeNum),
+        holeNumber: thisHole.holeNumber,
         par: parseInt(par),
         distance: parseInt(distance),
         image: fileURL,
       };
 
-      const holeResponse = await createHole(holeData);
-      const holeId = (await holeResponse.json()).id;
+      await EditHole(holeData, thisHole.id);
 
       await Promise.all(
-        selectedDescriptions.map((descriptionId) => {
-          return createHolyHoleDescriptions({
-            holeId,
+        selectedDescriptions.map((descriptionId) =>
+          createHolyHoleDescriptions({
+            holeId: thisHole.id, // Assuming thisHole.id is the ID of the hole
             holeDescriptionId: descriptionId,
-          });
-        })
+          })
+        )
       );
 
       // Reset states
@@ -61,12 +81,12 @@ export const CreateHole = () => {
       setSelectedDescriptions([]);
 
       setFileURL(null);
-
-      const nextHoleNum = parseInt(holeNum) + 1;
-
       setAnimate(true);
 
-      navigate(`/CourseCreate/${courseId}/${nextHoleNum}`);
+      // Set a timer to navigate after the animation completes
+      setTimeout(() => {
+        navigate(`/CourseDetails/${parseInt(courseId)}`);
+      }, 1000); // Assuming the animation duration is 1 second
     } catch (error) {
       console.error("Error creating hole:", error);
     }
@@ -111,48 +131,13 @@ export const CreateHole = () => {
     fileInputRef.current.click();
   };
 
-  const handleFinish = async () => {
-    try {
-      const holeData = {
-        courseId: parseInt(courseId),
-        holeNumber: parseInt(holeNum),
-        par: parseInt(par),
-        distance: parseInt(distance),
-        image: fileURL,
-      };
-
-      const holeResponse = await createHole(holeData);
-      const holeId = (await holeResponse.json()).id;
-
-      await Promise.all(
-        selectedDescriptions.map((descriptionId) => {
-          return createHolyHoleDescriptions({
-            holeId,
-            holeDescriptionId: descriptionId,
-          });
-        })
-      );
-
-      // Reset states
-      setPar("");
-      setDistance("");
-      setSelectedDescriptions([]);
-
-      setFileURL(null);
-
-      const nextHoleNum = parseInt(holeNum) + 1;
-      navigate(`/CourseList`);
-    } catch (error) {
-      console.error("Error creating hole:", error);
-    }
-  };
-  if (thisCourse) {
+  if (thisCourse && thisHole) {
     console.log(thisCourse);
     return (
-      <div className="create-hole-container" key={holeNum}>
-        <div className="form-section2">
+      <div className="create-hole-container2" key={holeId}>
+        <div className={`form-section3 ${animate ? "shoot-off" : ""}`}>
           <h2 className="centerThis2">{thisCourse.name}</h2>
-          <h2 className="centerThis">Hole {holeNum}</h2>
+          <h2 className="centerThis">Hole {thisHole.holeNumber}</h2>
           <div className="form-field">
             <label className="parLabel">Par:</label>
             <input
@@ -217,15 +202,9 @@ export const CreateHole = () => {
               </div>
             </div>
           </div>
-          {parseInt(holeNum) === thisCourse[0]?.numOfHoles ? (
-            <button className="button" onClick={handleFinish}>
-              Finish Course Creation
-            </button>
-          ) : (
-            <button className="button" onClick={handleCreateHole}>
-              Create Next Hole
-            </button>
-          )}
+          <button className="button" onClick={() => handleHoleEdit()}>
+            EDIT HOLE
+          </button>
         </div>
       </div>
     );

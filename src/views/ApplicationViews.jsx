@@ -12,6 +12,7 @@ import { CourseList } from "../components/Courses/CourseList";
 import { RoundList } from "../components/Rounds/RoundList";
 import { Analytics } from "../components/Analytics/Analytics";
 import { CourseDetails } from "../components/Courses/CourseDetails";
+import { HoleEdit } from "../components/Holes/HoleEdit";
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -57,6 +58,7 @@ export const ApplicationViews = () => {
               path="/CourseDetails/:courseId"
               element={<CourseDetails />}
             />
+            <Route path="/HoleEdit/:courseId/:holeId" element={<HoleEdit />} />
           </Route>
         </Routes>
       </div>
