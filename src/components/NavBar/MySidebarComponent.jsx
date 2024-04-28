@@ -9,7 +9,6 @@ import {
 } from "cdbreact";
 import { NavLink, useNavigate } from "react-router-dom";
 import "./MySidebarComponent.css";
-
 export const SideBarComponent = () => {
   const navigate = useNavigate();
 

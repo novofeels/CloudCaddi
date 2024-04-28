@@ -17,9 +17,58 @@
 .course-title2 {
   font-family: "Jersey 10";
   text-align: center;
-  margin-bottom: 20px;
+  margin-top: 20px;
 
-  font-size: 55px !important;
+  color: white;
+  font-size: 60px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.-title2 {
+  font-family: "Jersey 10", cursive;
+  font-size: 48px;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(to right, #ff0000, #00ff00, #0000ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
 }
 
 .interactive-area5 {
@@ -77,12 +126,14 @@
   background-image: linear-gradient(to bottom right, #243a08, #335211);
   color: #fafad2; /* Parchment */
   border: 2px solid #2c9191; /* Dark Brown */
+  border-top: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
   padding: 10px 20px;
   cursor: url("../../assets/PRECISION.cur"), auto !important;
   transition: all 0.3s;
   font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
   border-radius: 4px; /* Slightly rounded corners */
-  box-shadow: 0 4px #ddd, 0 -4px #ddd, 4px 0 #ddd, -4px 0 #ddd,
+  box-shadow: 0 4px #2c9191, 0 -4px #2c9191, 4px 0 #ddd, -4px 0 #ddd,
     /* Inner shadow for a pressed button look */ 0 2px 6px rgba(0, 0, 0, 0.2); /* Outer shadow for depth */
   text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
   font-weight: bold;
@@ -99,7 +150,7 @@
   color: #5c4033; /* Dark Brown */
 
   border-color: #ffffff; /* Amber for the border on hover/focus */
-  box-shadow: 0 0 28px #ffbf00; /* Glowing effect on hover/focus */
+  box-shadow: 0 0 50px #ffbf00; /* Glowing effect on hover/focus */
   transform: translateY(-10px);
   transition: transform all 0.3s ease-in-out;
 }
@@ -123,6 +174,8 @@
 }
 
 .filters {
+  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+    -1px 1px 0 #000; /* Multiple shadows for bold effect */
   display: flex;
   justify-content: center;
 }
