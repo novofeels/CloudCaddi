@@ -225,26 +225,26 @@ export const NewRound = ({ currentUser }) => {
                 className="course-image"
               />
               <div className="another-one">
-                <div className="date-picker">
+                <div className="date-picker2">
                   <label htmlFor="datePlayed">Date Played:</label>
                   <input
                     type="date"
                     id="datePlayed"
                     value={datePlayed}
                     onChange={(e) => setDatePlayed(e.target.value)}
-                    className="date-input"
+                    className="date-input2"
                   />
                 </div>
 
                 {/* Time picker */}
-                <div className="time-picker">
+                <div className="time-picker2">
                   <label htmlFor="timePlayed">Time Played:</label>
                   <input
                     type="time"
                     id="timePlayed"
                     value={timePlayed}
                     onChange={(e) => setTimePlayed(e.target.value)}
-                    className="time-input"
+                    className="time-input2"
                   />
                 </div>
               </div>

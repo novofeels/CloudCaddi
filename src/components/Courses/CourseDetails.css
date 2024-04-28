@@ -2,7 +2,7 @@
 .course-details-container2 {
   color: gold;
   font-family: "Jersey 10", cursive; /* This font mimics old video game text */
-  animation: fadeIn 1.5s ease-out forwards;
+  animation: fadeIn 3s ease-out forwards;
 }
 
 .course-title68 {
@@ -74,8 +74,8 @@
   transition: all 0.3s;
   font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
   border-radius: 4px; /* Slightly rounded corners */
-  box-shadow: -10px 0 15px -3px rgba(0, 0, 0, 0.7),
-    /* Deep left shadow for depth */ 3px 3px 5px rgba(0, 0, 0, 0.2),
+  box-shadow: -10px 0 25px -3px rgba(0, 0, 0, 0.7),
+    /* Deep left shadow for depth */ 5px 5px 7px rgba(0, 0, 0, 0.2),
     /* Subtle regular shadow */ inset 0px 0px 8px rgba(255, 255, 255, 0.2);
   text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
   font-weight: bold;
@@ -143,12 +143,12 @@
     opacity: 1;
   }
   100% {
-    transform: rotateY(360deg) scale(3);
-    opacity: 0.2;
+    transform: rotateY(360deg) scale(6) translate(-25%, -25%);
+    opacity: 0;
   }
 }
 
 .hole-card.zoom-spin {
-  animation: zoomAndSpin 1s forwards;
+  animation: zoomAndSpin 2s forwards;
   z-index: 100; /* Ensure it's above other elements */
 }
