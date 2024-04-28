@@ -39,7 +39,7 @@ export const CourseDetails = () => {
       // Example: navigate to another route
       navigate(`/HoleEdit/${thisCourse.id}/${hole.id}`);
       // Reset state if staying on the same page
-    }, 700); // Match the duration of the animation
+    }, 1000); // Match the duration of the animation
   };
 
   if (thisCourse) {

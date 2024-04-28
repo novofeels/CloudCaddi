@@ -74,15 +74,15 @@
 }
 
 .hole-card2 {
-  background-color: #2b460c; /* Chocolate */
+  background-image: linear-gradient(to bottom right, #243a08, #335211);
   color: #fafad2; /* Parchment */
-  border: 2px solid #979290; /* Dark Brown */
+  border: 2px solid #2c9191; /* Dark Brown */
   padding: 10px 20px;
   cursor: url("../../assets/PRECISION.cur"), auto !important;
   transition: all 0.3s;
   font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
   border-radius: 4px; /* Slightly rounded corners */
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.322),
+  box-shadow: 0 4px #ddd, 0 -4px #ddd, 4px 0 #ddd, -4px 0 #ddd,
     /* Inner shadow for a pressed button look */ 0 2px 6px rgba(0, 0, 0, 0.2); /* Outer shadow for depth */
   text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
   font-weight: bold;
@@ -94,10 +94,12 @@
 
 .hole-card2:hover,
 .hole-card2:focus {
+  background-image: none;
   background-color: #ffbf00; /* Amber */
   color: #5c4033; /* Dark Brown */
-  border-color: #ffbf00; /* Amber for the border on hover/focus */
-  box-shadow: 0 0 8px #ffbf00; /* Glowing effect on hover/focus */
+
+  border-color: #ffffff; /* Amber for the border on hover/focus */
+  box-shadow: 0 0 28px #ffbf00; /* Glowing effect on hover/focus */
   transform: translateY(-10px);
   transition: transform all 0.3s ease-in-out;
 }
@@ -157,4 +159,40 @@
 
 .card-header {
   font-weight: bolder;
+}
+
+.hole-card2.zoom-spin {
+  animation: pixelateOut 2s forwards;
+}
+@keyframes pixelateOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.filters.zoom-spin,
+.interactive-area5.zoom-spin,
+.course-title2.zoom-spin {
+  animation: fadeout 1.7s forwards;
+
+  @keyframes fadeout {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 }

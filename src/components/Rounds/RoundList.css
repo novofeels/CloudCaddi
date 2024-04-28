@@ -1,84 +1,10 @@
-/* Base container styling */
-.course-list-container {
-  background-color: #000000; /* Dark background for contrast */
-  color: #f0db4f; /* Golden text typical in retro games */
-  font-family: "Jersey 10", cursive; /* Pixelated font, ensure it's loaded in your CSS */
-  text-align: center;
-  padding: 20px;
+/* CourseDetails.css */
+.round-details-container {
+  background-color: black;
+  color: gold;
+  font-family: "Press Start 2P", cursive; /* This font mimics old video game text */
+  animation: fadeIn 1.5s;
 }
-
-/* Interactive area with the mascot and text bubble */
-.interactive-area2 {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background: #333; /* Darker background for interactive area */
-  border: 1px solid #f0db4f; /* Golden border */
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-.text-bubble2 {
-  background-color: #444; /* Slightly lighter background for the text bubble */
-  color: #f0db4f;
-  padding: 10px;
-  border: 1px solid #f0db4f;
-  border-radius: 5px;
-  width: 70%;
-  font-size: 0.8em;
-}
-
-.cloud-gif2 {
-  width: 100px; /* Adjust based on your assets */
-  height: auto;
-  cursor: pointer; /* Indicates it's clickable */
-  filter: drop-shadow(2px 2px 0 #000); /* Sharp black shadow for depth */
-}
-
-/* Rounds display container */
-.rounds-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
-.round-card {
-  background: #252525;
-  border: 2px solid #f0db4f;
-  border-radius: 8px;
-  padding: 10px;
-  cursor: pointer;
-  transition: transform 0.2s; /* Smooth scaling on hover */
-}
-
-.round-card:hover {
-  transform: scale(1.05); /* Slight scale to emphasize interactivity */
-}
-
-.round-info h2,
-.round-info p {
-  margin: 5px 0;
-}
-
-.edit-view-button {
-  background-color: #0078d7; /* Blue that stands out */
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  margin-top: 10px;
-  cursor: pointer;
-  font-size: 0.8em;
-  transition: background-color 0.2s;
-}
-
-.edit-view-button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-}
-
-/* Ensure fonts and icons are loaded in your project */
 
 @keyframes fadeIn {
   from {
@@ -87,4 +13,216 @@
   to {
     opacity: 1;
   }
+}
+.round-title2 {
+  font-family: "Jersey 10";
+  text-align: center;
+  margin-bottom: 20px;
+
+  font-size: 55px !important;
+}
+
+.interactive-area79 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.text-bubble79 {
+  white-space: pre-wrap; /* Maintains whitespace formatting */
+  max-width: 300px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  border: 2px solid #333;
+  font-family: "Jersey 10", sans-serif;
+  font-size: 18px;
+  color: #333;
+  margin-top: 20px;
+}
+
+.text-bubble79:hover {
+  cursor: url("../../assets/PRECISION.cur"), auto !important;
+}
+
+.text-bubble79::after {
+  content: "";
+  position: absolute;
+  bottom: -10px; /* Adjust this value to move the tip up or down */
+  left: 50px; /* Adjust this value to move the tip left or right */
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #f0f0f0;
+  border-bottom: 0;
+  margin-left: -10px;
+  margin-bottom: -10px;
+}
+
+.mascot-gif79 {
+  width: 250px;
+  cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
+}
+
+.rounds-container2 {
+  display: grid;
+  margin: 0px 100px;
+  grid-template-columns: repeat(3, 1fr); /* This creates three equal columns */
+  grid-gap: 10px; /* Space between the cards */
+  padding: 20px; /* Padding around the entire grid for better spacing */
+}
+
+.round-card2 {
+  background-color: #0a380d; /* Chocolate */
+  color: #fafad2; /* Parchment */
+  border: 3px solid #ffc107; /* Amber */
+  padding: 10px 20px;
+  cursor: url("../../assets/PRECISION.cur"), auto !important;
+  transition: all 0.3s;
+  font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
+  border-radius: 4px; /* Slightly rounded corners */
+  box-shadow: 0 4px #ddd, 0 -4px #ddd, 4px 0 #ddd, -4px 0 #ddd;
+  text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
+  font-weight: bold;
+  margin: 10px;
+  height: 450px;
+  width: 400px;
+  transition: transform all 0.3s ease-in-out;
+}
+@keyframes pixelateOut {
+  0% {
+    transform: scale(1) rotateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1) rotateY(0); /* Scale up to create a pixelating effect */
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0) rotateY(360deg) translate(-25%, -25%);
+    opacity: 0;
+  }
+}
+@keyframes zoomAndSpin {
+  0% {
+    transform: rotateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateY(720deg) scale(6) translate(-25%, -25%);
+    opacity: 0;
+  }
+}
+.date-picker-container.zoom-spin,
+.interactive-area79.zoom-spin,
+.round-title2.zoom-spin {
+  animation: fadeout 1.7s forwards;
+}
+@keyframes fadeout {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.round-card2.zoom-spin {
+  animation: pixelateOut 2s forwards;
+}
+
+.round-card2:hover,
+.round-card2:focus {
+  background-color: #49e6d8; /* Amber */
+  color: #5c4033; /* Dark Brown */
+  border-color: rgb(122, 103, 103); /* Amber for the border on hover/focus */
+  box-shadow: 0 0 40px #ffbf00; /* Glowing effect on hover/focus */
+  transform: translateY(-10px);
+  transition: transform all 0.3s ease-in-out;
+}
+
+/* When the button is active, make it look like it's being pressed */
+.round-card2:active {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
+  transform: translateY(2px);
+}
+
+.round-info h2,
+.round-info p {
+  margin: 5px 0;
+}
+
+.round-image {
+  height: 50%; /* Ensure images take up the full card width */
+  margin: 15px 40px;
+  border-top: 1px solid #979290; /* Line between the image and text */
+  margin-bottom: 10px; /* Space below the image */
+}
+
+.filter-button {
+  background-color: #460c0c; /* Chocolate */
+  color: #fafad2; /* Parchment */
+  border: 2px solid #979290; /* Dark Brown */
+  padding: 10px 20px;
+  cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
+  transition: all 0.3s;
+  font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
+  border-radius: 4px; /* Slightly rounded corners */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.322),
+    /* Inner shadow for a pressed button look */ 0 2px 6px rgba(0, 0, 0, 0.2); /* Outer shadow for depth */
+  text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
+  font-weight: bold;
+  margin: 10px;
+}
+
+.filter-button:hover,
+.filter-button:focus {
+  background-color: #ffbf00; /* Amber */
+  color: #5c4033; /* Dark Brown */
+  border-color: #ffbf00; /* Amber for the border on hover/focus */
+  box-shadow: 0 0 8px #ffbf00; /* Glowing effect on hover/focus */
+}
+
+/* When the button is active, make it look like it's being pressed */
+.filter-button:active {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
+  transform: translateY(2px);
+}
+
+.round-header {
+  font-size: 24px;
+}
+
+.new-div-forp {
+  display: flex;
+  flex-direction: row;
+}
+
+.new-div-forp2 {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 5px 5px 5px;
+}
+.new-div-forp3 {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 5px 5px 15px;
+}
+
+.make-it-smaller {
+  font-size: 12px;
+}
+
+.date-picker-container {
+  margin-left: 750px;
+}
+
+.date-picker {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }

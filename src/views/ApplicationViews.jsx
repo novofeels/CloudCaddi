@@ -13,6 +13,7 @@ import { RoundList } from "../components/Rounds/RoundList";
 import { Analytics } from "../components/Analytics/Analytics";
 import { CourseDetails } from "../components/Courses/CourseDetails";
 import { HoleEdit } from "../components/Holes/HoleEdit";
+import { RoundDetails } from "../components/Rounds/RoundDetails";
 
 export const ApplicationViews = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -59,6 +60,7 @@ export const ApplicationViews = () => {
               element={<CourseDetails />}
             />
             <Route path="/HoleEdit/:courseId/:holeId" element={<HoleEdit />} />
+            <Route path="/RoundDetails/:roundId" element={<RoundDetails />} />
           </Route>
         </Routes>
       </div>

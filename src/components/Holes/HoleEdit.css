@@ -58,11 +58,11 @@
   }
   50% {
     opacity: 0.5;
-    transform: scale(0);
+    transform: scale(0) translateY(650px);
   }
   100% {
     opacity: 0;
-    transform: translateX(1000px) scale(0);
+    transform: scale(0) translateY(-200px);
   }
 }
 .form-section3.shoot-off {
@@ -170,5 +170,5 @@
 .centerThis2 {
   font-family: "Jersey 10";
   justify-self: center;
-  margin-left: 100px;
+  margin: 0px 100px;
 }

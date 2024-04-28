@@ -19,6 +19,7 @@ export const CourseList = () => {
   const [textToDisplay, setTextToDisplay] = useState(displayedText);
   const beepRef = useRef(null);
   const [mascotImage, setMascotImage] = useState(staticGif);
+  const [isZoomed, setIsZoomed] = useState(false);
 
   useEffect(() => {
     getAllCourses().then((courses) => {
@@ -63,15 +64,21 @@ export const CourseList = () => {
     setDisplayedText("");
     setIsActive(true);
   };
-
-  const handleCardClick = (courseId) => {
-    event.preventDefault();
-    navigate(`/CourseDetails/${courseId}`);
+  const handleCardClick = (course) => {
+    setIsZoomed(true);
+    // Optionally handle navigation or other actions after animation ends
+    setTimeout(() => {
+      // Example: navigate to another route
+      navigate(`/CourseDetails/${course.id}`);
+      // Reset state if staying on the same page
+    }, 2000); // Match the duration of the animation
   };
   return (
     <div className="course-details-container">
-      <h1 className="course-title2">COURSES</h1>
-      <div className="interactive-area5">
+      <h1 className={`course-title2 ${isZoomed ? "zoom-spin" : ""}`}>
+        COURSES
+      </h1>
+      <div className={`interactive-area5 ${isZoomed ? "zoom-spin" : ""}`}>
         <div className="text-bubble5">{displayedText}</div>
         <img
           src={isActive ? animatedGif : staticGif}
@@ -80,7 +87,7 @@ export const CourseList = () => {
           onClick={handleMascotClick}
         />
       </div>
-      <div className="filters">
+      <div className={`filters ${isZoomed ? "zoom-spin" : ""}`}>
         {["all", "easy", "moderate", "difficult"].map((difficulty) => (
           <button
             key={difficulty}
@@ -93,24 +100,26 @@ export const CourseList = () => {
       </div>
       <div className="holes-container2">
         {filteredCourses.map((course) => (
-          <Link to={`/CourseDetails/${course.id}`} className="hole-card-link">
-            <div key={course.id} className="hole-card2">
-              <div className="hole-info">
-                <h2 className="card-header"> {course.name}</h2>
+          <div
+            key={course.id}
+            className={`hole-card2 ${isZoomed ? "zoom-spin" : ""}`}
+            onClick={() => handleCardClick(course)}
+          >
+            <div className="hole-info">
+              <h2 className="card-header"> {course.name}</h2>
 
-                <p> par: {course.par}</p>
+              <p> par: {course.par}</p>
 
-                <p> difficulty: {course.difficulty} </p>
-              </div>
-              {course.image && (
-                <img
-                  src={course.image}
-                  alt={`NOT FOUND`}
-                  className="hole-image"
-                />
-              )}
+              <p> difficulty: {course.difficulty} </p>
             </div>
-          </Link>
+            {course.image && (
+              <img
+                src={course.image}
+                alt={`NOT FOUND`}
+                className="hole-image"
+              />
+            )}
+          </div>
         ))}
       </div>
     </div>

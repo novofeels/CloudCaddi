@@ -312,14 +312,14 @@
   }
 }
 
-.date-picker,
-.time-picker {
+.date-picker2,
+.time-picker2 {
   margin-bottom: 10px;
   font-family: "Jersey 10", sans-serif;
 }
 
-.date-input,
-.time-input {
+.date-input2,
+.time-input2 {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
