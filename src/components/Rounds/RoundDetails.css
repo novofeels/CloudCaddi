@@ -1,0 +1,86 @@
+.round-details-scorecard {
+  background-color: #0a380d; /* Chocolate */
+  color: #fafad2; /* Parchment */
+  border: 3px solid #ddd; /* Amber */
+
+  font-family: "Jersey 10", sans-serif; /* Update to your game's font */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 300px 0px 300px;
+  box-shadow: 0 0 50px #ffbf00; /* Glowing effect on hover/focus */
+  border-radius: 10px;
+}
+
+.round-details-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px; /* Adds space between the rows */
+}
+
+.round-details-header {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 2.1rem;
+  color: rgb(255, 255, 255);
+  min-width: 100px; /* Ensures headers have enough space */
+  text-align: center;
+  text-shadow: -2px -2px 0 goldenrod, 2px -2px 0 goldenrod, -2px 2px 0 goldenrod,
+    2px 2px 0 goldenrod; /* Creates a white outline */
+}
+
+.round-details-hole-number,
+.round-details-strokes {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: black;
+  color: white;
+  margin: 5px;
+  border: 2px solid goldenrod; /* Adds border */
+  border-radius: 5px;
+}
+
+.round-details-interactive-area {
+  margin-left: 500px;
+  display: flex;
+
+  margin-top: 20px;
+  padding: 10px;
+
+  position: relative;
+  width: calc(100% - 40px); /* Adjust width based on padding */
+}
+
+.round-details-mascot-gif {
+  width: 250px;
+}
+
+.round-details-text-bubble {
+  white-space: pre-wrap; /* Maintains whitespace formatting */
+  max-width: 300px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  border: 2px solid #333;
+  font-family: "Jersey 10", sans-serif;
+  font-size: 18px;
+  color: #333;
+  margin-top: 20px;
+  cursor: url("../../assets/PRECISION.cur"), auto !important;
+}
+
+.round-details-text-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -10px; /* Adjust this value to move the tip up or down */
+  left: 50px; /* Adjust this value to move the tip left or right */
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #f0f0f0;
+  border-bottom: 0;
+  margin-left: -10px;
+  margin-bottom: -10px;
+}

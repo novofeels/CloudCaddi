@@ -7,13 +7,39 @@
 
 .course-title68 {
   height: 1px;
-  color: goldenrod !important;
+  color: goldenrod;
   font-family: "Jersey 10";
   text-align: center !important;
   margin-top: 0px !important;
   margin-bottom: 20px;
 
-  font-size: 55px !important;
+  font-size: 60px !important;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff; /* Creates a white outline */
+  animation: color-cycle-goldenrod-black 5s infinite alternate;
+}
+@keyframes color-cycle-goldenrod-black {
+  0%,
+  100% {
+    color: goldenrod;
+    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+      2px 2px 0 #fff; /* Creates a white outline */
+  }
+  25% {
+    color: #dfb346;
+    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+      2px 2px 0 #fff; /* Creates a white outline */
+  } /* Dark goldenrod */
+  50% {
+    color: rgb(255, 255, 255);
+    text-shadow: -2px -2px 0 goldenrod, 2px -2px 0 goldenrod,
+      -2px 2px 0 goldenrod, 2px 2px 0 goldenrod; /* Creates a white outline */
+  }
+  75% {
+    color: #daa520;
+    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+      2px 2px 0 #fff; /* Creates a white outline */
+  } /* Dark goldenrod */
 }
 
 .interactive-area5 {
@@ -143,12 +169,12 @@
     opacity: 1;
   }
   100% {
-    transform: rotateY(360deg) scale(6) translate(-25%, -25%);
+    transform: rotateY(540deg) scale(6);
     opacity: 0;
   }
 }
 
 .hole-card.zoom-spin {
-  animation: zoomAndSpin 2s forwards;
+  animation: zoomAndSpin 3s forwards;
   z-index: 100; /* Ensure it's above other elements */
 }
