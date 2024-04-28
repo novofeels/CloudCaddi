@@ -71,7 +71,7 @@ export const CourseList = () => {
       // Example: navigate to another route
       navigate(`/CourseDetails/${course.id}`);
       // Reset state if staying on the same page
-    }, 2000); // Match the duration of the animation
+    }, 2500); // Match the duration of the animation
   };
   return (
     <div className="course-details-container">
