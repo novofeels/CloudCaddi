@@ -243,7 +243,7 @@ export const RoundList = ({ currentUser }) => {
                       </p>
                       <p className="make-it-smaller">score: {round.score}</p>
                       <p className="make-it-smaller">
-                        wind: {wind} {round.windSpeed}
+                        wind: {wind} {round.windSpeed} mph
                       </p>
                     </div>
                   </div>

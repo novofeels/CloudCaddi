@@ -25,7 +25,7 @@ export const NewRound = ({ currentUser }) => {
   const [datePlayed, setDatePlayed] = useState("");
   const [timePlayed, setTimePlayed] = useState("");
   const [volume, setVolume] = useState(0.5);
-
+  const [isZoomed, setIsZoomed] = useState(false);
   const navigate = useNavigate();
 
   const beepRef = useRef(null);
@@ -105,6 +105,7 @@ export const NewRound = ({ currentUser }) => {
   };
 
   const handleStartRound = async () => {
+    setIsZoomed(true);
     setIsActive(true); // This will start the animation for "BUCKLE UP"
     setDisplayedText(""); // Clear the default text
     setTextToDisplay("I'LL DRIVE"); // Update the state to the new text that should be animated
@@ -115,7 +116,7 @@ export const NewRound = ({ currentUser }) => {
 
     const apiKey = "76fe7ff7f7752481cc3fd866e54ae92b";
     const url = `https://history.openweathermap.org/data/2.5/history/city?lat=${selectedCourse.lat}&lon=${selectedCourse.long}&type=hour&start=${epochTime}&cnt=1&appid=${apiKey}&units=imperial`;
-    debugger;
+
     const response = await fetch(url);
     const data = await response.json();
 
@@ -150,8 +151,8 @@ export const NewRound = ({ currentUser }) => {
       // After the animation, navigate to the scorecard page
       setTimeout(() => {
         navigate(`/scoreCard/${scoreCardId}/${selectedCourse.id}/1`);
-      }, 4000); // This timeout should match the duration of the driveAcross animation
-    }, 750); // Adjust the delay time as needed
+      }, 4500); // This timeout should match the duration of the driveAcross animation
+    }, 2500); // Adjust the delay time as needed
   };
 
   const getEpochTime = (date, time) => {
@@ -176,9 +177,11 @@ export const NewRound = ({ currentUser }) => {
   };
 
   return (
-    <div className="div-for-background69">
-      <h1 className="NewRoundTitle">NEW ROUND</h1>
-      <div className="interactive-area7">
+    <div className={`div-for-background69 ${isZoomed ? "zoom-spin" : ""}`}>
+      <h1 className={`NewRoundTitle ${isZoomed ? "zoom-spin" : ""}`}>
+        NEW ROUND
+      </h1>
+      <div className={`interactive-area7 ${isZoomed ? "zoom-spin" : ""}`}>
         <div className="text-bubble7">{displayedText}</div>
         <img
           src={isActive ? animatedGif : staticGif}
@@ -188,7 +191,7 @@ export const NewRound = ({ currentUser }) => {
         />
       </div>
 
-      <div className="search-and-results">
+      <div className={`search-and-results ${isZoomed ? "zoom-spin" : ""}`}>
         <div className="container-for-input-and-button">
           <input
             type="text"
