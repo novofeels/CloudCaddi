@@ -167,8 +167,12 @@
 }
 
 .hole-image {
-  width: 100%; /* Ensure images take up the full card width */
-  height: auto; /* Maintain aspect ratio */
+  /* Ensure images take up the full card width */
+  max-width: 300px;
+
+  width: 300px; /* Maintain aspect ratio */
+  height: auto;
+  max-height: 400px;
   border-top: 1px solid #979290; /* Line between the image and text */
   margin-bottom: 10px; /* Space below the image */
 }

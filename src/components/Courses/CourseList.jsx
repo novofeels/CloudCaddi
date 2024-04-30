@@ -73,6 +73,7 @@ export const CourseList = () => {
       // Reset state if staying on the same page
     }, 2500); // Match the duration of the animation
   };
+
   return (
     <div className="course-details-container">
       <h1 className={`course-title2 ${isZoomed ? "zoom-spin" : ""}`}>

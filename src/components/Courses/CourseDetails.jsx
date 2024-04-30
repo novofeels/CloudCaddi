@@ -8,6 +8,12 @@ import mediumBlip from "../../assets/MediumBlip.mp3";
 import highBlip from "../../assets/HighBlip.mp3";
 import "./CourseDetails.css";
 import { getCourseById } from "../../services/CourseService";
+import {
+  deleteCourse,
+  deleteHoleDescriptionsByHoleId,
+  deleteHoleScoresByHoleId,
+  deleteHolesByCourseId,
+} from "../../services/Delete";
 
 export const CourseDetails = () => {
   const [thisCourse, setThisCourse] = useState(null);
@@ -41,11 +47,40 @@ export const CourseDetails = () => {
       // Reset state if staying on the same page
     }, 1300); // Match the duration of the animation
   };
+  const deleteCourseAndRelatedData = async (courseId) => {
+    const confirmDelete = window.confirm("you f'in sure bruh?");
+    if (confirmDelete) {
+      try {
+        // Delete hole descriptions and hole scores for each hole
+        for (const hole of holes) {
+          await deleteHoleDescriptionsByHoleId(hole.id);
+          await deleteHoleScoresByHoleId(hole.id);
+        }
+
+        // Now delete all holes
+        await deleteHolesByCourseId(courseId);
+
+        // Finally, delete the course itself
+        await deleteCourse(courseId);
+
+        navigate("/CourseList");
+        console.log(`All data related to course ${courseId} has been deleted.`);
+      } catch (error) {
+        console.error("Error deleting course and related data:", error);
+      }
+    }
+  };
 
   if (thisCourse) {
     return (
       <div className="course-details-container2">
         <h1 className="course-title68">{thisCourse?.name.toUpperCase()}</h1>
+        <button
+          className="delete-btn"
+          onClick={() => deleteCourseAndRelatedData(thisCourse?.id)}
+        >
+          DELETE COURSE
+        </button>
         <div className="interactive-area5">
           <div className="text-bubble5">{displayedText}</div>
           <img
@@ -72,7 +107,7 @@ export const CourseDetails = () => {
                 <img
                   src={hole.image}
                   alt={`Hole ${hole.holeNumber}`}
-                  className="hole-image"
+                  className="hole-image2"
                 />
               )}
             </div>

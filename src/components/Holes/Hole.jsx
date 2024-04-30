@@ -240,7 +240,7 @@ export const Hole = ({ currentUser }) => {
 
         // Navigate to the next part of the application
         navigate(`/RoundList`);
-      }, 4000); // This delay should align with the duration of the mascot driving animation
+      }, 3500); // This delay should align with the duration of the mascot driving animation
     }, 2000); // Delay the start of the animation to allow users to read the "HOLD ON" message
   };
 

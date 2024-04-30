@@ -1,8 +1,8 @@
 .auth-container {
-  border: 1px solid gray;
   margin: 3rem 15rem;
   padding: 2rem;
   border-radius: 1rem;
+  background-color: black;
 }
 
 .header {
@@ -21,28 +21,98 @@
 
 .register-link {
   text-align: center;
+  color: white;
 }
 
 .auth-fieldset {
-  margin: 0.25rem 0rem;
+  margin: 50px;
 }
 
 .fun-button {
-  background-color: #ffcc00; /* Fun background color */
-  color: #fff; /* Text color */
-  border: none;
+  background-color: #88690c; /* Chocolate */
+  color: #fafad2; /* Parchment */
+  border: 2px solid rgb(214, 164, 38); /* Dark Brown */
   padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 8px;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease-in-out;
+  transition: all 0.3s;
+  font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
+  border-radius: 4px; /* Slightly rounded corners */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2),
+    /* Inner shadow for a pressed button look */ 0 2px 6px rgba(0, 0, 0, 0.2); /* Outer shadow for depth */
+  text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
+  font-weight: bold;
+  margin: 10px;
+  cursor: url("../../assets/LINK SELECT (1).cur"), auto;
 }
 
-.fun-button:hover {
-  background-color: #ff9900; /* Color change on hover */
+.fun-button:hover,
+.fun-button:focus {
+  background-color: black; /* Amber */
+  color: #ffbf00; /* Dark Brown */
+  border-color: #000000; /* Amber for the border on hover/focus */
+  box-shadow: 0 0 80px #ffbf00; /* Glowing effect on hover/focus */
+  cursor: url("../../assets/LINK SELECT (1).cur"), auto;
 }
 
+/* When the button is active, make it look like it's being pressed */
 .fun-button:active {
-  transform: translateY(2px); /* Button press effect */
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3);
+  transform: translateY(2px);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.big-kahuna {
+  cursor: url("../../assets/NORMAL.cur"), auto;
+  background-color: black;
+  height: 100vh;
+}
+
+.Login-Mascot {
+  width: 400px;
+}
+
+.Login-Mascot2 {
+  width: 400px;
+  margin-left: 500px;
+}
+
+.header699 {
+  height: 1px;
+  color: goldenrod;
+  font-family: "Jersey 10";
+  text-align: center !important;
+  margin-top: 0px !important;
+  margin-bottom: 20px;
+
+  font-size: 60px !important;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff; /* Creates a white outline */
+  animation: color-cycle-goldenrod-black 5s infinite alternate;
+}
+@keyframes color-cycle-goldenrod-black {
+  0%,
+  100% {
+    color: goldenrod;
+    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+      2px 2px 0 #fff; /* Creates a white outline */
+  }
+  25% {
+    color: #dfb346;
+    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+      2px 2px 0 #fff; /* Creates a white outline */
+  } /* Dark goldenrod */
+  50% {
+    color: rgb(255, 255, 255);
+    text-shadow: -2px -2px 0 goldenrod, 2px -2px 0 goldenrod,
+      -2px 2px 0 goldenrod, 2px 2px 0 goldenrod; /* Creates a white outline */
+  }
+  75% {
+    color: #daa520;
+    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+      2px 2px 0 #fff; /* Creates a white outline */
+  } /* Dark goldenrod */
 }
