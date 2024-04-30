@@ -217,7 +217,7 @@ export const CreateHole = () => {
               </div>
             </div>
           </div>
-          {parseInt(holeNum) === thisCourse[0]?.numOfHoles ? (
+          {parseInt(holeNum) === thisCourse?.numOfHoles ? (
             <button className="button" onClick={handleFinish}>
               Finish Course Creation
             </button>

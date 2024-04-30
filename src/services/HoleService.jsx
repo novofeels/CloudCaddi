@@ -61,3 +61,9 @@ export const getHolyHoleDescriptionsByHoleId = async (holeId) => {
     `http://localhost:8088/holyHoleDescriptions?holeId=${holeId}`
   ).then((res) => res.json());
 };
+
+export const getHoleScoresByHoleId = async (holeId) => {
+  return fetch(`http://localhost:8088/holeScore?holeId=${holeId}`).then((res) =>
+    res.json()
+  );
+};

@@ -180,7 +180,7 @@ export const RoundList = ({ currentUser }) => {
       // Example: navigate to another route
       navigate(`/RoundDetails/${round.id}`);
       // Reset state if staying on the same page
-    }, 1500); // Match the duration of the animation
+    }, 2500); // Match the duration of the animation
   };
 
   if (myRounds) {
@@ -229,21 +229,26 @@ export const RoundList = ({ currentUser }) => {
                   <div className="new-div-forp">
                     <div className="new-div-forp2">
                       <p className="make-it-smaller">
-                        course: {thisCourse?.name}
+                        <strong>course:</strong> {thisCourse?.name}
                       </p>
-                      <p className="make-it-smaller">par: {round.par}</p>
+                      <p className="make-it-smaller">
+                        <strong>par:</strong> {round.par}
+                      </p>
 
                       <p className="make-it-smaller">
-                        weather: {round.description}
+                        <strong>weather:</strong> {round.description}
                       </p>
                     </div>
                     <div className="new-div-forp3">
                       <p className="make-it-smaller">
-                        difficulty: {thisCourse?.difficulty}
+                        <strong>difficulty:</strong> {thisCourse?.difficulty}
                       </p>
-                      <p className="make-it-smaller">score: {round.score}</p>
                       <p className="make-it-smaller">
-                        wind: {wind} {round.windSpeed} mph
+                        {" "}
+                        <strong>score:</strong> {round.score}
+                      </p>
+                      <p className="make-it-smaller">
+                        <strong>wind:</strong> {wind} {round.windSpeed} mph
                       </p>
                     </div>
                   </div>

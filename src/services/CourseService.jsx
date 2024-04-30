@@ -17,3 +17,5 @@ export const getCourseById = async (courseId) => {
     res.json()
   );
 };
+
+// Assumes you have functions to get related items like getHolesByCourseId, etc.

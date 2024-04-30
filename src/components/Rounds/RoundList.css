@@ -94,6 +94,9 @@
   height: 450px;
   width: 400px;
   transition: transform all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 @keyframes pixelateOut {
   0% {
@@ -105,7 +108,7 @@
     opacity: 0.5;
   }
   100% {
-    transform: scale(0) rotateY(360deg) translate(-25%, -25%);
+    transform: scale(0) rotateY(180deg) translate(-25%, -25%);
     opacity: 0;
   }
 }
@@ -120,7 +123,6 @@
   }
 }
 .date-picker-container.zoom-spin,
-.interactive-area79.zoom-spin,
 .round-title2.zoom-spin {
   animation: fadeout 1.7s forwards;
 }
@@ -135,9 +137,28 @@
     opacity: 0;
   }
 }
+.interactive-area79.zoom-spin {
+  animation: drift-and-fade 3s ease-in-out forwards;
+  animation-delay: 1.4s;
+}
+@keyframes drift-and-fade {
+  0% {
+    transform: translateY(0) translateX(0); /* Start at the current position */
+
+    opacity: 1; /* Fully visible */
+  }
+  50% {
+    transform: translateY(120px) translateX(30px); /* End 200px down from the start */
+    opacity: 0.1; /* Almost fully transparent */
+  }
+  100% {
+    transform: translateY(200px) translateX(21px);
+    opacity: 0;
+  }
+}
 
 .round-card2.zoom-spin {
-  animation: pixelateOut 2s forwards;
+  animation: pixelateOut 2.4s forwards;
 }
 
 .round-card2:hover,
@@ -163,7 +184,8 @@
 
 .round-image {
   height: 50%; /* Ensure images take up the full card width */
-  margin: 15px 40px;
+  margin: 30px 40px;
+  margin-right: 90px;
   border-top: 1px solid #979290; /* Line between the image and text */
   margin-bottom: 10px; /* Space below the image */
 }
@@ -202,6 +224,9 @@
   font-size: 24px;
 }
 
+.round-header2 {
+  font-size: 24px;
+}
 .new-div-forp {
   display: flex;
   flex-direction: row;
@@ -215,11 +240,11 @@
 .new-div-forp3 {
   display: flex;
   flex-direction: column;
-  margin: 10px 5px 5px 15px;
+  margin: 10px 5px 5px 6px;
 }
 
 .make-it-smaller {
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .date-picker-container {
@@ -234,4 +259,10 @@
   color: #000000;
   font-family: "Jersey 10", cursive;
   cursor: url("../../assets/PRECISION.cur"), auto !important;
+}
+
+.make-it-smaller strong {
+  font-weight: 900 !important; /* or use a number like 600, 700, etc. for more control */
+  font-size: 12px;
+  border-bottom: 1px dotted goldenrod;
 }
