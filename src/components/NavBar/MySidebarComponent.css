@@ -13,17 +13,20 @@
   cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
 }
 .sidebar-content {
+  font-family: "Courier New";
   color: white;
   background-color: #333;
   cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
 }
 
 .text-decoration-none {
-  text-decoration: none;
+  font-family: "Jersey 10";
+  font-size: 30px;
   cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
 }
 
 .activeClicked {
+  font-family: "Courier New";
   font-weight: bold; /* Make active link bold */
   color: #00a1ff; /* Highlight color for active links */
   cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;

@@ -1,34 +1,35 @@
 .welcome-container {
-    background-image: url('../../assets/RevisedSkyScene.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
-    width: 100vw;
-    position: relative;
-    overflow: hidden;
+  background-image: url("../../assets/RevisedSkyScene2.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+  pointer-events: none; /* Add this line */
 }
 
 .welcome-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.95); /* Strong black overlay */
-    backdrop-filter: blur(10px); /* Start with heavy blur */
-    animation: fadeOut 5s ease forwards;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95); /* Strong black overlay */
+  backdrop-filter: blur(10px); /* Start with heavy blur */
+  animation: fadeOut 15s ease forwards;
+  z-index: 10;
 }
 
 @keyframes fadeOut {
-    from {
-        opacity: 1;
-        backdrop-filter: blur(10px); /* Initial state: visible and blurred */
-    }
-    to {
-        opacity: 0;
-        backdrop-filter: blur(0px); /* End state: transparent and clear */
-    }
+  from {
+    opacity: 1;
+    backdrop-filter: blur(10px); /* Initial state: visible and blurred */
+  }
+  to {
+    opacity: 0;
+    backdrop-filter: blur(0px); /* End state: transparent and clear */
+  }
 }
-

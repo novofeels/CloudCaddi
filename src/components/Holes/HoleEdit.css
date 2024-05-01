@@ -45,7 +45,7 @@
     /* Bright outer glow */ inset 0px 0px 8px rgba(255, 255, 255, 0.3);
   text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
   font-weight: bold;
-  margin: 10px 10px 10px -10px;
+  margin: 20px 150px 10px -10px;
   border-right: solid 3px #ccc; /* Darker right border for depth */
   border-bottom: solid 3px #ccc;
 
