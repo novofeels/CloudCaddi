@@ -1,14 +1,42 @@
 /* Add to your CSS file */
-.course-title {
-  font-family: "Jersey 10", sans-serif;
-  font-size: 60px; /* Large font size */
-  color: goldenrod; /* Dark grey color */
 
-  text-align: center;
-  width: 85%;
-  margin-right: 20px;
+.course-title {
+  color: goldenrod;
+  font-family: "Jersey 10";
+  text-align: center !important;
+  width: 90%;
+  margin-right: 10px;
   margin-top: 20px;
   margin-bottom: 20px;
+  margin-left: 1200px;
+
+  font-size: 80px !important;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff; /* Creates a white outline */
+  animation: color-cycle-goldenrod-black 5s infinite alternate;
+}
+@keyframes color-cycle-goldenrod-black {
+  0%,
+  100% {
+    color: goldenrod;
+    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+      2px 2px 0 #fff; /* Creates a white outline */
+  }
+  25% {
+    color: #dfb346;
+    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+      2px 2px 0 #fff; /* Creates a white outline */
+  } /* Dark goldenrod */
+  50% {
+    color: rgb(255, 255, 255);
+    text-shadow: -2px -2px 0 goldenrod, 2px -2px 0 goldenrod,
+      -2px 2px 0 goldenrod, 2px 2px 0 goldenrod; /* Creates a white outline */
+  }
+  75% {
+    color: #daa520;
+    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+      2px 2px 0 #fff; /* Creates a white outline */
+  } /* Dark goldenrod */
 }
 
 /* General styles for the course creation layout */
@@ -194,7 +222,7 @@
 
 .mascot-container66 {
   position: absolute;
-  bottom: 100px; /* Adjust as needed */
+  bottom: 60px; /* Adjust as needed */
   right: 1311px; /* Adjust so that it's not too far to the right */
   z-index: 10; /* Ensure it's above other elements */
 }

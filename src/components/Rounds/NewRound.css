@@ -12,7 +12,7 @@
   padding: 20px;
   position: relative;
   overflow: hidden;
-  margin-right: 300px;
+  left: -40px;
 }
 
 .div-for-background69::before {
@@ -197,9 +197,37 @@
 }
 
 .NewRoundTitle {
+  color: goldenrod;
   font-family: "Jersey 10";
-  color: rgb(255, 255, 255);
-  font-size: 60px;
+  text-align: center !important;
+  margin-right: 80px;
+  font-size: 80px !important;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff; /* Creates a white outline */
+  animation: color-cycle-goldenrod-black 3s infinite alternate;
+}
+@keyframes color-cycle-goldenrod-black {
+  0%,
+  100% {
+    color: goldenrod;
+    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+      2px 2px 0 #fff; /* Creates a white outline */
+  }
+  25% {
+    color: #dfb346;
+    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+      2px 2px 0 #fff; /* Creates a white outline */
+  } /* Dark goldenrod */
+  50% {
+    color: rgb(255, 255, 255);
+    text-shadow: -2px -2px 0 goldenrod, 2px -2px 0 goldenrod,
+      -2px 2px 0 goldenrod, 2px 2px 0 goldenrod; /* Creates a white outline */
+  }
+  75% {
+    color: #daa520;
+    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+      2px 2px 0 #fff; /* Creates a white outline */
+  } /* Dark goldenrod */
 }
 @keyframes pulse {
   0%,
@@ -282,7 +310,7 @@
   bottom: 0;
   background: rgba(0, 0, 0, 1); /* Slightly darker dimming effect */
   z-index: 999; /* Below the mascot */
-
+  cursor: url("../../assets/PRECISION.cur"), auto;
   display: none; /* Initially hidden */
   animation: turnOnLights 4s ease-out forwards;
 }
@@ -297,7 +325,7 @@
 
 .mascot-driving {
   position: fixed;
-  bottom: -50px; /* Adjust as needed */
+  bottom: -150px; /* Adjust as needed */
   right: 100%; /* Start off-screen to the right */
   z-index: 1000; /* Above the dim background */
   width: 100%; /* Set the size to 1/4 of its current size */

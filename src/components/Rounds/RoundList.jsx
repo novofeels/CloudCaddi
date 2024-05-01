@@ -187,7 +187,7 @@ export const RoundList = ({ currentUser }) => {
     return (
       <div className="round-details-container">
         <h1 className={`round-title2 ${isZoomed ? "zoom-spin" : ""}`}>
-          ROUNDS
+          SCORECARDS
         </h1>
         <div className={`interactive-area79 ${isZoomed ? "zoom-spin" : ""}`}>
           <div className="text-bubble79">{displayedText}</div>

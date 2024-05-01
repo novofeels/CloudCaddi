@@ -14,7 +14,7 @@
     opacity: 1;
   }
 }
-.round-title2 {
+. {
   font-family: "Jersey 10";
   text-align: center;
   margin-top: 20px;
@@ -25,6 +25,40 @@
     2px 2px 0 #000;
 }
 
+.round-title2 {
+  color: goldenrod;
+  font-family: "Jersey 10";
+  text-align: center !important;
+  margin-top: 20px !important;
+
+  font-size: 80px !important;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff; /* Creates a white outline */
+  animation: color-cycle-goldenrod-black 5s infinite alternate;
+}
+@keyframes color-cycle-goldenrod-black {
+  0%,
+  100% {
+    color: goldenrod;
+    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+      2px 2px 0 #fff; /* Creates a white outline */
+  }
+  25% {
+    color: #dfb346;
+    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+      2px 2px 0 #fff; /* Creates a white outline */
+  } /* Dark goldenrod */
+  50% {
+    color: rgb(255, 255, 255);
+    text-shadow: -2px -2px 0 goldenrod, 2px -2px 0 goldenrod,
+      -2px 2px 0 goldenrod, 2px 2px 0 goldenrod; /* Creates a white outline */
+  }
+  75% {
+    color: #daa520;
+    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+      2px 2px 0 #fff; /* Creates a white outline */
+  } /* Dark goldenrod */
+}
 .interactive-area79 {
   display: flex;
   justify-content: center;
