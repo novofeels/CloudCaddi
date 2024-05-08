@@ -16,6 +16,7 @@ import {
   deleteHoleScoresByScoreCardId,
   deleteScoreCardById,
 } from "../../services/Delete";
+import { MascotModal } from "./MascotModal";
 export const RoundDetails = () => {
   const { roundId } = useParams();
   const [holeScores, setHoleScores] = useState([]);
@@ -30,6 +31,7 @@ export const RoundDetails = () => {
   );
   const [index, setIndex] = useState(0);
   const [round, setRound] = useState({});
+  const [showModal, setShowModal] = useState(false);
   const beepRef = useRef(null);
   const navigate = useNavigate();
 
@@ -190,15 +192,19 @@ export const RoundDetails = () => {
   };
 
   const handleDeleteButton = () => {
-    const confirmDelete = window.confirm("you f'in sure bruh?");
-    if (confirmDelete) {
-      deleteHoleScoresByScoreCardId(round.id);
-      deleteScoreCardById(round.id);
-
-      navigate("/RoundList");
-    }
+    setShowModal(true);
   };
 
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  const handleConfirmDelete = () => {
+    deleteHoleScoresByScoreCardId(round.id);
+    deleteScoreCardById(round.id);
+    navigate("/RoundList");
+    setShowModal(false);
+  };
   if (round) {
     return (
       <div className="big-div-for-round-details">
@@ -244,10 +250,16 @@ export const RoundDetails = () => {
           />
           <button
             className={`delete-btn2 ${isZoomed ? "zoom-spin" : ""}`}
-            onClick={() => handleDeleteButton()}
+            onClick={handleDeleteButton}
           >
             DELETE ROUND
           </button>
+          <MascotModal
+            isOpen={showModal}
+            onClose={handleCloseModal}
+            onConfirm={handleConfirmDelete}
+            message="Well, Well, Well..."
+          />
         </div>
         <div
           key={round.id}

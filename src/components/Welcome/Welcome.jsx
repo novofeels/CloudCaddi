@@ -9,7 +9,6 @@ export const Welcome = () => {
 
   return (
     <div className="welcome-container">
-      <VideoBackground />
       <TextBubble text={text} />
     </div>
   );

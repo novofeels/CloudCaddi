@@ -60,11 +60,6 @@
   transform: translateY(2px);
 }
 
-html,
-body {
-  height: 100%;
-}
-
 .big-kahuna {
   cursor: url("../../assets/NORMAL.cur"), auto;
   background-color: black;
