@@ -37,7 +37,7 @@
   align-items: center; /* Align items vertically*/
   justify-content: center; /* Space out items horizontally*/
   animation: driftIn 10s forwards;
-  animation-delay: 3s;
+
   z-index: 10;
 }
 
