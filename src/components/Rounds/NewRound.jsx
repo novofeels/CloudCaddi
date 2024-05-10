@@ -5,7 +5,7 @@ import lowBlip from "../../assets/LowBlip.mp3";
 import mediumBlip from "../../assets/MediumBlip.mp3";
 import highBlip from "../../assets/HighBlip.mp3";
 import animatedGif from "../../assets/CloudCaddiInClubhouse.gif";
-import staticGif from "../../assets/staticGif.png";
+import staticGif from "../../assets/staticGif.gif";
 import CloudCaddiDriving from "../../assets/CloudCaddiDriving.png";
 import { useNavigate } from "react-router-dom";
 import { createNewScoreCard } from "../../services/ScoreCardService";

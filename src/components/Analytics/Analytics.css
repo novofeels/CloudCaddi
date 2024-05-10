@@ -4,7 +4,7 @@
   font-style: normal;
 }
 
-.text-bubble {
+.text-bubble-analytics {
   white-space: pre-wrap; /* Maintains whitespace formatting */
   max-width: 300px;
   padding: 20px;
@@ -74,7 +74,7 @@
 
 .Owl-gif {
   top: 30px;
-  width: 500px;
+  width: 200px;
   height: auto;
 
   cursor: pointer;

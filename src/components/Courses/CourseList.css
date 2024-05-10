@@ -190,6 +190,8 @@
   max-height: 400px;
   border-top: 1px solid #979290; /* Line between the image and text */
   margin-bottom: 10px; /* Space below the image */
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .filters {

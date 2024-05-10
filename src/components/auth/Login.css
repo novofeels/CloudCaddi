@@ -16,7 +16,23 @@
 }
 
 .auth-form-input {
-  padding: 0.25rem;
+  font-family: "Jersey 10", sans-serif;
+
+  padding: 10px;
+  font-size: 40px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px; /* Space between search input and suggestions */
+  background: #000; /* Dark background */
+
+  color: #bdf0bd; /* Bright green text, typical of old monitors */
+  border: 2px solid #fff; /* White border */
+  border-radius: 3px; /* Optional: slight rounding to soften edges */
+  text-transform: uppercase;
+  font-size: 25px; /* Larger text to emulate old game displays */
+  box-shadow: 0 0 25px rgb(117, 247, 138); /* Neon-like glow */
+  outline: none; /* Removes the default focus outline */
+  margin-top: 150px;
 }
 
 .register-link {
@@ -25,7 +41,6 @@
 }
 
 .auth-fieldset {
-  margin: 50px;
 }
 
 .fun-button {
@@ -33,7 +48,7 @@
   color: #fafad2; /* Parchment */
   border: 2px solid rgb(214, 164, 38); /* Dark Brown */
   padding: 10px 20px;
-  cursor: pointer;
+  cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
   transition: all 0.3s;
   font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
   border-radius: 4px; /* Slightly rounded corners */
@@ -49,7 +64,7 @@
 .fun-button:focus {
   background-color: black; /* Amber */
   color: #ffbf00; /* Dark Brown */
-  border-color: #000000; /* Amber for the border on hover/focus */
+  border-color: #d4ca33; /* Amber for the border on hover/focus */
   box-shadow: 0 0 80px #ffbf00; /* Glowing effect on hover/focus */
   cursor: url("../../assets/LINK SELECT (1).cur"), auto;
 }
@@ -67,7 +82,8 @@
 }
 
 .Login-Mascot {
-  width: 400px;
+  width: 200px;
+  margin-left: 175px;
 }
 
 .Login-Mascot2 {
@@ -76,38 +92,39 @@
 }
 
 .header699 {
-  height: 1px;
   color: goldenrod;
+  text-transform: uppercase;
   font-family: "Jersey 10";
+  justify-content: center !important;
   text-align: center !important;
-  margin-top: 0px !important;
-  margin-bottom: 20px;
 
-  font-size: 60px !important;
+  font-size: 120px !important;
+  margin-bottom: 0px;
+
   text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
     1px 1px 0 #fff; /* Creates a white outline */
-  animation: color-cycle-goldenrod-black 5s infinite alternate;
+  animation: color-cycle-goldenrod-black2 5s ease-in-out infinite alternate;
 }
-@keyframes color-cycle-goldenrod-black {
+@keyframes color-cycle-goldenrod-black2 {
   0%,
   100% {
     color: goldenrod;
-    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+    text-shadow: -2px -2px 0 #fff, 3px -2px 0 #fff, -2px 2px 0 #fff,
       2px 2px 0 #fff; /* Creates a white outline */
   }
   25% {
-    color: #dfb346;
-    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+    color: goldenrod;
+    text-shadow: -2px -2px 0 #fff, 4px -2px 0 #fff, -2px 2px 0 #fff,
       2px 2px 0 #fff; /* Creates a white outline */
   } /* Dark goldenrod */
   50% {
     color: rgb(255, 255, 255);
-    text-shadow: -2px -2px 0 goldenrod, 2px -2px 0 goldenrod,
+    text-shadow: -2px -2px 0 goldenrod, 5px -2px 0 goldenrod,
       -2px 2px 0 goldenrod, 2px 2px 0 goldenrod; /* Creates a white outline */
   }
   75% {
-    color: #daa520;
-    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
+    color: goldenrod;
+    text-shadow: -2px -2px 0 #fff, 4px -2px 0 #fff, -2px 2px 0 #fff,
       2px 2px 0 #fff; /* Creates a white outline */
   } /* Dark goldenrod */
 }

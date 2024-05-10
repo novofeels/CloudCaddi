@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { CreateCourse } from "../../services/CourseService";
 import { useNavigate } from "react-router-dom";
 import "./CourseCreate.css";
-import staticGif from "../../assets/staticGif.png";
+import staticGif from "../../assets/staticGif.gif";
 import animatedGif from "../../assets/CloudCaddiInClubhouse.gif";
 import lowBlip from "../../assets/LowBlip.mp3";
 import mediumBlip from "../../assets/MediumBlip.mp3";
@@ -282,7 +282,7 @@ export const CourseCreate = () => {
           </div>
         )}
         <div className="details-section">
-          <h2>Course Details</h2>
+          <h2 className="ohYEAHHH">Course Details</h2>
           <div className="field-group">
             <label htmlFor="courseName" className="label">
               Name Of Course:
@@ -307,40 +307,46 @@ export const CourseCreate = () => {
               onChange={(e) => setNumHoles(e.target.value)}
             />
           </div>
-          <div className="field-group">
-            <label htmlFor="par" className="label">
-              Par For Course:
-            </label>
-            <input
-              className="inputDetails"
-              id="par"
-              type="number"
-              value={parForCourse}
-              onChange={(e) => setPar(e.target.value)}
-            />
-          </div>
-          <div className="field-group">
-            <label htmlFor="difficulty" className="label">
-              Difficulty:
-            </label>
-            <select
-              className="inputDetails"
-              id="difficulty"
-              value={difficultyForCourse}
-              onChange={(e) => setDifficulty(e.target.value)}
-            >
-              <option value="">Select</option>
-              <option value="easy">Easy</option>
-              <option value="moderate">Moderate</option>
-              <option value="difficult">Difficult</option>
-            </select>
-          </div>
-          {clickedLocation && (
-            <div className="selected-location">
-              <h2>Selected Location:</h2>
-              <p>Latitude: {clickedLocation.latitude}</p>
-              <p>Longitude: {clickedLocation.longitude}</p>
+          <div className="bigDivCC">
+            <div className="field-group">
+              <label htmlFor="par" className="label">
+                Par For Course:
+              </label>
+              <input
+                className="inputDetails"
+                id="par"
+                type="number"
+                value={parForCourse}
+                onChange={(e) => setPar(e.target.value)}
+              />
 
+              <label htmlFor="difficulty" className="label">
+                Difficulty:
+              </label>
+              <select
+                className="inputDetails"
+                id="difficulty"
+                value={difficultyForCourse}
+                onChange={(e) => setDifficulty(e.target.value)}
+              >
+                <option value="">Select</option>
+                <option value="easy">Easy</option>
+                <option value="moderate">Moderate</option>
+                <option value="difficult">Difficult</option>
+              </select>
+              {clickedLocation && (
+                <div className="selected-location">
+                  <h2>Selected Location:</h2>
+                  <p className="ohYa">Latitude: {clickedLocation.latitude}</p>
+                  <p className="ohYa">Longitude: {clickedLocation.longitude}</p>
+                </div>
+              )}
+            </div>
+            <div className="upload-column">
+              {" "}
+              {fileURL && (
+                <img src={fileURL} alt="Selected" className="okbud" />
+              )}
               <button
                 onClick={() =>
                   fileInputRef.current && fileInputRef.current.click()
@@ -357,16 +363,8 @@ export const CourseCreate = () => {
                 onChange={handleImageChange}
                 style={{ display: "none" }}
               />
-
-              {fileURL && (
-                <img
-                  src={fileURL}
-                  alt="Selected"
-                  style={{ maxWidth: "100px", marginTop: "10px" }}
-                />
-              )}
             </div>
-          )}
+          </div>
 
           <button onClick={handleCourseCreate} className="create-button">
             Create Course

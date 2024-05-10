@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { getAllHoles } from "../../services/HoleService";
 import { useNavigate, useParams } from "react-router-dom";
 import { getAllCourses } from "../../services/CourseService";
-import staticGif from "../../assets/staticGif.png";
+import staticGif from "../../assets/staticGif.gif";
 import animatedGif from "../../assets/CloudCaddiInClubhouse.gif";
 import lowBlip from "../../assets/LowBlip.mp3";
 import mediumBlip from "../../assets/MediumBlip.mp3";
@@ -16,6 +16,8 @@ import {
   updateScoreCardWithScore,
 } from "../../services/ScoreCardService";
 import CloudCaddiDriving from "../../assets/CloudCaddiDriving.png";
+import { HoleCharts } from "./HoleCharts";
+
 export const Hole = ({ currentUser }) => {
   const navigate = useNavigate();
   const { courseId, holeNum, scoreCardId } = useParams();
@@ -46,7 +48,7 @@ export const Hole = ({ currentUser }) => {
     getAllCourses().then((courseObjs) => setCourses(courseObjs));
     getAllHoles().then((holeObjs) => setHoles(holeObjs));
     getAllScoreCards().then((scoreCardObjs) => setScoreCards(scoreCardObjs));
-  }, []);
+  }, [scoreCardId]);
 
   useEffect(() => {
     const foundHole = holes.find(
@@ -67,7 +69,8 @@ export const Hole = ({ currentUser }) => {
 
   useEffect(() => {
     if (isMascotClicked && !bypassDefaultText) {
-      const newSpeechText = "If i had one I'd give it to ya.";
+      const newSpeechText =
+        "Same conditions as your best score—scattered clouds, mild wind. Keep it steady and low. No need to overthink it. Just swing like you did last time and you might actually pull off another good shot.";
       setSpeechText(newSpeechText);
       setDisplayedText("");
       setIndex(0);
@@ -254,7 +257,9 @@ export const Hole = ({ currentUser }) => {
             src={thisHole?.image}
             alt={`Hole view`}
           />
-          <div className="charts-graphs">Charts and Graphs</div>
+          <div className="charts-graphs">
+            <HoleCharts currentUser={currentUser} holeId={thisHole?.id} />
+          </div>
         </div>
         <div className="hole-details-and-mascot-container">
           {" "}
@@ -280,7 +285,7 @@ export const Hole = ({ currentUser }) => {
                     className="proceed-button"
                     onClick={handleButtonClick}
                   >
-                    Input Score/Proceed to Next Hole
+                    PROCEED TO NEXT HOLE
                   </button>
                 ) : (
                   <button className="proceed-button" onClick={handleFinish}>
@@ -325,19 +330,18 @@ export const Hole = ({ currentUser }) => {
             );
           })}
         </div>
-
-        <div
-          className="dim-background"
-          style={{ display: isDriving ? "block" : "none" }}
-        ></div>
-
-        <img
-          src={CloudCaddiDriving}
-          alt="Mascot Driving Golf Cart"
-          className={`mascot-driving ${isDriving ? "start-driving2" : ""}`}
-          style={{ display: isDriving ? "block" : "none" }}
-        />
       </div>
+      <div
+        className="dim-background"
+        style={{ display: isDriving ? "block" : "none" }}
+      ></div>
+
+      <img
+        src={CloudCaddiDriving}
+        alt="Mascot Driving Golf Cart"
+        className={`mascot-driving ${isDriving ? "start-driving2" : ""}`}
+        style={{ display: isDriving ? "block" : "none" }}
+      />
     </div>
   );
 };

@@ -13,7 +13,7 @@
   font-size: 80px !important;
   text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
     1px 1px 0 #fff; /* Creates a white outline */
-  animation: color-cycle-goldenrod-black 5s infinite alternate;
+  animation: color-cycle-goldenrod-black2 5s infinite alternate;
 }
 @keyframes color-cycle-goldenrod-black {
   0%,
@@ -78,7 +78,7 @@
 }
 
 .details-section {
-  background-color: rgba(255, 228, 196, 0.692);
+  background-color: rgba(13, 16, 54, 0.692);
   width: 600px;
   height: auto;
   margin: 75px 300px 0px 0px;
@@ -87,7 +87,7 @@
   padding-right: 20px; /* Optional: Add padding to the right if needed */
   padding-top: 10px; /* Optional: Add padding to the top if needed */
   padding-bottom: 10px; /* Optional: Add padding to the bottom if needed */
-  border: 1px solid #ccc; /* Styling the border if needed */
+  border: 1px solid #90e488; /* Styling the border if needed */
   border-radius: 5px; /* Optional: Adding border-radius for aesthetic */
 }
 
@@ -102,17 +102,20 @@
   margin-bottom: 20px; /* Space between search input and suggestions */
   background: #000; /* Dark background */
 
-  color: rgb(255, 255, 255); /* Bright green text, typical of old monitors */
+  color: rgb(154, 243, 158); /* Bright green text, typical of old monitors */
   border: 2px solid #fff; /* White border */
   border-radius: 3px; /* Optional: slight rounding to soften edges */
   text-transform: uppercase;
   font-size: 20px; /* Larger text to emulate old game displays */
-  box-shadow: 0 0 15px goldenrod; /* Neon-like glow */
+  box-shadow: 0 0 15px rgb(146, 252, 152); /* Neon-like glow */
   outline: none; /* Removes the default focus outline */
   margin-top: 0px;
 }
 
 .field-group {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
   margin-bottom: 10px;
 }
 
@@ -122,7 +125,7 @@
   color: white;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
+  cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
   font-family: "Jersey 10", sans-serif;
 }
 
@@ -130,10 +133,11 @@
 .course-title,
 .details-section h2,
 .selected-location h2 {
-  margin-top: 0;
+  margin-top: 30px;
   margin-bottom: 10px;
   margin-left: 10px;
   font-family: "Jersey 10", sans-serif;
+  color: rgb(154, 243, 151);
 }
 
 .div-for-background2 {
@@ -172,7 +176,7 @@
 
 .input-field,
 .input-field select {
-  background-color: #fafad2; /* Parchment-like light color */
+  background-color: #000000; /* Parchment-like light color */
   border: 2x solid #5c4033; /* Dark brown border */
   color: #5c4033; /* Dark text color for better readability */
   font-family: "Jersey 10"; /* Retro, typewriter-like font */
@@ -194,7 +198,7 @@
 .label {
   display: block;
   margin-bottom: 5px;
-  color: #7b3f00; /* Chocolate brown */
+  color: #1c6e20; /* Chocolate brown */
   font-family: "Courier New", Courier, monospace;
   text-transform: uppercase;
 }
@@ -208,16 +212,38 @@
   bottom: 0;
   margin-left: 181px;
   margin-top: 75px;
-  border: 1px solid goldenrod;
-  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.6),
-    /* Outer shadow for depth */ inset 0 0 10px 3px goldenrod; /* Inset shadow for an embossed effect */
-  border-radius: 8px; /* Slightly rounded corners can add to the antique look */
+  border: px solid rgb(2, 1, 0);
+  box-shadow: 20px 20px 200px 80px rgba(0, 0, 0, 0.6),
+    /* Outer shadow for depth */ inset 0 0 80px 50px rgb(0, 0, 0); /* Inset shadow for an embossed effect */
+  border-radius: 0px; /* Slightly rounded corners can add to the antique look */
 
   background-image: url("../../assets/tryin it.png"); /* Update with the correct path */
   height: 402px;
   width: 600px;
   pointer-events: none; /* This ensures that you can still interact with the map underneath */
   z-index: 1000; /* Ensure this is above the map but below any interactive elements */
+}
+
+.map-display {
+  opacity: 0;
+  animation: unrollMap 3s ease-out forwards;
+  animation-delay: 5s;
+  transform-origin: left center; /* Ensure the map unrolls from the left */
+  position: relative; /* Ensure the translateX works properly */
+}
+@keyframes unrollMap {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%) scaleX(0) rotateY(45deg);
+  }
+  50% {
+    opacity: 0;
+    transform: translateX(0) scaleX(0) rotateY(20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scaleX(1) rotateY(0deg);
+  }
 }
 
 .mascot-container66 {
@@ -253,7 +279,7 @@
   color: #fafad2; /* Parchment */
   border: 2px solid goldenrod; /* Dark Brown */
   padding: 10px 20px;
-  cursor: pointer;
+  cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
   transition: all 0.3s;
   font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
   border-radius: 4px; /* Slightly rounded corners */
@@ -283,7 +309,7 @@
   color: #fafad2; /* Parchment */
   border: 2px solid goldenrod; /* Dark Brown */
   padding: 10px 20px;
-  cursor: pointer;
+  cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
   transition: all 0.3s;
   font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
   border-radius: 4px; /* Slightly rounded corners */
@@ -311,4 +337,62 @@
 .inputDetails {
   font-family: "Jersey 10";
   text-transform: uppercase;
+  background-color: #000;
+  color: rgb(179, 255, 176);
+}
+
+.ohYEAHHH {
+  color: goldenrod;
+  font-family: "Jersey 10";
+
+  font-size: 50px !important;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff; /* Creates a white outline */
+  animation: color-cycle-goldenrod-black3 10s infinite alternate;
+}
+
+@keyframes color-cycle-goldenrod-black3 {
+  0%,
+  100% {
+    color: rgb(171, 247, 147);
+    text-shadow: -2px -2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000,
+      2px 2px 0 #000000; /* Creates a white outline */
+  }
+  25% {
+    color: rgb(171, 247, 147);
+    text-shadow: -2px -2px 0 #000000, 2px -2px 0 #000000,
+      -2px 2px rgb (0, 0, 0) fff, 2px 2px 0 #070707; /* Creates a white outline */
+  } /* Dark goldenrod */
+  50% {
+    color: rgb(0, 0, 0);
+    text-shadow: -2px -2px 0 rgb(171, 247, 147), 2px -2px 0 rgb(171, 247, 147),
+      -2px 2px 0 rgb(171, 247, 147), 2px 2px 0 rgb(171, 247, 147); /* Creates a white outline */
+  }
+  75% {
+    color: rgb(171, 247, 147);
+    text-shadow: -2px -2px 0 #000000, 2px -2pxrgb (0, 0, 0) fff, -2px 2px 0 #fff,
+      2px 2px 0 #fff; /* Creates a white outline */
+  } /* Dark goldenrod */
+}
+
+.ohYa {
+  color: #1c6e20;
+  font-size: 20px;
+}
+
+.okbud {
+}
+
+.bigDivCC {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.upload-column {
+  margin-left: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }

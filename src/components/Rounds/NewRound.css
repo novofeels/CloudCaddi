@@ -70,12 +70,12 @@
   margin-bottom: 20px; /* Space between search input and suggestions */
   background: #000; /* Dark background */
 
-  color: rgb(255, 255, 255); /* Bright green text, typical of old monitors */
+  color: #bdf0bd; /* Bright green text, typical of old monitors */
   border: 2px solid #fff; /* White border */
   border-radius: 3px; /* Optional: slight rounding to soften edges */
   text-transform: uppercase;
   font-size: 25px; /* Larger text to emulate old game displays */
-  box-shadow: 0 0 25px goldenrod; /* Neon-like glow */
+  box-shadow: 0 0 8px rgb(117, 247, 138); /* Neon-like glow */
   outline: none; /* Removes the default focus outline */
   margin-top: 20px;
 }
@@ -278,6 +278,7 @@
   text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
   font-weight: bold;
   margin: 10px;
+  font-family: "Jersey 10";
 }
 
 .start-round-button:hover,

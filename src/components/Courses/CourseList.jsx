@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { getAllCourses } from "../../services/CourseService";
-import staticGif from "../../assets/staticGif.png";
+import staticGif from "../../assets/staticGif.gif";
 import animatedGif from "../../assets/CloudCaddiInClubhouse.gif";
 import lowBlip from "../../assets/LowBlip.mp3";
 import mediumBlip from "../../assets/MediumBlip.mp3";
