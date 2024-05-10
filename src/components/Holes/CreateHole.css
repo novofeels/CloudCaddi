@@ -35,7 +35,7 @@
   color: #fafad2; /* Parchment */
   border: 2px solid #979290; /* Dark Brown */
   padding: 5px 10px;
-  cursor: pointer;
+  cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
   transition: all 0.3s;
   font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
   border-radius: 4px; /* Slightly rounded corners */

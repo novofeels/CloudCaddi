@@ -21,38 +21,114 @@
   flex-direction: column;
   max-width: 1000px; /* Adjust as needed */
   margin: auto;
-justify-content: center;
-  padding: 20px;
+  justify-content: center;
+  padding: 15px;
   background: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: "Arial", sans-serif;
   border-color: #000000; /* Amber for the border on hover/focus */
-  box-shadow: 0 0 40px 4px #ffbf00,
-    /* Bright outer glow */ inset 0px 0px 8px rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 40px 4px #ffbf00,
-    /* Bright outer glow */ inset 0px 0px 8px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 10px 4px #33ff008a,
+    /* Bright outer glow */ inset 0px 0px 7px 7px rgba(255, 255, 255, 0.3);
+
   border-radius: 8px; /* Slightly rounded corners can add to the antique look */
-  background-image: linear-gradient(to bottom right, #243a08, #2b460c);
-  border-radius: 10px;
-  border: 2px solid #ccc;
-  border-top: 1px solid #ccc;
+  background-image: linear-gradient(to bottom right, #0d0c24f6, #0f0216);
+  border-radius: 50px;
+  border: 4px solid #ccc;
+  border-top: 3px solid #ccc;
+  animation: crtOn 0.8s forwards, crtFlicker 4s forwards;
+  animation-delay: 0.5s;
+  opacity: 0;
+}
+@keyframes crtOn {
+  0% {
+    transform: scaleY(0.001) scaleX(0);
+    transform-origin: center;
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(0.001) scaleX(0.8);
+    transform-origin: center;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(1) scaleX(1);
+    transform-origin: center;
+  }
+}
+
+@keyframes crtFlicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  10%,
+  20%,
+  30%,
+  40%,
+  50%,
+  60% {
+    opacity: 0.95;
+  }
+  15%,
+  35%,
+  55% {
+    opacity: 0.8;
+  }
+  14%,
+  19%,
+  29% {
+    opacity: 0.6;
+  }
+  25%,
+  45% {
+    opacity: 0.9;
+  }
 }
 
 /* Title and image description section */
 .course-title99 {
   color: goldenrod;
   text-transform: uppercase;
-  font-family: 'Jersey 10';
+  font-family: "Jersey 10";
   justify-content: center !important;
   text-align: center !important;
   margin-left: 320px;
-  font-size: 48px;
-  margin-bottom: 20px;
+  font-size: 80px !important;
+  margin-bottom: 0px;
   width: 300px;
- 
-  background-color: black;
-  box-shadow: 0 0 2px 3px rgba(0, 0, 0, 0.2),
-  /* Outer shadow for depth */ inset 0 0 2px 3px goldenrod; 
+
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff; /* Creates a white outline */
+  animation: color-cycle-goldenrod-black3 5s ease-in-out infinite alternate;
+}
+
+.course-title68 {
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+    1px 1px 0 #fff; /* Creates a white outline */
+  animation: color-cycle-goldenrod-black 5s infinite alternate;
+}
+@keyframes color-cycle-goldenrod-black1 {
+  0%,
+  100% {
+    color: goldenrod;
+    text-shadow: -2px -2px 0 #fff, 3px -2px 0 #fff, -2px 2px 0 #fff,
+      2px 2px 0 #fff; /* Creates a white outline */
+  }
+  25% {
+    color: goldenrod;
+    text-shadow: -2px -2px 0 #fff, 4px -2px 0 #fff, -2px 2px 0 #fff,
+      2px 2px 0 #fff; /* Creates a white outline */
+  } /* Dark goldenrod */
+  50% {
+    color: rgb(255, 255, 255);
+    text-shadow: -2px -2px 0 goldenrod, 5px -2px 0 goldenrod,
+      -2px 2px 0 goldenrod, 2px 2px 0 goldenrod; /* Creates a white outline */
+  }
+  75% {
+    color: goldenrod;
+    text-shadow: -2px -2px 0 #fff, 4px -2px 0 #fff, -2px 2px 0 #fff,
+      2px 2px 0 #fff; /* Creates a white outline */
+  } /* Dark goldenrod */
 }
 
 .image-carousel-container {
@@ -62,14 +138,14 @@ justify-content: center;
   margin-bottom: 20px;
   padding: 10px; /* Or adjust as needed */
   border-radius: 10px; /* Rounded corners to match the scorecard style */
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Soft shadow for depth, like the scorecard */
+  box-shadow: 4px 4px 8px rgba(226, 216, 216, 0.5); /* Soft shadow for depth, like the scorecard */
   background-color: #000000;
-
-  border: 2px solid goldenrod; /* Dark Brown border for vintage feel */
+  cursor: url("../../assets/PRECISION.cur"), auto;
+  border: 2px solid rgb(216, 210, 194); /* Dark Brown border for vintage feel */
 }
 .image-carousel-container:hover {
-  box-shadow: 0 0 40px 4px #ffbf00,
-  /* Bright outer glow */ inset 0px 0px 8px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 5px 4px #d8d2c2,
+    /* Bright outer glow */ inset 0px 0px 4px rgba(255, 255, 255, 0.3);
 }
 /* Placeholder for actual image carousel component */
 .image-carousel {
@@ -89,7 +165,7 @@ justify-content: center;
   height: 300px; /* Adjust based on your design */
   flex-grow: 1;
   padding: 10px;
-  background-color: #fafad2; /* Parchment color to match the theme */
+  background-color: rgb(0, 0, 0); /* Parchment color to match the theme */
   border-radius: 8px; /* Slightly rounded corners */
   border: 3px solid #ccc; /* Dark Brown border for a consistent look */
   font-style: italic;
@@ -99,9 +175,6 @@ justify-content: center;
   color: goldenrod; /* Dark Brown text color */
 }
 
-.workDammit {
-  font-family: "Courier New";
-}
 /* The hole stats and the hole image section */
 .hole-stats-container {
   display: flex;
@@ -110,20 +183,32 @@ justify-content: center;
 }
 
 .aboveButton {
-  color: goldenrod;
+  color: rgb(38, 218, 32);
   margin-bottom: 10px;
   text-transform: uppercase;
-  border: 2px dotted goldenrod;
-  background-color: #000;
+
+  font-family: "Jersey 10";
   justify-content: center;
   align-items: center;
   height: 100px;
+  text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #000000, -1px 1px 0 #000000,
+    1px 1px 0 #000000; /* Creates a white outline */
 }
 .hole-detail {
   font-family: "Jersey 10";
   flex: 1;
   text-align: center;
-  text
+  border: 1px dotted #00ff00; /* Green border for Pip-Boy style */
+  background-color: #06061b; /* Dark background */
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 3px 3px; /* Mimic CRT pixelation */
+  border-radius: 15px; /* Rounded corners for a slicker look */
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.5); /* Green glow */
+  cursor: url("../../assets/PRECISION.cur"), auto;
 }
 
 .hole-image {
@@ -164,7 +249,7 @@ justify-content: center;
 .strokes:hover {
   background-color: #ffbf00; /* Amber */
   color: #5c4033; /* Dark Brown */
-  cursor: pointer;
+  cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
 }
 .hole-number,
 .strokes {
@@ -216,13 +301,15 @@ justify-content: center;
   right: 200px;
   position: absolute;
   border: 1px solid black;
+  cursor: url("../../assets/PRECISION.cur"), auto;
 }
 
 .mascot3 {
-  width: 150px; /* Adjust as needed */
+  width: 175px; /* Adjust as needed */
   position: absolute; /* Absolute positioning relative to the parent */
-  right: 30px; /* Position to the right of the speech bubble */
+  right: 10px; /* Position to the right of the speech bubble */
   top: 0; /* Align with the top of the speech bubble */
+  cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
 }
 
 .mascot-text {
@@ -240,25 +327,27 @@ justify-content: center;
 .proceed-button {
   background-color: #000000; /* Chocolate */
   color: #fafad2; /* Parchment */
-  border: 2px solid goldenrod; /* Dark Brown */
+  border: 2px solid rgb(255, 255, 255); /* Dark Brown */
   padding: 10px 20px;
-  cursor: pointer;
+  cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
   transition: all 0.3s;
-  font-family: "Courier New", Courier, monospace; /* Monospace font for a vintage look */
-  border-radius: 4px; /* Slightly rounded corners */
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2),
-    /* Inner shadow for a pressed button look */ 0 2px 6px rgba(0, 0, 0, 0.2); /* Outer shadow for depth */
+  font-family: "Jersey 10", Courier, monospace; /* Monospace font for a vintage look */
+  border-radius: 6px; /* Slightly rounded corners */
+  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.5),
+    /* Inner shadow for a pressed button look */ 0 2px 4px
+      rgba(255, 255, 255, 0.5); /* Outer shadow for depth */
   text-transform: uppercase; /* Styling the text to uppercase for that old video game look */
   font-weight: bold;
   margin: 10px;
+  font-size: 20px;
 }
 
 .proceed-button:hover,
 .proceed-button:focus {
-  background-color: #ffbf00; /* Amber */
-  color: #5c4033; /* Dark Brown */
-  border-color: #ffbf00; /* Amber for the border on hover/focus */
-  box-shadow: 0 0 8px #ffbf00; /* Glowing effect on hover/focus */
+  background-color: #f0ede6; /* Amber */
+  color: #000000; /* Dark Brown */
+  border-color: #000000; /* Amber for the border on hover/focus */
+  box-shadow: 0 0 20px #000000; /* Glowing effect on hover/focus */
 }
 
 /* When the button is active, make it look like it's being pressed */
@@ -272,30 +361,26 @@ justify-content: center;
   display: flex;
   justify-content: center;
   align-items: center;
-
-
-  height: 66px;
-  
 }
 
 .input-stroke {
   margin-right: 10px;
   margin: 20px;
   font-family: "Jersey 10", sans-serif;
-  
+  cursor: url("../../assets/PRECISION.cur"), auto;
   padding: 10px;
-  font-size: 16px;
+  font-size: 22px;
   border: 2px solid #ccc;
   border-radius: 5px;
   margin-bottom: 20px; /* Space between search input and suggestions */
   background: #000; /* Dark background */
-  color: rgb(0, 255, 98);
+  color: rgb(255, 251, 0);
   color: rgb(255, 255, 255); /* Bright green text, typical of old monitors */
   border: 2px solid #fff; /* White border */
-  border-radius: 3px; /* Optional: slight rounding to soften edges */
+  border-radius: 8px; /* Optional: slight rounding to soften edges */
   text-transform: uppercase;
-  font-size: 16px; /* Larger text to emulate old game displays */
-  box-shadow: 0 0 25px goldenrod; /* Neon-like glow */
+  font-size: 20px; /* Larger text to emulate old game displays */
+  box-shadow: 0 0 4px rgb(255, 255, 255); /* Neon-like glow */
   outline: none; /* Removes the default focus outline */
 }
 
@@ -324,14 +409,16 @@ justify-content: center;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7); /* Slightly darker dimming effect */
+  background: rgba(0, 0, 0, 1); /* Slightly darker dimming effect */
   z-index: 999; /* Below the mascot */
+  cursor: url("../../assets/PRECISION.cur"), auto;
   display: none; /* Initially hidden */
+  animation: turnOnLights 4s ease-out forwards;
 }
 
 .mascot-driving {
   position: fixed;
-  bottom: -50px; /* Adjust as needed */
+  bottom: 0px; /* Adjust as needed */
   right: 100%; /* Start off-screen to the right */
   z-index: 1000; /* Above the dim background */
   width: 100%; /* Set the size to 1/4 of its current size */
@@ -368,6 +455,11 @@ justify-content: center;
 }
 
 .makeParBigger {
-  font-family: "Courier New", Courier, monospace, sans-serif;
-  font-size: 30px;
+  font-family: "Jersey 10", Courier, monospace, sans-serif;
+  font-size: 40px;
+}
+
+.workDammit {
+  font-family: "Jersey 10", Courier, monospace, sans-serif;
+  font-size: 60px;
 }

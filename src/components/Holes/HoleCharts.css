@@ -1,0 +1,83 @@
+/* LineChartComponent.css */
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  padding: 8px;
+  border: 1px dotted #00ff00; /* Green border for Pip-Boy style */
+  background-color: #06061b; /* Dark background */
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 3px 3px; /* Mimic CRT pixelation */
+  border-radius: 15px; /* Rounded corners for a slicker look */
+  box-shadow: 0 0 8px rgba(0, 255, 0, 0.5); /* Green glow */
+  cursor: url("../../assets/PRECISION.cur"), auto;
+}
+.chart-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  animation: crtFlicker 2s;
+  animation-delay: 0.5s;
+}
+
+.bird-speech {
+  white-space: pre-wrap; /* Maintains whitespace formatting */
+  max-width: 200px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  border: 2px solid #333;
+  font-family: "Jersey 10", sans-serif;
+  font-size: 16px;
+  color: #333;
+  margin-top: 20px;
+  margin-left: 15px;
+  cursor: url("../../assets/PRECISION.cur"), auto !important;
+}
+
+.bird-speech::after {
+  content: "";
+  position: absolute;
+  bottom: -10px; /* Adjust this value to move the tip up or down */
+  left: 50px; /* Adjust this value to move the tip left or right */
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-top-color: #f0f0f0;
+  border-bottom: 0;
+  margin-left: -10px;
+  margin-bottom: -10px;
+}
+.Owl-gif2 {
+  width: 100px;
+  height: auto;
+  margin-left: 25px;
+  cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease; /* Smooth transitions for effects */
+  filter: brightness(0.9);
+  position: relative;
+  overflow: hidden;
+  transform: scaleX(-1);
+}
+
+.bigDivForCharts {
+  display: flex;
+}
+
+.chartjs-render-monitor .hover-glow {
+  opacity: 1 !important;
+  filter: brightness(1.5) drop-shadow(0 0 10px #00ff00);
+  transition: opacity 0.3s, filter 0.3s;
+}
+
+.chartjs-render-monitor .hover-glow:hover {
+  opacity: 1 !important;
+  filter: brightness(2) drop-shadow(0 0 20px #00ff00);
+}

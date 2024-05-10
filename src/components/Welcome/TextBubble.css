@@ -30,6 +30,7 @@
   border-bottom: 0;
   margin-left: -10px;
   margin-bottom: -10px;
+  cursor: url("../../assets/PRECISION.cur"), auto !important;
 }
 
 .container4welcome {
@@ -73,6 +74,7 @@
 }
 .text-bubble {
   margin-right: 20px; /* Give some space between the text and the GIF*/
+  cursor: url("../../assets/PRECISION.cur"), auto !important;
 }
 
 .cloud-gif {

@@ -8,4 +8,5 @@
   height: auto;
   z-index: 1;
   background-size: cover;
+  pointer-events: none;
 }

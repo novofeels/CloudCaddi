@@ -182,9 +182,8 @@
   margin: 5px 0;
 }
 
-.round-image {
-  height: 50%; /* Ensure images take up the full card width */
-  margin: 15px 40px;
+.round-image2 {
+  margin: 25px 35px;
   border-top: 1px solid #979290; /* Line between the image and text */
   margin-bottom: 10px; /* Space below the image */
 }

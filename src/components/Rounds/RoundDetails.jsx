@@ -293,7 +293,7 @@ export const RoundDetails = () => {
             <img
               src={round.course.image}
               alt="Course"
-              className="round-image"
+              className="round-image2"
             />
           )}
         </div>

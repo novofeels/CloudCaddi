@@ -6,6 +6,8 @@ import highBlip from "../../assets/HighBlip.mp3";
 import animatedGif from "../../assets/OwlbertEinsteinGif.gif";
 import staticGif from "../../assets/OwlbertEinsteinGif.gif";
 import successSound from "../../assets/success.wav";
+import Filters from "./Filters";
+import ChartComponent from "./ChartComponent";
 
 export const Analytics = ({ currentUser }) => {
   const defaultText = "Is someone there?";
@@ -14,6 +16,7 @@ export const Analytics = ({ currentUser }) => {
   const [pause, setPause] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [emphasizingYOUR, setEmphasizingYOUR] = useState(false);
+  const [filters, setFilters] = useState();
 
   const text =
     "How'd you get in here...?\\n\\nAnyhow, my name is Owlbert Einstein - I crunch the numbers around here, the cloud is just a figurehead \\n\\nI'm not quite set up yet, come back later.";
@@ -107,10 +110,17 @@ export const Analytics = ({ currentUser }) => {
     setIndex(0); // Start from the beginning of the provided text
   };
 
+  const onFilterChange = (filterName, value) => {
+    setFilters({
+      ...filters,
+      [filterName]: value,
+    });
+  };
+
   return (
     <div className="div-for-background4">
       <div className="container4welcome">
-        <div className="text-bubble">{displayedText}</div>
+        <div className="text-bubble-analytics">{displayedText}</div>
         <img
           src={isActive ? animatedGif : staticGif}
           alt="Cloud Caddi"
