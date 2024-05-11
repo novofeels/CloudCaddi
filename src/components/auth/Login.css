@@ -98,12 +98,13 @@
   justify-content: center !important;
   text-align: center !important;
 
-  font-size: 120px !important;
+  font-size: 125px !important;
   margin-bottom: 0px;
 
   text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
     1px 1px 0 #fff; /* Creates a white outline */
-  animation: color-cycle-goldenrod-black2 5s ease-in-out infinite alternate;
+  animation: color-cycle-goldenrod-black4 2.5s forwards,
+    pulse66 2.5s ease-in-out forwards;
 }
 @keyframes color-cycle-goldenrod-black2 {
   0%,

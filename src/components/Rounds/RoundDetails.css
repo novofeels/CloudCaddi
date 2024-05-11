@@ -126,7 +126,7 @@
     opacity: 1;
   }
   50% {
-    transform: scale(1.1) rotateY(0); /* Scale up to create a pixelating effect */
+    transform: scale(1.03) rotateY(0); /* Scale up to create a pixelating effect */
     opacity: 0.5;
   }
   100% {
@@ -140,7 +140,7 @@
     opacity: 1;
   }
   100% {
-    transform: rotateY(720deg) scale(6) translate(-25%, -25%);
+    transform: rotateY(540deg) scale(5) translate(-35%, -35%);
     opacity: 0;
   }
 }

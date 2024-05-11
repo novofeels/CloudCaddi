@@ -204,7 +204,8 @@
   font-size: 80px !important;
   text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
     1px 1px 0 #fff; /* Creates a white outline */
-  animation: color-cycle-goldenrod-black 3s infinite alternate;
+  animation: color-cycle-goldenrod-black4 2.5s forwards,
+    pulse66 2.5s ease-in-out forwards;
 }
 @keyframes color-cycle-goldenrod-black {
   0%,
@@ -313,9 +314,9 @@
   z-index: 999; /* Below the mascot */
   cursor: url("../../assets/PRECISION.cur"), auto;
   display: none; /* Initially hidden */
-  animation: turnOnLights 4s ease-out forwards;
+  animation: turnOnLights2 4s ease-out forwards;
 }
-@keyframes turnOnLights {
+@keyframes turnOnLights2 {
   0% {
     filter: brightness(0%);
   }

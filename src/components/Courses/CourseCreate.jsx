@@ -25,6 +25,7 @@ export const CourseCreate = () => {
   const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isMascotAnimated, setIsMascotAnimated] = useState(false);
+  const [detailsVisible, setDetailsVisible] = useState(false);
 
   const lowBlipSound = new Audio(lowBlip);
   const mediumBlipSound = new Audio(mediumBlip);
@@ -60,21 +61,20 @@ export const CourseCreate = () => {
         center: { lat: 38.949180578340034, lng: -96.16359051924033 },
         zoom: 2,
         mapTypeId: google.maps.MapTypeId.SATELLITE,
-        disableDefaultUI: true, // Disable default controls
+        disableDefaultUI: true,
         styles: [
-          // Customize the map's appearance
           {
-            featureType: "poi", // Points of interest
+            featureType: "poi",
             elementType: "labels",
             stylers: [{ visibility: "on" }],
           },
           {
-            featureType: "transit", // All transit stations and lines
+            featureType: "transit",
             elementType: "labels",
             stylers: [{ visibility: "off" }],
           },
           {
-            featureType: "road", // All roads
+            featureType: "road",
             elementType: "labels",
             stylers: [{ visibility: "off" }],
           },
@@ -91,76 +91,59 @@ export const CourseCreate = () => {
         mapOptions
       );
 
-      // Add click event listener to the map
       map.addListener("click", (event) => {
-        // Retrieve latitude and longitude of clicked location
         const { latLng } = event;
         const latitude = latLng.lat();
         const longitude = latLng.lng();
 
-        // Store clicked location in state
         setClickedLocation({ latitude, longitude });
 
-        // Remove previous marker, if any
         if (markerRef.current) {
           markerRef.current.setMap(null);
         }
 
-        // Create a new marker at the clicked location
         const newMarker = new window.google.maps.Marker({
           position: { lat: latitude, lng: longitude },
           map: map,
           title: "Clicked Location",
         });
 
-        // Store the new marker in the ref
         markerRef.current = newMarker;
+        setDetailsVisible(true); // Show the details section when a pin is dropped
       });
 
-      // Create search box and link it to the UI element
       const input = document.getElementById("searchInput");
       const searchBox = new window.google.maps.places.SearchBox(input);
 
-      // Listen for the event triggered when the user selects a prediction and retrieve more details for that place
       searchBox.addListener("places_changed", () => {
         const places = searchBox.getPlaces();
-
         if (places.length === 0) {
           return;
         }
 
-        // Get the first place
         const place = places[0];
-
-        // Pan to the selected place and zoom in
         map.setCenter(place.geometry.location);
         map.setZoom(15);
 
-        // Store the selected location in state
         setClickedLocation({
           latitude: place.geometry.location.lat(),
           longitude: place.geometry.location.lng(),
         });
 
-        // Remove previous marker, if any
         if (markerRef.current) {
           markerRef.current.setMap(null);
         }
 
-        // Create a new marker at the selected location
         const newMarker = new window.google.maps.Marker({
           position: place.geometry.location,
           map: map,
           title: "Selected Location",
         });
 
-        // Store the new marker in the ref
         markerRef.current = newMarker;
+        setDetailsVisible(true); // Show the details section when a pin is dropped
       });
     }
-
-    // Adjust horizontal scroll by a certain number of pixels
-    // This example assumes you want to scroll the window 100 pixels to the right
   }, [mapLoaded]);
 
   const handleCourseCreate = async () => {
@@ -281,8 +264,10 @@ export const CourseCreate = () => {
             </div>
           </div>
         )}
-        <div className="details-section">
-          <h2 className="ohYEAHHH">Course Details</h2>
+        <div
+          className={`details-section ${detailsVisible ? "crtOn" : "hidden"}`}
+        >
+          <h2 className="ohYEAHHH2">Course Details</h2>
           <div className="field-group">
             <label htmlFor="courseName" className="label">
               Name Of Course:

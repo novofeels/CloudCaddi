@@ -81,7 +81,7 @@
   top: 30px;
   width: 500px;
   height: auto;
-  animation: pulse 2s ease-in-out infinite; /* Gentle pulsing */
+  animation: pulse 6s ease-in-out infinite; /* Gentle pulsing */
   cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
   transition: transform 0.3s ease-in-out, filter 0.3s ease; /* Smooth transitions for effects */
   filter: brightness(0.9);
@@ -99,7 +99,7 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.05); /* Slight scale increase */
+    transform: scale(1.03); /* Slight scale increase */
   }
 }
 

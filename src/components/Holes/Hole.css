@@ -35,18 +35,18 @@
   border-radius: 50px;
   border: 4px solid #ccc;
   border-top: 3px solid #ccc;
-  animation: crtOn 0.8s forwards, crtFlicker 4s forwards;
+  animation: crtOn 0.8s forwards, crtFlicker 2.7s forwards;
   animation-delay: 0.5s;
   opacity: 0;
 }
 @keyframes crtOn {
   0% {
-    transform: scaleY(0.001) scaleX(0);
+    transform: scaleY(0.003) scaleX(0);
     transform-origin: center;
     opacity: 1;
   }
   50% {
-    transform: scaleY(0.001) scaleX(0.8);
+    transform: scaleY(0.003) scaleX(0.8);
     transform-origin: center;
     opacity: 1;
   }
@@ -99,7 +99,9 @@
 
   text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
     1px 1px 0 #fff; /* Creates a white outline */
-  animation: color-cycle-goldenrod-black3 5s ease-in-out infinite alternate;
+  animation: color-cycle-goldenrod-black4 2.5s forwards,
+    pulse66 2.5s ease-in-out forwards;
+  animation-delay: 1s;
 }
 
 .course-title68 {
@@ -107,28 +109,42 @@
     1px 1px 0 #fff; /* Creates a white outline */
   animation: color-cycle-goldenrod-black 5s infinite alternate;
 }
-@keyframes color-cycle-goldenrod-black1 {
-  0%,
-  100% {
-    color: goldenrod;
-    text-shadow: -2px -2px 0 #fff, 3px -2px 0 #fff, -2px 2px 0 #fff,
-      2px 2px 0 #fff; /* Creates a white outline */
+@keyframes color-cycle-goldenrod-black4 {
+  0% {
+    color: rgb(22, 22, 22);
+    text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+      -2px 2px 0 rgb(69, 218, 32), 2px 2px 0 rgb(122, 218, 32); /* Creates a white outline */
   }
   25% {
-    color: goldenrod;
-    text-shadow: -2px -2px 0 #fff, 4px -2px 0 #fff, -2px 2px 0 #fff,
-      2px 2px 0 #fff; /* Creates a white outline */
+    color: rgb(39, 39, 39);
+    text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+      -2px 2px 0 rgb(69, 218, 32), 2px 2px 0 rgb(122, 218, 32); /* Creates a white outline */
   } /* Dark goldenrod */
   50% {
-    color: rgb(255, 255, 255);
-    text-shadow: -2px -2px 0 goldenrod, 5px -2px 0 goldenrod,
-      -2px 2px 0 goldenrod, 2px 2px 0 goldenrod; /* Creates a white outline */
+    text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+      -2px 2px 0 rgb(69, 218, 32), 2px 2px 0 rgb(122, 218, 32); /* Creates a white outline */
+  }
+  69% {
+    opacity: 0.76;
+    text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+      -2px 2px 0 rgb(69, 218, 32), 2px 2px 0 rgb(122, 218, 32); /* Creates a white outline */
+  }
+  70% {
+    opacity: 0.9;
+    text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+      -2px 2px 0 rgb(69, 218, 32), 2px 2px 0 rgb(122, 218, 32); /* Creates a white outline */
   }
   75% {
-    color: goldenrod;
-    text-shadow: -2px -2px 0 #fff, 4px -2px 0 #fff, -2px 2px 0 #fff,
-      2px 2px 0 #fff; /* Creates a white outline */
+    opacity: 1;
+    color: rgb(201, 201, 201);
+    text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+      -2px 2px 0 rgb(69, 218, 32), 2px 2px 0 rgb(122, 218, 32); /* Creates a white outline */
   } /* Dark goldenrod */
+  100% {
+    color: rgb(255, 255, 255);
+    text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+      -2px 2px 0 rgb(69, 218, 32), 2px 2px 0 rgb(122, 218, 32); /* Creates a white outline */
+  }
 }
 
 .image-carousel-container {
@@ -239,27 +255,33 @@
   font-size: 26px;
   text-align: center;
 
-  border: 2px solid goldenrod !important; /* White borders within the table */
-  background-color: rgb(146, 12, 12); /* Chocolate */
+  background-color: #06061b; /* Dark background */
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 3px 3px; /* Mimic CRT pixelation */
   color: #fffff0; /* Off-White */
   border-radius: 5px;
 }
 
 .hole-number:hover,
 .strokes:hover {
-  background-color: #ffbf00; /* Amber */
-  color: #5c4033; /* Dark Brown */
+  background-color: #47a12b; /* Amber */
+  color: #ced3d2; /* Dark Brown */
   cursor: url("../../assets/LINK SELECT (1).cur"), auto !important;
 }
 .hole-number,
 .strokes {
   padding: 10px;
-  background-color: #fafad2; /* Parchment for cells */
+  background-color: #000000; /* Parchment for cells */
   border: 1px solid #5c4033; /* Subtle borders */
   border-radius: 5px; /* Slightly rounded corners */
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
   align-content: center;
+  color: white;
 }
 .hole-number,
 .strokes {
@@ -280,12 +302,9 @@
 }
 .scorecard div {
   padding: 10px;
-  border-right: 2px solid #800020;
-  border-top: 2px solid goldenrod;
-}
-
-.scorecard div:last-child {
-  border-right: 2px solid #800020;
+  border-right: 2px solid #298000;
+  border-top: 2px solid rgb(255, 255, 255);
+  border-bottom: 1px solid white;
 }
 
 /* Mascot speech bubble */
@@ -293,10 +312,10 @@
   font-family: "Jersey 10";
   background-color: #f0f0f0; /* Light grey background */
   border-radius: 15px; /* Rounded corners for bubble */
-  padding: 20px; /* Padding inside speech bubble */
+  padding: 0px 0px 1px 5px; /* Padding inside speech bubble */
   margin-bottom: 20px;
   margin-left: 50px;
-  font-size: 18px;
+  font-size: 16px;
   max-width: 400px; /* Control the width of the speech bubble */
   right: 200px;
   position: absolute;
@@ -413,7 +432,7 @@
   z-index: 999; /* Below the mascot */
   cursor: url("../../assets/PRECISION.cur"), auto;
   display: none; /* Initially hidden */
-  animation: turnOnLights 4s ease-out forwards;
+  animation: fadeIn788 1s ease forwards;
 }
 
 .mascot-driving {
@@ -462,4 +481,34 @@
 .workDammit {
   font-family: "Jersey 10", Courier, monospace, sans-serif;
   font-size: 60px;
+}
+
+@keyframes fadeIn788 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-out {
+  animation: fadeOut78 1s forwards;
+}
+
+@keyframes fadeOut78 {
+  100% {
+    opacity: 1;
+  }
+  0% {
+    opacity: 0;
+  }
+}
+
+.DJKHALED.zoom-spin {
+  animation: fadeOut 0.5s ease-in-out forwards;
+  animation-delay: 1s;
 }

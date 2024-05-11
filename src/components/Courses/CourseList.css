@@ -2,7 +2,7 @@
 .course-details-container {
   background-color: black;
   color: gold;
-  font-family: "Press Start 2P", cursive; /* This font mimics old video game text */
+  font-family: "Jersey 10", cursive; /* This font mimics old video game text */
   animation: fadeIn 1.5s;
 }
 
@@ -24,8 +24,19 @@
   font-size: 80px !important;
   text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
     1px 1px 0 #fff; /* Creates a white outline */
-  animation: color-cycle-goldenrod-black 5s infinite alternate;
+  animation: color-cycle-goldenrod-black4 2.5s forwards,
+    pulse66 2.5s ease-in-out forwards;
 }
+
+@keyframes pulse66 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.09); /* Slight scale increase */
+  }
+}
+
 @keyframes color-cycle-goldenrod-black {
   0%,
   100% {

@@ -132,10 +132,10 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.95); /* Strong black overlay */
   backdrop-filter: blur(10px); /* Start with heavy blur */
-  animation: turnOnLights 5s ease forwards;
+  animation: turnOnLights3 5s ease forwards;
 }
 
-@keyframes turnOnLights {
+@keyframes turnOnLights3 {
   0% {
     filter: brightness(0%);
   }
