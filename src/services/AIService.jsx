@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Replace 'your-api-key' with your actual OpenAI API key
-const API_KEY = "sk-proj-ykfEn5j34WPnl5Coc0cqT3BlbkFJOpInJDSQGJVWB7qmGOkP";
+const API_KEY = "";
 const OPENAI_API_URL = "https://api.openai.com/v1/chat/completions";
 
 const nicknames = [
