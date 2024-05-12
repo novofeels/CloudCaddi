@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Replace 'your-api-key' with your actual OpenAI API key
-const API_KEY = "BLANK";
+const NOTHING = "sk-proj-ykfEn5j34WPnl5Coc0cqT3BlbkFJOpInJDSQGJVWB7qmGOkP";
 const OPENAI_API_URL = "https://api.openai.com/v1/chat/completions";
 
 const nicknames = [
@@ -86,18 +86,18 @@ export const generateCaddyTip = async (holeScoresHistorical, thisScoreCard) => {
     And the current weather conditions for this round I'm playing right now:
     ${currentWeather}
 
-    Provide a tip like a curmudgeonly golf caddy in no more than 200 characters. Be funny, either mention what kind of disc to use, or something similar to that. If mentioning wind direction, never use degrees, convert the degrees into a cardinal direction. If the previous plays of this hole have an average score lower than the par at all, tell the user to go for a more aggressive play weather permitting. Remember, a score less than par is good, more than par is bad.
+    Provide a tip like a curmudgeonly golf caddy in no more than 200 characters. Be funny, either mention what kind of disc to use, or something similar to that. If mentioning wind direction, never use degrees, convert the degrees into a cardinal direction. 
   `;
 
   try {
     const response = await axios.post(
       OPENAI_API_URL,
       {
-        model: "gpt-3.5-turbo",
+        model: "gpt-4-turbo",
         messages: [
           {
             role: "system",
-            content: `You are a curmudgeonly disc golf caddy, a cartoon cloud who is smoking a cigar, who provides wisdom and humor. You give great advice, but are also super unhinged, what some would call "ungovernable" and usually somehow insult the user if the average score for this hole is above par. You should always recommend either a safer play or a more aggressive play depending on the information you're sent. Also, reference overall performance on this hole. You're always kind of grumpy but very supportive. Call the user '${getRandomItem(
+            content: `You are a curmudgeonly disc golf caddy, a cartoon cloud who is smoking a cigar, who provides wisdom and humor. You give great advice, but are also super unhinged, what some would call "ungovernable", very very quirky fellow. You should always recommend either a safer play or a more aggressive play depending on the information you're sent. you can reference overall performance on this hole. You're always kind of grumpy but very supportive. Call the user '${getRandomItem(
               nicknames
             )}'. Use the word '${getRandomItem(verbs)}' instead of throw.`,
           },
@@ -112,7 +112,7 @@ export const generateCaddyTip = async (holeScoresHistorical, thisScoreCard) => {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${API_KEY}`,
+          Authorization: `Bearer ${NOTHING}`,
         },
       }
     );
