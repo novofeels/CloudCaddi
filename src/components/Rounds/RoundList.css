@@ -2,7 +2,7 @@
 .round-details-container {
   background-color: black;
   color: gold;
-  font-family: "Press Start 2P", cursive; /* This font mimics old video game text */
+  font-family: "Jersey 10", cursive; /* This font mimics old video game text */
   animation: fadeIn 1.5s;
 }
 
@@ -34,7 +34,8 @@
   font-size: 80px !important;
   text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
     1px 1px 0 #fff; /* Creates a white outline */
-  animation: color-cycle-goldenrod-black 5s infinite alternate;
+  animation: color-cycle-goldenrod-black4 2.5s forwards,
+    pulse66 2.5s ease-in-out forwards;
 }
 @keyframes color-cycle-goldenrod-black {
   0%,
@@ -138,7 +139,7 @@
     opacity: 1;
   }
   50% {
-    transform: scale(1.1) rotateY(0); /* Scale up to create a pixelating effect */
+    transform: scale(1.03) rotateY(0); /* Scale up to create a pixelating effect */
     opacity: 0.5;
   }
   100% {

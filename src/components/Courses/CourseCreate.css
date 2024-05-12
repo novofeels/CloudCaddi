@@ -13,32 +13,51 @@
   font-size: 80px !important;
   text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
     1px 1px 0 #fff; /* Creates a white outline */
-  animation: color-cycle-goldenrod-black2 5s infinite alternate;
+  animation: color-cycle-goldenrod-black44 4s ease forwards, pulse66 4s forwards;
+  animation-delay: 10.3s;
+  opacity: 0;
 }
-@keyframes color-cycle-goldenrod-black {
-  0%,
-  100% {
-    color: goldenrod;
-    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
-      2px 2px 0 #fff; /* Creates a white outline */
+@keyframes color-cycle-goldenrod-black44 {
+  0% {
+    opacity: 0.2;
+    color: rgb(22, 22, 22);
+    text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+      -2px 2px 0 rgb(69, 218, 32), 2px 2px 0 rgb(122, 218, 32); /* Creates a white outline */
   }
   25% {
-    color: #dfb346;
-    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
-      2px 2px 0 #fff; /* Creates a white outline */
+    opacity: 0.6;
+    color: rgb(39, 39, 39);
+    text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+      -2px 2px 0 rgb(69, 218, 32), 2px 2px 0 rgb(122, 218, 32); /* Creates a white outline */
   } /* Dark goldenrod */
   50% {
-    color: rgb(255, 255, 255);
-    text-shadow: -2px -2px 0 goldenrod, 2px -2px 0 goldenrod,
-      -2px 2px 0 goldenrod, 2px 2px 0 goldenrod; /* Creates a white outline */
+    opacity: 1;
+    text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+      -2px 2px 0 rgb(69, 218, 32), 2px 2px 0 rgb(122, 218, 32); /* Creates a white outline */
+  }
+  69% {
+    opacity: 0.76;
+    text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+      -2px 2px 0 rgb(69, 218, 32), 2px 2px 0 rgb(122, 218, 32); /* Creates a white outline */
+  }
+  70% {
+    opacity: 0.9;
+    text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+      -2px 2px 0 rgb(69, 218, 32), 2px 2px 0 rgb(122, 218, 32); /* Creates a white outline */
   }
   75% {
-    color: #daa520;
-    text-shadow: -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff,
-      2px 2px 0 #fff; /* Creates a white outline */
+    opacity: 1;
+    color: rgb(201, 201, 201);
+    text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+      -2px 2px 0 rgb(69, 218, 32), 2px 2px 0 rgb(122, 218, 32); /* Creates a white outline */
   } /* Dark goldenrod */
+  100% {
+    opacity: 1;
+    color: rgb(255, 255, 255);
+    text-shadow: -2px -2px 0 rgb(0, 0, 0), 3px -2px 0 rgb(0, 0, 0),
+      -2px 2px 0 rgb(69, 218, 32), 2px 2px 0 rgb(122, 218, 32); /* Creates a white outline */
+  }
 }
-
 /* General styles for the course creation layout */
 .course-creation-container {
   display: flex;
@@ -48,6 +67,7 @@
 .map-container {
   position: relative;
   width: 50%;
+  transition: transform 0.3s ease;
 }
 .map {
   border: 1px solid #ccc;
@@ -57,10 +77,13 @@
 .search-box {
   margin: 15px;
   position: absolute;
+  opacity: 0;
   top: 0;
   left: 52%;
   transform: translateX(-50%);
   z-index: 1;
+  animation: fadeIn 5s forwards;
+  animation-delay: 10.3s;
 }
 
 .search-input {
@@ -76,8 +99,11 @@
 
   padding: 20px;
 }
-
-.details-section {
+.details-section.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+.details-section.crtOn {
   background-color: rgba(13, 16, 54, 0.692);
   width: 600px;
   height: auto;
@@ -89,6 +115,24 @@
   padding-bottom: 10px; /* Optional: Add padding to the bottom if needed */
   border: 1px solid #90e488; /* Styling the border if needed */
   border-radius: 5px; /* Optional: Adding border-radius for aesthetic */
+  animation: crtOn 0.8s forwards, crtFlicker 2.7s forwards;
+}
+@keyframes crtOn69 {
+  0% {
+    transform: scaleY(0.003) scaleX(0);
+    transform-origin: center;
+    opacity: 1;
+  }
+  50% {
+    transform: scaleY(0.003) scaleX(0.8);
+    transform-origin: center;
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1) scaleX(1);
+    transform-origin: center;
+  }
 }
 
 .search-input69 {
@@ -155,6 +199,9 @@
 
 @keyframes turnOnLights {
   0% {
+    filter: brightness(0%);
+  }
+  25% {
     filter: brightness(0%);
   }
   100% {
@@ -227,22 +274,23 @@
 .map-display {
   opacity: 0;
   animation: unrollMap 3s ease-out forwards;
-  animation-delay: 5s;
-  transform-origin: left center; /* Ensure the map unrolls from the left */
+  animation-delay: 8s;
+  transform-origin: Left Center; /* Ensure the map unrolls from the left */
   position: relative; /* Ensure the translateX works properly */
+  transition: transform 3s ease;
 }
 @keyframes unrollMap {
   0% {
     opacity: 0;
-    transform: translateX(-100%) scaleX(0) rotateY(45deg);
+    transform: translateY(-100%) scaleX(0) rotateX(45deg);
   }
   50% {
     opacity: 0;
-    transform: translateX(0) scaleX(0) rotateY(20deg);
+    transform: translateY(0) scaleX(0) rotateX(0deg);
   }
   100% {
     opacity: 1;
-    transform: translateX(0) scaleX(1) rotateY(0deg);
+    transform: translateY(0) scaleX(1) rotateX(0deg);
   }
 }
 
@@ -341,14 +389,15 @@
   color: rgb(179, 255, 176);
 }
 
-.ohYEAHHH {
-  color: goldenrod;
+.ohYEAHHH2 {
   font-family: "Jersey 10";
 
   font-size: 50px !important;
   text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
     1px 1px 0 #fff; /* Creates a white outline */
-  animation: color-cycle-goldenrod-black3 10s infinite alternate;
+  animation: color-cycle-goldenrod-black4 2.5s forwards,
+    pulse66 2.5s ease-in-out forwards;
+  margin-left: 30px !important;
 }
 
 @keyframes color-cycle-goldenrod-black3 {
@@ -381,11 +430,13 @@
 }
 
 .okbud {
+  max-width: 250px;
+  height: auto;
 }
 
 .bigDivCC {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -394,5 +445,6 @@
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
 }

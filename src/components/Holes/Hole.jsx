@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { getAllHoles } from "../../services/HoleService";
+import { getAllHoles, getHoleScoresByHoleId } from "../../services/HoleService";
 import { useNavigate, useParams } from "react-router-dom";
 import { getAllCourses } from "../../services/CourseService";
 import staticGif from "../../assets/staticGif.gif";
@@ -17,6 +17,8 @@ import {
 } from "../../services/ScoreCardService";
 import CloudCaddiDriving from "../../assets/CloudCaddiDriving.png";
 import { HoleCharts } from "./HoleCharts";
+import axios from "axios";
+import { generateCaddyTip } from "../../services/AIService";
 
 export const Hole = ({ currentUser }) => {
   const navigate = useNavigate();
@@ -34,11 +36,12 @@ export const Hole = ({ currentUser }) => {
   const [thisScoreCard, setThisScoreCard] = useState({});
   const [isDriving, setIsDriving] = useState(false);
   const [bypassDefaultText, setBypassDefaultText] = useState(false);
-
+  const [holeScoresHistorical, setHoleScoresHistorical] = useState([]);
   const [thisRoundsHoleScores, setThisRoundsHoleScores] = useState([]);
   const lowBeepRef = useRef(new Audio(lowBlip));
   const mediumBeepRef = useRef(new Audio(mediumBlip));
   const highBeepRef = useRef(new Audio(highBlip));
+  const [isZoomed, setIsZoomed] = useState(false);
 
   useEffect(() => {
     setIsDriving(false);
@@ -56,6 +59,9 @@ export const Hole = ({ currentUser }) => {
         hole.courseId === parseInt(courseId) &&
         hole.holeNumber === parseInt(holeNum)
     );
+    getHoleScoresByHoleId(foundHole?.id).then((hsObjs) =>
+      setHoleScoresHistorical(hsObjs)
+    );
     setThisHole(foundHole);
     const foundCourse = courses.find(
       (course) => course.id === parseInt(courseId)
@@ -69,8 +75,7 @@ export const Hole = ({ currentUser }) => {
 
   useEffect(() => {
     if (isMascotClicked && !bypassDefaultText) {
-      const newSpeechText =
-        "Same conditions as your best score—scattered clouds, mild wind. Keep it steady and low. No need to overthink it. Just swing like you did last time and you might actually pull off another good shot.";
+      const newSpeechText = "";
       setSpeechText(newSpeechText);
       setDisplayedText("");
       setIndex(0);
@@ -88,16 +93,19 @@ export const Hole = ({ currentUser }) => {
     let timeout;
     if (index < speechText.length && displayedText !== speechText) {
       const nextChar = speechText.charAt(index);
-      const delay = nextChar === " " ? 50 : nextChar === "." ? 600 : 100; // Set delay based on character
+      const delay = nextChar === " " ? 50 : nextChar === "." ? 600 : 70; // Set delay based on character
 
-      // Decide which sound to play based on the character
+      // Create a new Audio object for each beep to ensure they overlap correctly
+      let beep;
       if ("!?.".includes(nextChar)) {
-        highBeepRef.current.play();
+        beep = new Audio(highBlip);
       } else if (nextChar === " ") {
-        mediumBeepRef.current.play();
+        beep = new Audio(lowBlip);
       } else {
-        lowBeepRef.current.play();
+        beep = new Audio(mediumBlip);
       }
+      beep.volume = 0.05;
+      beep.play();
 
       timeout = setTimeout(() => {
         setDisplayedText((prev) => prev + nextChar);
@@ -117,11 +125,16 @@ export const Hole = ({ currentUser }) => {
     }
   }, [index, speechText, isMascotClicked]);
 
-  const handleClickMascot = () => {
+  const handleClickMascot = async () => {
     // Toggle isMascotClicked to trigger the useEffect
     setIsMascotClicked((prev) => !prev);
     setDisplayedText("");
     setIndex(0);
+    const caddyTip = await generateCaddyTip(
+      holeScoresHistorical,
+      thisScoreCard
+    );
+    setSpeechText(caddyTip);
   };
 
   const handleStrokesChange = (event) => {
@@ -129,6 +142,7 @@ export const Hole = ({ currentUser }) => {
   };
 
   const handleButtonClick = () => {
+    setIsZoomed(true);
     const holeScoreToPost = {
       userId: currentUser.id,
       holeId: thisHole.id,
@@ -155,12 +169,15 @@ export const Hole = ({ currentUser }) => {
     setTimeout(() => {
       setIsDriving(true); // Start driving animation
       document.querySelector(".mascot-driving").style.display = "block";
-      document.querySelector(".dim-background").style.display = "block";
+
+      setTimeout(() => {
+        document.querySelector(".dim-background").style.display = "block";
+      }, 1800); // Delay to match the duration of the fade-out animation
 
       // After the driving animation, handle navigation
       setTimeout(() => {
-        document.querySelector(".dim-background").style.display = "none";
         document.querySelector(".mascot-driving").style.display = "none";
+        setIsZoomed(false);
         setIsDriving(false); // Ensure the driving state is reset
         setStrokesTaken(0); // Reset stroke count for new hole
         setBypassDefaultText(false);
@@ -178,6 +195,7 @@ export const Hole = ({ currentUser }) => {
   };
 
   const handleFinish = () => {
+    setIsZoomed(true);
     const holeScoreToPost = {
       userId: currentUser.id,
       holeId: thisHole.id,
@@ -227,11 +245,14 @@ export const Hole = ({ currentUser }) => {
     setTimeout(() => {
       setIsDriving(true); // Start driving animation
       document.querySelector(".mascot-driving").style.display = "block";
-      document.querySelector(".dim-background").style.display = "block";
+      document.querySelector(".hole-info-container").classList.add("fade-out");
+
+      setTimeout(() => {
+        document.querySelector(".dim-background").style.display = "block";
+      }, 1000); // Delay to match the duration of the fade-out animation
 
       // After the driving animation, handle navigation
       setTimeout(() => {
-        document.querySelector(".dim-background").style.display = "none";
         document.querySelector(".mascot-driving").style.display = "none";
         setIsDriving(false); // Ensure the driving state is reset
         setStrokesTaken(0); // Reset stroke count for new hole
@@ -243,92 +264,100 @@ export const Hole = ({ currentUser }) => {
 
         // Navigate to the next part of the application
         navigate(`/RoundList`);
-      }, 3500); // This delay should align with the duration of the mascot driving animation
+        document
+          .querySelector(".hole-info-container")
+          .classList.remove("fade-out");
+      }, 2300); // This delay should align with the duration of the mascot driving animation
     }, 2000); // Delay the start of the animation to allow users to read the "HOLD ON" message
   };
 
   return (
-    <div className="div-for-black-background">
-      <div className="hole-info-container">
-        <div className="course-title99">{thisCourse?.name}</div>
-        <div className="image-carousel-container">
-          <img
-            className="image-carousel"
-            src={thisHole?.image}
-            alt={`Hole view`}
-          />
-          <div className="charts-graphs">
-            <HoleCharts currentUser={currentUser} holeId={thisHole?.id} />
-          </div>
-        </div>
-        <div className="hole-details-and-mascot-container">
-          {" "}
-          {/* Wrapper for stats and mascot */}
-          <div className="hole-stats-container">
-            <div className="hole-detail">
-              <div className="aboveButton">
-                <h2 className="workDammit">
-                  Hole {thisHole?.holeNumber} - {thisHole?.distance} ft
-                </h2>
-                <p className="makeParBigger">Par {thisHole?.par}</p>
-              </div>
-              <div className="input-group">
-                <input
-                  className="input-stroke"
-                  type="number"
-                  placeholder="User input strokes"
-                  value={strokesTaken}
-                  onChange={handleStrokesChange}
-                />
-                {parseInt(holeNum) < parseInt(thisCourse?.numOfHoles) ? (
-                  <button
-                    className="proceed-button"
-                    onClick={handleButtonClick}
-                  >
-                    PROCEED TO NEXT HOLE
-                  </button>
-                ) : (
-                  <button className="proceed-button" onClick={handleFinish}>
-                    Finish Round
-                  </button>
-                )}
-              </div>
-            </div>
-          </div>
-          <div className="mascot-container3">
-            {" "}
-            {/* New container for the mascot */}
-            <div className="mascot-speech-bubble3">
-              <div className="mascot-text3">{displayedText}</div>
-            </div>
+    <div
+      className={`div-for-black-background ${isZoomed ? "zoom-spin" : ""}`}
+      key={`${courseId}-${holeNum}`}
+    >
+      <div className={`DJKHALED ${isZoomed ? "zoom-spin" : ""}`}>
+        <div className="hole-info-container">
+          <div className="course-title99">{thisCourse?.name}</div>
+          <div className="image-carousel-container">
             <img
-              className="mascot3"
-              src={isMascotClicked ? animatedGif : staticGif}
-              alt="Mascot"
-              onClick={handleClickMascot}
+              className="image-carousel"
+              src={thisHole?.image}
+              alt={`Hole view`}
             />
-          </div>
-        </div>
-        <div className="scorecard">
-          <div className="header">Hole#</div>
-          {Array.from({ length: 18 }, (_, i) => (
-            <div key={i} className="hole-number">
-              {i + 1}
+            <div className="charts-graphs">
+              <HoleCharts currentUser={currentUser} holeId={thisHole?.id} />
             </div>
-          ))}
-          <div className="header">Strokes</div>
-          {Array.from({ length: 18 }, (_, i) => {
-            // Find the hole score object for the current hole number
-            const holeScore = thisRoundsHoleScores.find(
-              (score) => score.holeNumber === i + 1
-            );
-            // Display the score if available, otherwise display 'X'
-            return (
-              <div key={i} className="strokes">
-                {holeScore ? holeScore.score : "X"}
+          </div>
+          <div className="hole-details-and-mascot-container">
+            {" "}
+            {/* Wrapper for stats and mascot */}
+            <div className="hole-stats-container">
+              <div className="hole-detail">
+                <div className="aboveButton">
+                  <h2 className="workDammit">
+                    Hole {thisHole?.holeNumber} - {thisHole?.distance} ft
+                  </h2>
+                  <p className="makeParBigger">Par {thisHole?.par}</p>
+                </div>
+                <div className="input-group">
+                  <input
+                    className="input-stroke"
+                    type="number"
+                    placeholder="User input strokes"
+                    value={strokesTaken}
+                    onChange={handleStrokesChange}
+                  />
+                  {parseInt(holeNum) < parseInt(thisCourse?.numOfHoles) ? (
+                    <button
+                      className="proceed-button"
+                      onClick={handleButtonClick}
+                    >
+                      PROCEED TO NEXT HOLE
+                    </button>
+                  ) : (
+                    <button className="proceed-button" onClick={handleFinish}>
+                      Finish Round
+                    </button>
+                  )}
+                </div>
               </div>
-            );
-          })}
+            </div>
+            <div className="mascot-container3">
+              {" "}
+              {/* New container for the mascot */}
+              <div className="mascot-speech-bubble3">
+                <div className="mascot-text3">{displayedText}</div>
+              </div>
+              <img
+                className="mascot3"
+                src={isMascotClicked ? animatedGif : staticGif}
+                alt="Mascot"
+                onClick={handleClickMascot}
+              />
+            </div>
+          </div>
+          <div className="scorecard">
+            <div className="header">Hole#</div>
+            {Array.from({ length: 18 }, (_, i) => (
+              <div key={i} className="hole-number">
+                {i + 1}
+              </div>
+            ))}
+            <div className="header">Strokes</div>
+            {Array.from({ length: 18 }, (_, i) => {
+              // Find the hole score object for the current hole number
+              const holeScore = thisRoundsHoleScores.find(
+                (score) => score.holeNumber === i + 1
+              );
+              // Display the score if available, otherwise display 'X'
+              return (
+                <div key={i} className="strokes">
+                  {holeScore ? holeScore.score : "X"}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
       <div
